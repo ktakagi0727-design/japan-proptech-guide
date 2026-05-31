@@ -71,7 +71,10 @@ const uniqueSorted = (items) => [...new Set(items)].sort((a, b) => a.localeCompa
 const slug = (value) => value.toLowerCase().replace(/[^a-z0-9ぁ-んァ-ヶ一-龠]+/g, "-").replace(/^-|-$/g, "");
 const companySortName = (value) => value.replace(/^株式会社/, "").replace(/株式会社$/, "").trim();
 const serviceByName = (name) => services.find((service) => service.service === name);
-const columnUrl = (item) => `column.html?id=${slug(item.title)}`;
+const serviceUrl = (item) => `services/${slug(item.service)}/index.html`;
+const columnUrl = (item) => `columns/${slug(item.title)}/index.html`;
+const serviceCanonicalUrl = (item) => `https://japan-proptech-guide.com/services/${slug(item.service)}/`;
+const columnCanonicalUrl = (item) => `https://japan-proptech-guide.com/columns/${slug(item.title)}/`;
 const orderedProcesses = (item) => processOrder.filter((process) => item.processes.includes(process));
 const processTagHtml = (item) => orderedProcesses(item)
   .map((process) => `<span class="pill process-pill">${processLabels[process]}</span>`)
@@ -150,7 +153,7 @@ function renderDetailPage() {
   }
   const canonical = document.querySelector('link[rel="canonical"]');
   if (canonical) {
-    canonical.setAttribute("href", `https://japan-proptech-guide.com/service.html?id=${slug(item.service)}`);
+    canonical.setAttribute("href", serviceCanonicalUrl(item));
   }
   detailTarget.innerHTML = `
     <a class="back-link" href="index.html#services">Service Directoryへ戻る</a>
@@ -206,7 +209,7 @@ function relatedServiceLinks(item) {
   return (item.relatedServices || []).map((name) => {
     const service = serviceByName(name);
     if (!service) return "";
-    return `<a class="column-service-link" href="service.html?id=${slug(service.service)}">${service.service}</a>`;
+    return `<a class="column-service-link" href="${serviceUrl(service)}">${service.service}</a>`;
   }).filter(Boolean).join("");
 }
 
@@ -401,7 +404,7 @@ function renderColumnDetailPage() {
   }
   const canonical = document.querySelector('link[rel="canonical"]');
   if (canonical) {
-    canonical.setAttribute("href", `https://japan-proptech-guide.com/column.html?id=${slug(item.title)}`);
+    canonical.setAttribute("href", columnCanonicalUrl(item));
   }
   columnDetailTarget.innerHTML = `
     <a class="back-link" href="index.html#columns">業務コラムへ戻る</a>
@@ -485,7 +488,7 @@ function renderColumnDetailPage() {
         description: item.lead,
         inLanguage: "ja",
         about: [item.process, item.task, ...(item.keywords || [])],
-        mainEntityOfPage: `https://japan-proptech-guide.com/column.html?id=${slug(item.title)}`
+        mainEntityOfPage: columnCanonicalUrl(item)
       })}
     </script>
   `;
@@ -544,7 +547,7 @@ function renderTaskTabs() {
 }
 
 function serviceCard(item) {
-  const detailUrl = `service.html?id=${slug(item.service)}`;
+  const detailUrl = serviceUrl(item);
   const isLocalTool = item.url && ["tools.html", "band-tool.html", "noi-calculator.html", "dd-checklist.html"].some((path) => item.url.startsWith(path));
   const cardUrl = isLocalTool ? item.url : detailUrl;
   return `

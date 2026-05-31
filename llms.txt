@@ -5,10 +5,12 @@
 ## 主要ページ
 
 - https://japan-proptech-guide.com/
-- https://japan-proptech-guide.com/service.html?id=remetis
-- https://japan-proptech-guide.com/service.html?id=facilo
-- https://japan-proptech-guide.com/service.html?id=kj-net
-- https://japan-proptech-guide.com/service.html?id=atbb
+- https://japan-proptech-guide.com/services/remetis/
+- https://japan-proptech-guide.com/services/facilo/
+- https://japan-proptech-guide.com/services/kj-net/
+- https://japan-proptech-guide.com/services/atbb/
+- https://japan-proptech-guide.com/columns/法人不動産の売却目的整理で最初に決めること/
+- https://japan-proptech-guide.com/columns/不動産dd管理-法務-物理-経済-テナント情報を漏れなく追う/
 
 ## 主な分類
 

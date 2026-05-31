@@ -99,10 +99,12 @@
 - 既存コラムを追加調査し、契約、重説、境界・越境、DD、土壌汚染などの実務参考リンクを追加
 - 全19本に「確認ポイント」を追加し、実務者がそのままチェックに使いやすい構成へ拡充
 - 記事内容と別の軸で違和感が出やすい属人的な表現を削除
+- サービス43件と業務コラム19本を静的な個別HTMLとして生成する構成に変更
+- `sitemap.xml` にトップ、便利ツール、サービス詳細、業務コラム詳細の全67URLを掲載
 
 ## データ更新手順
 
 1. `data/services.csv`、`data/cases.csv`、`data/news.csv`、`data/columns.csv`、`data/column-sources.csv` を編集する
 2. サービス詳細用の構造化列を初期補完する場合は `node scripts/enrich-services.mjs` を実行する
 3. `node scripts/build-data.mjs` を実行する
-4. 生成された `data/data.js` とサイト表示を確認する
+4. 生成された `data/data.js`、`services/*/index.html`、`columns/*/index.html`、`sitemap.xml` とサイト表示を確認する
