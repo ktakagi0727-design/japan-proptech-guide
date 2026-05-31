@@ -16,7 +16,12 @@ const listFields = new Set([
   "painPoints",
   "solutions",
   "effects",
-  "comparisonPoints"
+  "comparisonPoints",
+  "body",
+  "flowSteps",
+  "keywords",
+  "relatedServices",
+  "sourceUrls"
 ]);
 const optionalFields = new Set(["operatorNote"]);
 
@@ -87,7 +92,9 @@ async function readCsv(name) {
 const data = {
   services: await readCsv("services.csv"),
   newsItems: await readCsv("news.csv"),
-  cases: await readCsv("cases.csv")
+  cases: await readCsv("cases.csv"),
+  columns: await readCsv("columns.csv"),
+  columnSources: await readCsv("column-sources.csv")
 };
 
 await writeFile(

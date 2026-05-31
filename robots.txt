@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://japan-proptech-guide.netlify.app/sitemap.xml
+Sitemap: https://japan-proptech-guide.com/sitemap.xml

@@ -4,11 +4,11 @@
 
 ## 主要ページ
 
-- https://japan-proptech-guide.netlify.app/
-- https://japan-proptech-guide.netlify.app/service.html?id=remetis
-- https://japan-proptech-guide.netlify.app/service.html?id=facilo
-- https://japan-proptech-guide.netlify.app/service.html?id=kj-net
-- https://japan-proptech-guide.netlify.app/service.html?id=atbb
+- https://japan-proptech-guide.com/
+- https://japan-proptech-guide.com/service.html?id=remetis
+- https://japan-proptech-guide.com/service.html?id=facilo
+- https://japan-proptech-guide.com/service.html?id=kj-net
+- https://japan-proptech-guide.com/service.html?id=atbb
 
 ## 主な分類
 
