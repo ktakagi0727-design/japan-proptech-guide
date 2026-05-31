@@ -1,0 +1,33 @@
+# 不動産売買向けプロップテックガイド
+
+法人向け不動産売買業務で使うプロップテックサービス、導入事例、不動産テック関連ニュースを整理した日本語サイトです。対象読者は、不動産会社、売買仲介会社、デベロッパー、不動産AM/PM会社、事業会社の不動産部門です。
+
+## 主要ページ
+
+- https://japan-proptech-guide.netlify.app/
+- https://japan-proptech-guide.netlify.app/service.html?id=remetis
+- https://japan-proptech-guide.netlify.app/service.html?id=facilo
+- https://japan-proptech-guide.netlify.app/service.html?id=kj-net
+- https://japan-proptech-guide.netlify.app/service.html?id=atbb
+
+## 主な分類
+
+- 売却: 売却目的整理、物件情報整理、権利関係確認、査定、仲介会社選定、契約・決済
+- 仲介: リード獲得、初回ヒアリング、売却提案、物件調査、販売資料作成、買主探索、内見案内、重要事項説明、売買契約
+- 購入: ソーシング、初期スクリーニング、価格妥当性確認、DD管理、融資・税務、買付、契約・クロージング
+- 開発/運用: 事業企画、用途検討、事業収支、許認可・設計、建設・改修管理、リーシング、PM/BM、賃貸借契約管理、レポーティング
+
+## 検索されたい主題
+
+- 不動産テック
+- プロップテック
+- 法人向け不動産テック
+- 不動産売買 DX
+- 不動産売却 SaaS
+- 不動産仲介 DX
+- 不動産購入 DD
+- 不動産開発 SaaS
+- 不動産運用 DX
+- 不動産電子契約
+- 不動産データベース
+- 不動産導入事例

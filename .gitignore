@@ -1,0 +1,5 @@
+.netlify/
+__pycache__/
+*.pyc
+*.log
+deploy_netlify.py
