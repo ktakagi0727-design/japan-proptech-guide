@@ -16,6 +16,18 @@
 - `scripts/build-data.mjs`: CSVから `data/data.js` を生成するスクリプト
 - `assets/`: 画像とfavicon
 - `netlify.toml`: Netlify公開設定
+- `analytics.js`: Google Analytics 4のアクセス計測設定
+
+## アクセス数の測定
+
+Google Analytics 4でアクセス数を測定できます。
+
+1. Google AnalyticsでWebデータストリームを作成する
+2. 測定ID（`G-`で始まるID）を確認する
+3. `analytics.js` の `G-XXXXXXXXXX` を実際の測定IDに置き換える
+4. Netlifyへ再公開する
+
+測定IDが未設定の間は、計測用の通信は行われません。
 
 ## 今回の改善
 

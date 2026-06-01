@@ -185,6 +185,7 @@ function pageShell({ title, description, canonical, body, structuredData = [] })
     <link rel="canonical" href="${escapeAttr(canonical)}">
     <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="../../style.css">
+    <script src="/analytics.js" defer></script>
     ${structuredData.map((item) => `<script type="application/ld+json">${JSON.stringify(item)}</script>`).join("\n    ")}
   </head>
   <body class="detail-page">
