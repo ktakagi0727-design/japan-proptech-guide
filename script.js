@@ -12,6 +12,8 @@ const allTasks = [...new Set(Object.values(knowledgeMap).flat())];
 const serviceLimit = 8;
 const caseLimit = 9;
 const columnLimit = 6;
+const comparisonLimit = 3;
+const comparisonPriority = ["物件管理システム比較", "ニーズマッチングサービス比較", "AI査定サービス比較", "ボリュームチェックサービス比較"];
 const processOrder = ["不動産売却", "不動産仲介", "不動産購入", "不動産開発/不動産運用"];
 const processLabels = {
   "不動産売却": "売却",
@@ -20,7 +22,7 @@ const processLabels = {
   "不動産開発/不動産運用": "開発/運用"
 };
 
-const { services, newsItems, cases, columns = [], columnSources = [] } = window.proptechData;
+const { services, newsItems, cases, columns = [], columnSources = [], serviceComparisons = [] } = window.proptechData;
 
 
 
@@ -38,6 +40,7 @@ let newsPage = 1;
 let serviceExpanded = false;
 let caseExpanded = false;
 let columnExpanded = false;
+let comparisonExpanded = false;
 
 const pageSize = 10;
 const header = document.querySelector("[data-header]");
@@ -63,6 +66,8 @@ const columnTaskTabs = document.querySelector("[data-column-task-tabs]");
 const columnGrid = document.querySelector("[data-column-grid]");
 const columnMore = document.querySelector("[data-column-more]");
 const columnResultCount = document.querySelector("[data-column-result-count]");
+const comparisonGrid = document.querySelector("[data-comparison-grid]");
+const comparisonMore = document.querySelector("[data-comparison-more]");
 const detailTarget = document.querySelector("[data-service-detail]");
 const columnDetailTarget = document.querySelector("[data-column-detail]");
 
@@ -73,6 +78,7 @@ const companySortName = (value) => value.replace(/^株式会社/, "").replace(/�
 const serviceByName = (name) => services.find((service) => service.service === name);
 const serviceUrl = (item) => `services/${slug(item.service)}/index.html`;
 const columnUrl = (item) => `columns/${slug(item.title)}/index.html`;
+const comparisonUrl = (item) => `comparisons/${slug(item.title)}/index.html`;
 const serviceCanonicalUrl = (item) => `https://japan-proptech-guide.com/services/${slug(item.service)}/`;
 const columnCanonicalUrl = (item) => `https://japan-proptech-guide.com/columns/${slug(item.title)}/`;
 const orderedProcesses = (item) => processOrder.filter((process) => item.processes.includes(process));
@@ -130,6 +136,13 @@ const caseStudyBlock = (relatedCases, insight) => {
 services.sort((a, b) => b.processes.length - a.processes.length || a.service.localeCompare(b.service, "ja"));
 cases.sort((a, b) => companySortName(a.adopter).localeCompare(companySortName(b.adopter), "ja"));
 columns.sort((a, b) => processOrder.indexOf(a.process) - processOrder.indexOf(b.process) || a.task.localeCompare(b.task, "ja") || a.title.localeCompare(b.title, "ja"));
+serviceComparisons.sort((a, b) => {
+  const aIndex = comparisonPriority.indexOf(a.title);
+  const bIndex = comparisonPriority.indexOf(b.title);
+  const aRank = aIndex === -1 ? comparisonPriority.length : aIndex;
+  const bRank = bIndex === -1 ? comparisonPriority.length : bIndex;
+  return aRank - bRank || a.title.localeCompare(b.title, "ja");
+});
 
 function renderDetailPage() {
   if (!detailTarget) return false;
@@ -580,8 +593,71 @@ function filteredServices() {
   });
 }
 
+function comparisonProviders(item) {
+  const relatedProviders = (item.relatedServices || [])
+    .map(serviceByName)
+    .filter(Boolean)
+    .map((service) => service.company);
+  return [...new Set([...(item.providers || []), ...relatedProviders])];
+}
+
+function comparisonCard(item) {
+  return `
+    <a class="comparison-card" href="${comparisonUrl(item)}">
+      <div class="column-card-head">
+        ${(item.processes || []).slice(0, 4).map((process) => `<span class="pill process-pill">${processLabels[process] || process}</span>`).join("")}
+      </div>
+      <h3>${item.title}</h3>
+      <p>${item.lead}</p>
+      <div class="column-card-keywords">
+        ${(item.tags || []).slice(0, 5).map((tag) => `<span>${tag}</span>`).join("")}
+      </div>
+      <p class="column-card-meta">比較対象 ${item.relatedServices?.length || 0}サービス</p>
+    </a>
+  `;
+}
+
+function filteredServiceComparisons() {
+  return serviceComparisons.filter((item) => {
+    const providers = comparisonProviders(item);
+    const relatedServices = (item.relatedServices || []).map(serviceByName).filter(Boolean);
+    const processMatch = activeProcess === ALL || (item.processes || []).includes(activeProcess);
+    const taskMatch = activeTask === ALL || (item.tasks || []).includes(activeTask);
+    const providerMatch = activeProvider === ALL || providers.includes(activeProvider);
+    const assetMatch = activeAsset === ALL || (item.assetTypes || []).includes(activeAsset);
+    const queryMatch = matchesQuery([
+      item.title,
+      item.lead,
+      item.summary,
+      item.processes || [],
+      item.tasks || [],
+      item.tags || [],
+      item.assetTypes || [],
+      providers,
+      relatedServices.map((service) => [service.service, service.company, service.description])
+    ]);
+    return processMatch && taskMatch && providerMatch && assetMatch && queryMatch;
+  });
+}
+
+function renderServiceComparisons() {
+  if (!comparisonGrid) return;
+  const filtered = filteredServiceComparisons();
+  comparisonGrid.innerHTML = filtered.map((item, index) => {
+    const card = comparisonCard(item);
+    return !comparisonExpanded && index >= comparisonLimit
+      ? card.replace('class="comparison-card"', 'class="comparison-card collapsed-extra"')
+      : card;
+  }).join("") || `<p class="empty compact-empty">条件に一致する比較コラムがありません。</p>`;
+  if (comparisonMore) {
+    comparisonMore.hidden = filtered.length <= comparisonLimit;
+    comparisonMore.textContent = comparisonExpanded ? "閉じる" : "もっと見る";
+  }
+}
+
 function renderServices() {
   const filtered = filteredServices();
+  renderServiceComparisons();
   resultCount.textContent = `${filtered.length}件の法人向け民間プロップテックサービスを表示中`;
   serviceGrid.innerHTML = filtered.map((item, index) => {
     const card = serviceCard(item);
@@ -749,6 +825,7 @@ processTabs.addEventListener("click", (event) => {
   activeProcess = buttonEl.dataset.process;
   activeTask = ALL;
   serviceExpanded = false;
+  comparisonExpanded = false;
   renderProcessTabs();
   renderTaskTabs();
   renderServices();
@@ -759,6 +836,7 @@ taskTabs.addEventListener("click", (event) => {
   if (!buttonEl) return;
   activeTask = buttonEl.dataset.task;
   serviceExpanded = false;
+  comparisonExpanded = false;
   renderTaskTabs();
   renderServices();
 });
@@ -768,18 +846,21 @@ searchInput.addEventListener("input", () => {
   serviceExpanded = false;
   caseExpanded = false;
   columnExpanded = false;
+  comparisonExpanded = false;
   renderAll();
 });
 
 providerFilter.addEventListener("change", (event) => {
   activeProvider = event.target.value;
   serviceExpanded = false;
+  comparisonExpanded = false;
   renderServices();
 });
 
 assetFilter.addEventListener("change", (event) => {
   activeAsset = event.target.value;
   serviceExpanded = false;
+  comparisonExpanded = false;
   renderServices();
 });
 
@@ -791,6 +872,11 @@ operatorExclude?.addEventListener("change", () => {
 serviceMore.addEventListener("click", () => {
   serviceExpanded = !serviceExpanded;
   renderServices();
+});
+
+comparisonMore?.addEventListener("click", () => {
+  comparisonExpanded = !comparisonExpanded;
+  renderServiceComparisons();
 });
 
 caseMore?.addEventListener("click", () => {
