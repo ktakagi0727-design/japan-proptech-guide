@@ -108,7 +108,8 @@ window.proptechData = {
         "既存CRM・物件管理・契約管理との連携可否",
         "データ更新頻度と出典",
         "料金体系とアカウント権限管理"
-      ]
+      ],
+      "slug": "remetis"
     },
     {
       "service": "D-NET",
@@ -177,7 +178,8 @@ window.proptechData = {
         "既存CRM・物件管理・契約管理との連携可否",
         "データ更新頻度と出典",
         "料金体系とアカウント権限管理"
-      ]
+      ],
+      "slug": "d-net"
     },
     {
       "service": "KJ-NET",
@@ -258,7 +260,8 @@ window.proptechData = {
         "既存CRM・物件管理・契約管理との連携可否",
         "データ更新頻度と出典",
         "料金体系とアカウント権限管理"
-      ]
+      ],
+      "slug": "kj-net"
     },
     {
       "service": "レリーズプラットフォーム",
@@ -345,7 +348,8 @@ window.proptechData = {
         "既存CRM・物件管理・契約管理との連携可否",
         "データ更新頻度と出典",
         "料金体系とアカウント権限管理"
-      ]
+      ],
+      "slug": "release-platform"
     },
     {
       "service": "RESPORTクラウド",
@@ -423,7 +427,8 @@ window.proptechData = {
         "既存CRM・物件管理・契約管理との連携可否",
         "データ更新頻度と出典",
         "料金体系とアカウント権限管理"
-      ]
+      ],
+      "slug": "resport-cloud"
     },
     {
       "service": "R.E.DATA",
@@ -523,7 +528,8 @@ window.proptechData = {
         "既存CRM・物件管理・契約管理との連携可否",
         "データ更新頻度と出典",
         "料金体系とアカウント権限管理"
-      ]
+      ],
+      "slug": "r-e-data"
     },
     {
       "service": "R.E.REPO",
@@ -608,7 +614,8 @@ window.proptechData = {
         "既存CRM・物件管理・契約管理との連携可否",
         "データ更新頻度と出典",
         "料金体系とアカウント権限管理"
-      ]
+      ],
+      "slug": "r-e-repo"
     },
     {
       "service": "T2TR ComFort",
@@ -697,7 +704,8 @@ window.proptechData = {
         "既存CRM・物件管理・契約管理との連携可否",
         "データ更新頻度と出典",
         "料金体系とアカウント権限管理"
-      ]
+      ],
+      "slug": "t2tr-comfort"
     },
     {
       "service": "インデックスマップ＠クラウド",
@@ -790,7 +798,8 @@ window.proptechData = {
         "既存CRM・物件管理・契約管理との連携可否",
         "データ更新頻度と出典",
         "料金体系とアカウント権限管理"
-      ]
+      ],
+      "slug": "index-map-cloud"
     },
     {
       "service": "ナーブVRクラウド",
@@ -862,7 +871,8 @@ window.proptechData = {
         "既存CRM・物件管理・契約管理との連携可否",
         "データ更新頻度と出典",
         "料金体系とアカウント権限管理"
-      ]
+      ],
+      "slug": "nurve-vr-cloud"
     },
     {
       "service": "不動産チェッカー",
@@ -953,7 +963,8 @@ window.proptechData = {
         "既存CRM・物件管理・契約管理との連携可否",
         "データ更新頻度と出典",
         "料金体系とアカウント権限管理"
-      ]
+      ],
+      "slug": "real-estate-checker"
     },
     {
       "service": "SRE AI査定CLOUD",
@@ -1021,7 +1032,8 @@ window.proptechData = {
         "データ更新頻度と出典",
         "料金体系とアカウント権限管理",
         "提供会社またはグループ会社の不動産実業との関係"
-      ]
+      ],
+      "slug": "sre-ai-appraisal-cloud"
     },
     {
       "service": "スマサテ",
@@ -1086,7 +1098,8 @@ window.proptechData = {
         "既存CRM・物件管理・契約管理との連携可否",
         "データ更新頻度と出典",
         "料金体系とアカウント権限管理"
-      ]
+      ],
+      "slug": "sumasate"
     },
     {
       "service": "Gate.",
@@ -1154,7 +1167,8 @@ window.proptechData = {
         "既存CRM・物件管理・契約管理との連携可否",
         "データ更新頻度と出典",
         "料金体系とアカウント権限管理"
-      ]
+      ],
+      "slug": "gate"
     },
     {
       "service": "デベNAVI",
@@ -1247,7 +1261,8 @@ window.proptechData = {
         "データ更新頻度と出典",
         "料金体系とアカウント権限管理",
         "提供会社またはグループ会社の不動産実業との関係"
-      ]
+      ],
+      "slug": "deve-navi"
     },
     {
       "service": "TASUKI TECH LAND",
@@ -1332,7 +1347,8 @@ window.proptechData = {
         "データ更新頻度と出典",
         "料金体系とアカウント権限管理",
         "提供会社またはグループ会社の不動産実業との関係"
-      ]
+      ],
+      "slug": "tasuki-tech-land"
     },
     {
       "service": "TAS-MAP",
@@ -1410,7 +1426,8 @@ window.proptechData = {
         "既存CRM・物件管理・契約管理との連携可否",
         "データ更新頻度と出典",
         "料金体系とアカウント権限管理"
-      ]
+      ],
+      "slug": "tas-map"
     },
     {
       "service": "マンション査定システム",
@@ -1477,7 +1494,8 @@ window.proptechData = {
         "既存CRM・物件管理・契約管理との連携可否",
         "データ更新頻度と出典",
         "料金体系とアカウント権限管理"
-      ]
+      ],
+      "slug": "mansion-appraisal-system"
     },
     {
       "service": "土地査定システム",
@@ -1551,7 +1569,8 @@ window.proptechData = {
         "既存CRM・物件管理・契約管理との連携可否",
         "データ更新頻度と出典",
         "料金体系とアカウント権限管理"
-      ]
+      ],
+      "slug": "land-appraisal-system"
     },
     {
       "service": "カタログコピーサービス",
@@ -1623,7 +1642,8 @@ window.proptechData = {
         "既存CRM・物件管理・契約管理との連携可否",
         "データ更新頻度と出典",
         "料金体系とアカウント権限管理"
-      ]
+      ],
+      "slug": "catalog-copy-service"
     },
     {
       "service": "マンション相場Plus",
@@ -1691,7 +1711,8 @@ window.proptechData = {
         "既存CRM・物件管理・契約管理との連携可否",
         "データ更新頻度と出典",
         "料金体系とアカウント権限管理"
-      ]
+      ],
+      "slug": "mansion-market-plus"
     },
     {
       "service": "土地相場Plus",
@@ -1765,7 +1786,8 @@ window.proptechData = {
         "既存CRM・物件管理・契約管理との連携可否",
         "データ更新頻度と出典",
         "料金体系とアカウント権限管理"
-      ]
+      ],
+      "slug": "land-market-plus"
     },
     {
       "service": "Facilo",
@@ -1835,7 +1857,8 @@ window.proptechData = {
         "既存CRM・物件管理・契約管理との連携可否",
         "データ更新頻度と出典",
         "料金体系とアカウント権限管理"
-      ]
+      ],
+      "slug": "facilo"
     },
     {
       "service": "フォレストPRO",
@@ -1921,7 +1944,8 @@ window.proptechData = {
         "既存CRM・物件管理・契約管理との連携可否",
         "データ更新頻度と出典",
         "料金体系とアカウント権限管理"
-      ]
+      ],
+      "slug": "forest-pro"
     },
     {
       "service": "いえらぶCLOUD",
@@ -1994,7 +2018,8 @@ window.proptechData = {
         "既存CRM・物件管理・契約管理との連携可否",
         "データ更新頻度と出典",
         "料金体系とアカウント権限管理"
-      ]
+      ],
+      "slug": "ielove-cloud"
     },
     {
       "service": "いい生活 売買クラウド",
@@ -2064,7 +2089,8 @@ window.proptechData = {
         "既存CRM・物件管理・契約管理との連携可否",
         "データ更新頻度と出典",
         "料金体系とアカウント権限管理"
-      ]
+      ],
+      "slug": "e-seikatsu-baibai-cloud"
     },
     {
       "service": "ATBB",
@@ -2137,7 +2163,8 @@ window.proptechData = {
         "既存CRM・物件管理・契約管理との連携可否",
         "データ更新頻度と出典",
         "料金体系とアカウント権限管理"
-      ]
+      ],
+      "slug": "atbb"
     },
     {
       "service": "スマート契約",
@@ -2217,7 +2244,8 @@ window.proptechData = {
         "既存CRM・物件管理・契約管理との連携可否",
         "データ更新頻度と出典",
         "料金体系とアカウント権限管理"
-      ]
+      ],
+      "slug": "smart-contract"
     },
     {
       "service": "Digima",
@@ -2278,7 +2306,8 @@ window.proptechData = {
         "既存CRM・物件管理・契約管理との連携可否",
         "データ更新頻度と出典",
         "料金体系とアカウント権限管理"
-      ]
+      ],
+      "slug": "digima"
     },
     {
       "service": "KASIKA",
@@ -2340,7 +2369,8 @@ window.proptechData = {
         "既存CRM・物件管理・契約管理との連携可否",
         "データ更新頻度と出典",
         "料金体系とアカウント権限管理"
-      ]
+      ],
+      "slug": "kasika"
     },
     {
       "service": "PICKFORM",
@@ -2419,7 +2449,8 @@ window.proptechData = {
         "既存CRM・物件管理・契約管理との連携可否",
         "データ更新頻度と出典",
         "料金体系とアカウント権限管理"
-      ]
+      ],
+      "slug": "pickform"
     },
     {
       "service": "ア・ソコ",
@@ -2499,7 +2530,8 @@ window.proptechData = {
         "既存CRM・物件管理・契約管理との連携可否",
         "データ更新頻度と出典",
         "料金体系とアカウント権限管理"
-      ]
+      ],
+      "slug": "a-soko"
     },
     {
       "service": "登記簿図書館",
@@ -2571,7 +2603,8 @@ window.proptechData = {
         "既存CRM・物件管理・契約管理との連携可否",
         "データ更新頻度と出典",
         "料金体系とアカウント権限管理"
-      ]
+      ],
+      "slug": "toukibo-library"
     },
     {
       "service": "ROOV",
@@ -2645,7 +2678,8 @@ window.proptechData = {
         "既存CRM・物件管理・契約管理との連携可否",
         "データ更新頻度と出典",
         "料金体系とアカウント権限管理"
-      ]
+      ],
+      "slug": "roov"
     },
     {
       "service": "スペースリー",
@@ -2716,7 +2750,8 @@ window.proptechData = {
         "既存CRM・物件管理・契約管理との連携可否",
         "データ更新頻度と出典",
         "料金体系とアカウント権限管理"
-      ]
+      ],
+      "slug": "spacely"
     },
     {
       "service": "OFFICE RESEARCH",
@@ -2789,7 +2824,8 @@ window.proptechData = {
         "データ更新頻度と出典",
         "料金体系とアカウント権限管理",
         "提供会社またはグループ会社の不動産実業との関係"
-      ]
+      ],
+      "slug": "office-research"
     },
     {
       "service": "WealthPark Business",
@@ -2857,7 +2893,8 @@ window.proptechData = {
         "データ更新頻度と出典",
         "料金体系とアカウント権限管理",
         "提供会社またはグループ会社の不動産実業との関係"
-      ]
+      ],
+      "slug": "wealthpark-business"
     },
     {
       "service": "GMO賃貸DX",
@@ -2923,7 +2960,8 @@ window.proptechData = {
         "既存CRM・物件管理・契約管理との連携可否",
         "データ更新頻度と出典",
         "料金体系とアカウント権限管理"
-      ]
+      ],
+      "slug": "gmo-chintai-dx"
     },
     {
       "service": "管理ロイド",
@@ -2991,7 +3029,8 @@ window.proptechData = {
         "既存CRM・物件管理・契約管理との連携可否",
         "データ更新頻度と出典",
         "料金体系とアカウント権限管理"
-      ]
+      ],
+      "slug": "kanri-roid"
     },
     {
       "service": "ANDPAD",
@@ -3059,7 +3098,8 @@ window.proptechData = {
         "既存CRM・物件管理・契約管理との連携可否",
         "データ更新頻度と出典",
         "料金体系とアカウント権限管理"
-      ]
+      ],
+      "slug": "andpad"
     },
     {
       "service": "KANNA",
@@ -3127,7 +3167,8 @@ window.proptechData = {
         "既存CRM・物件管理・契約管理との連携可否",
         "データ更新頻度と出典",
         "料金体系とアカウント権限管理"
-      ]
+      ],
+      "slug": "kanna"
     },
     {
       "service": "SPIDERPLUS",
@@ -3195,11 +3236,12 @@ window.proptechData = {
         "既存CRM・物件管理・契約管理との連携可否",
         "データ更新頻度と出典",
         "料金体系とアカウント権限管理"
-      ]
+      ],
+      "slug": "spiderplus"
     },
     {
       "service": "Musubell",
-      "company": "株式会社DGコミュニケーションズ",
+      "company": "株式会社デジタルガレージ",
       "logoText": "MB",
       "processes": [
         "不動産売却",
@@ -3288,7 +3330,8 @@ window.proptechData = {
         "既存CRM・物件管理・契約管理との連携可否",
         "データ更新頻度と出典",
         "料金体系とアカウント権限管理"
-      ]
+      ],
+      "slug": "musubell"
     },
     {
       "service": "VCプロ",
@@ -3369,7 +3412,8 @@ window.proptechData = {
         "設計会社による確認が必要な範囲",
         "データ更新頻度と出典",
         "提供会社またはグループ会社の不動産実業との関係"
-      ]
+      ],
+      "slug": "vc-pro"
     },
     {
       "service": "ROOK2",
@@ -3450,7 +3494,8 @@ window.proptechData = {
         "道路条件・条例・日影・天空率の扱い",
         "設計会社による確認が必要な範囲",
         "帳票やCADデータの出力可否"
-      ]
+      ],
+      "slug": "rook2"
     }
   ],
   "newsItems": [
@@ -5410,7 +5455,7 @@ window.proptechData = {
       ],
       "adopter": "東急不動産株式会社",
       "service": "Musubell",
-      "provider": "株式会社DGコミュニケーションズ",
+      "provider": "株式会社デジタルガレージ",
       "summary": "宅建業法改正を契機に契約書作成から承認・管理までを一元化し、電子契約利用率向上と販売業務効率化を進めた事例。",
       "url": "https://www.musubell.com/case/new-const_251217-03"
     },
@@ -5425,7 +5470,7 @@ window.proptechData = {
       ],
       "adopter": "野村不動産株式会社",
       "service": "Musubell",
-      "provider": "株式会社DGコミュニケーションズ",
+      "provider": "株式会社デジタルガレージ",
       "summary": "分譲マンション契約業務で紙の売買契約書、印刷、郵送、部署間受け渡しの負荷を減らし、ペーパーレス化とコスト削減を進めた事例。",
       "url": "https://www.musubell.com/case/new-const_251217-02"
     },
@@ -5440,7 +5485,7 @@ window.proptechData = {
       ],
       "adopter": "ミサワホーム不動産株式会社",
       "service": "Musubell",
-      "provider": "株式会社DGコミュニケーションズ",
+      "provider": "株式会社デジタルガレージ",
       "summary": "重要事項説明書・売買契約書の作成をクラウド化し、作成時間短縮、チェック負荷削減、書類精度向上を進めた事例。",
       "url": "https://www.musubell.com/case/c_251217-02"
     },
@@ -5455,7 +5500,7 @@ window.proptechData = {
       ],
       "adopter": "総合システム管理株式会社",
       "service": "Musubell",
-      "provider": "株式会社DGコミュニケーションズ",
+      "provider": "株式会社デジタルガレージ",
       "summary": "重要事項調査報告書の受付・入金確認・発行をクラウド化し、進捗可視化と月40〜50時間の業務削減を実現した事例。",
       "url": "https://www.musubell.com/case/m_251217-01"
     },
@@ -5469,7 +5514,7 @@ window.proptechData = {
       ],
       "adopter": "株式会社三好不動産",
       "service": "Musubell",
-      "provider": "株式会社DGコミュニケーションズ",
+      "provider": "株式会社デジタルガレージ",
       "summary": "売買部門の契約書作成負荷を減らすために導入し、売買業務特化の設計を活かして契約書作成時間短縮と現場生産性向上につなげた事例。",
       "url": "https://www.musubell.com/case/c_260213-01/"
     },
@@ -5484,7 +5529,7 @@ window.proptechData = {
       ],
       "adopter": "ＴＣ神鋼不動産サービス株式会社",
       "service": "Musubell",
-      "provider": "株式会社DGコミュニケーションズ",
+      "provider": "株式会社デジタルガレージ",
       "summary": "重説や契約書をPDFやExcelで作成していた運用を見直し、定型文管理と物件情報一元化で作業時間削減と品質平準化を進めた事例。",
       "url": "https://www.musubell.com/case/c_251217-03/"
     },
@@ -5499,7 +5544,7 @@ window.proptechData = {
       ],
       "adopter": "三菱地所レジデンス株式会社",
       "service": "Musubell",
-      "provider": "株式会社DGコミュニケーションズ",
+      "provider": "株式会社デジタルガレージ",
       "summary": "宅建業法改正や顧客ニーズ変化への対応を背景に導入し、契約周辺業務のDXと現場負担軽減を進めた事例。",
       "url": "https://www.musubell.com/case/new-const_251217-01/"
     },
@@ -5555,7 +5600,7 @@ window.proptechData = {
       ],
       "adopter": "株式会社和田コーポレーション",
       "service": "Musubell",
-      "provider": "株式会社DGコミュニケーションズ",
+      "provider": "株式会社デジタルガレージ",
       "summary": "前職の大手不動産での業務水準とのギャップ解消を背景に導入し、契約書類作成とチェックバックの時間短縮、ミス削減、書類品質の平準化を進めた事例。",
       "url": "https://www.musubell.com/case/c_251217-01/"
     },
@@ -5731,7 +5776,8 @@ window.proptechData = {
       ],
       "sourceUrls": [
         "https://cvmax.jp/real-estate-sale/"
-      ]
+      ],
+      "slug": "corporate-real-estate-sale-purpose"
     },
     {
       "title": "売却前の物件情報整理：あとで詰まらない資料セットを作る",
@@ -5776,7 +5822,8 @@ window.proptechData = {
       "sourceUrls": [
         "https://smtrc.jp/useful/knowledge/sellbuy/2020_05.html",
         "https://www.moj.go.jp/MINJI/minji02.html"
-      ]
+      ],
+      "slug": "property-information-checklist"
     },
     {
       "title": "売却価格査定の見方：取引事例、収益還元、AI査定をどう使い分けるか",
@@ -5822,7 +5869,8 @@ window.proptechData = {
       "sourceUrls": [
         "https://www.retpc.jp/chosa/satei-2/",
         "https://www.reinfolib.mlit.go.jp/"
-      ]
+      ],
+      "slug": "sale-price-appraisal-methods"
     },
     {
       "title": "媒介契約の選び方：一般、専任、専属専任で管理すべきこと",
@@ -5867,7 +5915,8 @@ window.proptechData = {
       "sourceUrls": [
         "https://www.fudousan.or.jp/kiso/sale/3_2.html",
         "https://www.mlit.go.jp/totikensangyo/const/1_6_bt_000268.html"
-      ]
+      ],
+      "slug": "brokerage-contract-types"
     },
     {
       "title": "物件調査で見るべきポイント：登記、現地、役所、法令制限をつなげる",
@@ -5914,7 +5963,8 @@ window.proptechData = {
         "https://www.retpc.jp/chosa/",
         "https://www.fudousan-jinzai.com/index.cfm?cid=1412&fuseaction=contents.fcts",
         "https://www.moj.go.jp/MINJI/minji02.html"
-      ]
+      ],
+      "slug": "property-due-diligence-points"
     },
     {
       "title": "重要事項説明を電子化するときの注意点",
@@ -5961,7 +6011,8 @@ window.proptechData = {
         "https://www.mlit.go.jp/totikensangyo/const/sosei_const_tk3_000092.html",
         "https://www.mlit.go.jp/totikensangyo/const/sosei_const_fr3_000046.html",
         "https://www.mlit.go.jp/totikensangyo/const/1_6_bt_000268.html"
-      ]
+      ],
+      "slug": "digital-important-matters-explanation"
     },
     {
       "title": "売買契約で確認したい条件：手付、契約不適合、引渡し",
@@ -6006,7 +6057,8 @@ window.proptechData = {
       "sourceUrls": [
         "https://www.fudousan.or.jp/kiso/buy/6_1.html",
         "https://www.mlit.go.jp/totikensangyo/const/1_6_bt_000268.html"
-      ]
+      ],
+      "slug": "sale-contract-key-terms"
     },
     {
       "title": "ソーシングを属人化させない案件発掘の型",
@@ -6053,7 +6105,8 @@ window.proptechData = {
         "https://www.utokyo-ipc.co.jp/ja/column/land-purchasing/",
         "https://biz.homes.jp/column/topics-00287",
         "https://www.reinfolib.mlit.go.jp/"
-      ]
+      ],
+      "slug": "real-estate-sourcing-process"
     },
     {
       "title": "不動産DD管理：法務、物理、経済、テナント情報を漏れなく追う",
@@ -6100,7 +6153,8 @@ window.proptechData = {
         "https://www.takkenai.jp/tools/property-due-diligence/",
         "https://fudousan-note.jp/2026/02/04/due-diligence-checklist/",
         "https://www.reinfolib.mlit.go.jp/"
-      ]
+      ],
+      "slug": "real-estate-dd-management"
     },
     {
       "title": "事業収支作成：前提条件を分解して感度分析する",
@@ -6146,7 +6200,8 @@ window.proptechData = {
       "sourceUrls": [
         "https://online.reibs.jp/wp-content/uploads/2022/02/%EF%BC%94%E7%AB%A0%E7%99%BA%E8%A1%A8%E3%80%80%E4%BA%8B%E6%A5%AD%E8%A8%88%E7%94%BB%E6%9B%B8%E3%81%AE%E4%BD%9C%E6%88%90.pdf",
         "https://www.reinfolib.mlit.go.jp/"
-      ]
+      ],
+      "slug": "business-plan-sensitivity-analysis"
     },
     {
       "title": "PM/BM管理とレポーティング：運用データを投資判断につなげる",
@@ -6194,7 +6249,8 @@ window.proptechData = {
         "https://www.hokushinfudosan.co.jp/column/management/about-pm-bm",
         "https://www.mlit.go.jp/jutakukentiku/house/jutakukentiku_house_tk5_000064.html",
         "https://www.ares.or.jp/knowledge/"
-      ]
+      ],
+      "slug": "pm-bm-reporting"
     },
     {
       "title": "物件概要書作成：買主が初期判断できる資料に整える",
@@ -6241,7 +6297,8 @@ window.proptechData = {
         "https://www.sfkoutori.or.jp/jireikoukoku/hyojikiyakutekiyo-umu/",
         "https://biz.homes.jp/column/know-how-00053",
         "https://biz.moneyforward.com/realestate/basic/622/"
-      ]
+      ],
+      "slug": "property-summary-sheet"
     },
     {
       "title": "売却活動管理：買主候補、反応、価格交渉を見える化する",
@@ -6287,7 +6344,8 @@ window.proptechData = {
       "sourceUrls": [
         "https://www.mecyes.co.jp/taqsie/master/wp-content/uploads/2023/03/step_tasksheet.pdf",
         "https://cvmax.jp/real-estate-sale/"
-      ]
+      ],
+      "slug": "sale-activity-management"
     },
     {
       "title": "価格妥当性確認：買付前に価格の前提を分解する",
@@ -6334,7 +6392,8 @@ window.proptechData = {
         "https://www.fudousan-kanteishi.or.jp/",
         "https://www.reinfolib.mlit.go.jp/",
         "https://fudosan.dev/glossary/yield"
-      ]
+      ],
+      "slug": "price-validity-check"
     },
     {
       "title": "権利関係確認：登記と現況のズレを早めに見つける",
@@ -6381,7 +6440,8 @@ window.proptechData = {
         "https://www.moj.go.jp/MINJI/minji02.html",
         "https://www1.touki.or.jp/",
         "https://www.mlit.go.jp/tochi_fudousan_kensetsugyo/content/lab02_report.pdf"
-      ]
+      ],
+      "slug": "rights-registration-check"
     },
     {
       "title": "販売資料作成：訴求と正確性を両立する",
@@ -6428,7 +6488,8 @@ window.proptechData = {
         "https://www.sfkoutori.or.jp/koukoku_before/",
         "https://biz.homes.jp/column/know-how-00053",
         "https://biz.moneyforward.com/realestate/basic/622/"
-      ]
+      ],
+      "slug": "sales-materials-creation"
     },
     {
       "title": "買付提出：条件を曖昧にせず購入意思を伝える",
@@ -6475,7 +6536,8 @@ window.proptechData = {
         "https://flie.jp/magazine/estate/buying-certificate/",
         "https://www.nomu.com/seller/column/20231010.html",
         "https://www.tago-law.com/baibai3.html"
-      ]
+      ],
+      "slug": "purchase-offer-submission"
     },
     {
       "title": "初回ヒアリング：顧客の目的と制約を引き出す",
@@ -6521,7 +6583,8 @@ window.proptechData = {
       "sourceUrls": [
         "https://biz.homes.jp/column/know-how-00010",
         "https://lab.iyell.jp/knowledge/realestate/hiaringsheet/"
-      ]
+      ],
+      "slug": "first-client-interview"
     },
     {
       "title": "修繕計画：建物価値とNOIを守る投資計画にする",
@@ -6570,7 +6633,8 @@ window.proptechData = {
         "https://www.city.yokohama.lg.jp/kurashi/sumai-kurashi/jutaku/manportal/manage/rule/repairplan.html",
         "https://www.mlit.go.jp/jutakukentiku/house/jutakukentiku_house_tk3_000118.html",
         "https://www.aqa-pm.co.jp/knowledge/maintenance-plan/"
-      ]
+      ],
+      "slug": "repair-plan"
     },
     {
       "title": "売却受任を増やす販売提案：AI画像・広告改善をどう使うか",
@@ -6616,7 +6680,8 @@ window.proptechData = {
         "https://biz.homes.jp/column/sales-promotion-00041",
         "https://housing.funaisoken.co.jp/blogs/column/rt002",
         "https://biz.homes.jp/column/topics-00334"
-      ]
+      ],
+      "slug": "sales-proposal-ai-ads"
     },
     {
       "title": "広告表示チェック：おとり広告と過度な画像加工を防ぐ",
@@ -6662,7 +6727,8 @@ window.proptechData = {
         "https://biz.homes.jp/column/topics-00334",
         "https://biz.homes.jp/column/sales-promotion-00041",
         "https://www.sfkoutori.or.jp/koukoku_before/"
-      ]
+      ],
+      "slug": "ad-compliance-check"
     },
     {
       "title": "私道負担と掘削承諾：物件調査で早めに確認すること",
@@ -6708,7 +6774,8 @@ window.proptechData = {
         "https://biz.homes.jp/column/topics-00329",
         "https://www.retpc.jp/chosa/",
         "https://www.moj.go.jp/MINJI/minji02.html"
-      ]
+      ],
+      "slug": "private-road-excavation-consent"
     },
     {
       "title": "不動産会社の業務効率化：外注・システム化する業務の分け方",
@@ -6755,7 +6822,8 @@ window.proptechData = {
         "https://biz.homes.jp/column/topics-00332",
         "https://housing.funaisoken.co.jp/blogs/column/rt010",
         "https://biz.homes.jp/column/know-how-00072"
-      ]
+      ],
+      "slug": "real-estate-business-efficiency"
     },
     {
       "title": "4号特例縮小後の中古戸建調査：売買仲介で確認を前倒しする",
@@ -6803,7 +6871,8 @@ window.proptechData = {
         "https://www.mlit.go.jp/report/press/house05_hh_001025.html",
         "https://www.mlit.go.jp/report/press/content/001841001.pdf",
         "https://www.mlit.go.jp/jutakukentiku/content/001847403.pdf"
-      ]
+      ],
+      "slug": "building-code-special-exception-2025"
     },
     {
       "title": "売買仲介の反響対応：初動と追客ログで取りこぼしを減らす",
@@ -6850,7 +6919,8 @@ window.proptechData = {
         "https://biz.homes.jp/column/know-how-00023",
         "https://biz.homes.jp/column/real_estate_sale_know_how02/",
         "https://biz.homes.jp/cases/cases-00004"
-      ]
+      ],
+      "slug": "inquiry-response-follow-up"
     },
     {
       "title": "住所変更登記義務化後の売主確認：登記名義人の住所履歴を早めに洗う",
@@ -6897,7 +6967,8 @@ window.proptechData = {
         "https://www.moj.go.jp/MINJI/minji05_00694.html",
         "https://www.moj.go.jp/MINJI/minji05_00678.html",
         "https://www.moj.go.jp/MINJI/minji05_00688.html"
-      ]
+      ],
+      "slug": "seller-address-registration-check"
     },
     {
       "title": "不動産会社の生成AI活用：反響返信と物件紹介文は人が最後に責任を持つ",
@@ -6943,7 +7014,8 @@ window.proptechData = {
         "https://www.ppc.go.jp/news/careful_information/230602_AI_utilize_alert",
         "https://www.bunka.go.jp/seisaku/chosakuken/aiandcopyright.html",
         "https://www.meti.go.jp/press/2024/02/20250218003/20250218003.html"
-      ]
+      ],
+      "slug": "generative-ai-real-estate-use"
     },
     {
       "title": "省エネ性能ラベルの読み方：販売図面と反響対応で迷わないために",
@@ -6988,7 +7060,8 @@ window.proptechData = {
         "https://www.mlit.go.jp/shoene-jutaku/shoene-label/index.html",
         "https://www.mlit.go.jp/shoene-jutaku/index.html",
         "https://biz.homes.jp/column/topics-00321"
-      ]
+      ],
+      "slug": "energy-performance-label"
     },
     {
       "title": "売買契約前の本人確認：法人・代理人案件で止まらない確認順",
@@ -7033,7 +7106,8 @@ window.proptechData = {
         "https://www.mlit.go.jp/totikensangyo/const/content/001842693.pdf",
         "https://www.npa.go.jp/bureau/safetylife/bohankyo/furikome/document/top_leaflet_jigyou.pdf",
         "https://www.npa.go.jp/news/release/2024/20241129_hoan_hansyuho.files/QA.pdf"
-      ]
+      ],
+      "slug": "identity-verification-before-contract"
     }
   ],
   "columnSources": [
@@ -7781,7 +7855,7 @@ window.proptechData = {
       ],
       "providers": [
         "RESTAR株式会社",
-        "株式会社DGコミュニケーションズ",
+        "株式会社デジタルガレージ",
         "株式会社いえらぶGROUP",
         "株式会社いい生活",
         "アットホーム株式会社",
@@ -7822,7 +7896,8 @@ window.proptechData = {
         "https://store.f-mikata.jp/best-gyoumusien-system/",
         "https://store.f-mikata.jp/best-kokyaku-kanri/",
         "https://store.f-mikata.jp/best-sales-tool/"
-      ]
+      ],
+      "slug": "property-management-system-comparison"
     },
     {
       "title": "ニーズマッチングサービス比較",
@@ -7899,7 +7974,8 @@ window.proptechData = {
         "https://www.es-service.net/",
         "https://www.trustart.co.jp/",
         "https://www.vortex-net.com/service/officeresearch/"
-      ]
+      ],
+      "slug": "needs-matching-service-comparison"
     },
     {
       "title": "AI査定サービス比較",
@@ -7971,7 +8047,8 @@ window.proptechData = {
         "https://www.hp.kantei.ne.jp/",
         "https://www.hp.kantei.ne.jp/lp/estate_assessment_tochi/01/index.html",
         "https://www.kantei.ne.jp/wp-content/uploads/service_estate_list.pdf"
-      ]
+      ],
+      "slug": "ai-appraisal-service-comparison"
     },
     {
       "title": "ボリュームチェックサービス比較",
@@ -8035,7 +8112,386 @@ window.proptechData = {
         "https://www.mlit.go.jp/tochi_fudousan_kensetsugyo/tochi_fudousan_kensetsugyo_tk17_000001_00038.html",
         "https://www.reinfolib.mlit.go.jp/help/apiManual/",
         "https://www.mlit.go.jp/jutakukentiku/house/content/001907399.pdf"
-      ]
+      ],
+      "slug": "volume-check-service-comparison"
+    },
+    {
+      "title": "不動産会社向けCRM比較",
+      "seoTitle": "不動産会社向けCRM比較｜反響対応・追客・案件管理ツールの選び方",
+      "lead": "不動産会社向けCRMは、反響対応、追客、売却案件管理、顧客情報の共有を一つの流れで管理できるかが選定の中心です。",
+      "summary": "不動産CRMを比較する際は、反響の取り込み、担当者への割り振り、追客履歴、物件・顧客情報の一元管理、チームでの共有性を確認します。",
+      "processes": [
+        "不動産売却",
+        "不動産仲介"
+      ],
+      "tasks": [
+        "初回ヒアリング",
+        "売却活動管理",
+        "反響対応",
+        "物件情報整理"
+      ],
+      "tags": [
+        "不動産CRM",
+        "反響対応",
+        "追客管理",
+        "案件管理",
+        "顧客管理"
+      ],
+      "providers": [
+        "いえらぶGROUP",
+        "いい生活",
+        "アットホーム",
+        "コンベックス",
+        "Cocolive",
+        "ミカタ",
+        "Facilo"
+      ],
+      "assetTypes": [
+        "CRM",
+        "SFA",
+        "顧客管理",
+        "営業支援"
+      ],
+      "relatedServices": [
+        "いえらぶCLOUD",
+        "いい生活 売買クラウド",
+        "ATBB",
+        "Digima",
+        "KASIKA",
+        "Musubell",
+        "Facilo"
+      ],
+      "heroImage": "../../assets/proptech-hero.png",
+      "heroAlt": "不動産会社向けCRM比較のイメージ",
+      "body": [
+        "不動産CRMで比較すべきポイント::単なる顧客台帳ではなく、問い合わせから初回対応、追客、媒介獲得、売却活動までをつなげる営業基盤として比較します。反響の自動取り込み、担当者の割り当て、対応漏れの通知、顧客ごとの履歴管理が実務に合うかを確認しましょう。",
+        "導入前に確認したい運用条件::店舗や担当者が複数ある場合は、権限管理、活動履歴の見え方、メール・LINE・電話履歴の残し方が重要です。既存ポータルや基幹システムと連携できるかも比較軸になります。"
+      ],
+      "sourceUrls": [
+        "https://ielove-cloud.jp/",
+        "https://www.es-service.net/",
+        "https://business.athome.jp/service/atbb/",
+        "https://www.digima.com/",
+        "https://cocolive.co.jp/",
+        "https://www.musubell.com/",
+        "https://www.facilo.jp/"
+      ],
+      "slug": "real-estate-crm-comparison"
+    },
+    {
+      "title": "不動産電子契約サービス比較",
+      "seoTitle": "不動産電子契約サービス比較｜IT重説・売買契約・書類管理の選び方",
+      "lead": "不動産電子契約サービスは、IT重説、売買契約、本人確認、契約書類の保管までを安全に運用できるかが重要です。",
+      "summary": "不動産電子契約を比較する際は、対応できる契約種別、重要事項説明との接続、署名フロー、本人確認、社内承認、書類保管を確認します。",
+      "processes": [
+        "不動産売却",
+        "不動産仲介",
+        "不動産購入"
+      ],
+      "tasks": [
+        "重要事項説明",
+        "売買契約",
+        "買付提出"
+      ],
+      "tags": [
+        "不動産電子契約",
+        "IT重説",
+        "電子署名",
+        "売買契約",
+        "契約DX"
+      ],
+      "providers": [
+        "アットホーム",
+        "GOGEN",
+        "ミカタ",
+        "いい生活"
+      ],
+      "assetTypes": [
+        "電子契約",
+        "電子署名",
+        "契約管理",
+        "書類管理"
+      ],
+      "relatedServices": [
+        "スマート契約",
+        "レリーズプラットフォーム",
+        "Musubell",
+        "いい生活 売買クラウド",
+        "ATBB",
+        "PICKFORM"
+      ],
+      "heroImage": "../../assets/proptech-hero.png",
+      "heroAlt": "不動産電子契約サービス比較のイメージ",
+      "body": [
+        "不動産電子契約で比較すべきポイント::電子署名だけでなく、重要事項説明、契約書類の送付、本人確認、締結後の保管まで含めて比較する必要があります。売買、賃貸、媒介契約など、自社で扱う契約種別に対応しているかを最初に確認しましょう。",
+        "現場運用で見落としやすい点::買主、売主、仲介会社、司法書士など関係者が多い取引では、誰がどの書類を確認し、どの順番で署名するかが重要になります。"
+      ],
+      "sourceUrls": [
+        "https://business.athome.jp/service/smart_keiyaku/",
+        "https://release.estate/",
+        "https://www.musubell.com/",
+        "https://www.es-service.net/",
+        "https://business.athome.jp/service/atbb/",
+        "https://www.pick-form.com/"
+      ],
+      "slug": "real-estate-electronic-contract-comparison"
+    },
+    {
+      "title": "不動産査定システム比較",
+      "seoTitle": "不動産査定システム比較｜AI査定・相場分析・売却提案ツールの選び方",
+      "lead": "不動産査定システムは、AI査定、取引事例、相場データ、提案資料作成をどこまで支援できるかで比較します。",
+      "summary": "不動産査定システムを比較する際は、マンション・土地・戸建ての対応範囲、査定根拠、周辺相場、提案資料への展開、営業現場での説明しやすさを確認します。",
+      "processes": [
+        "不動産売却",
+        "不動産購入"
+      ],
+      "tasks": [
+        "売却価格査定",
+        "価格妥当性確認",
+        "売却提案"
+      ],
+      "tags": [
+        "不動産査定システム",
+        "AI査定",
+        "価格査定",
+        "相場分析",
+        "売却提案"
+      ],
+      "providers": [
+        "SRE AI Partners",
+        "スマサテ",
+        "リーウェイズ",
+        "東京カンテイ",
+        "TAS"
+      ],
+      "assetTypes": [
+        "AI査定",
+        "査定システム",
+        "相場データ",
+        "提案資料"
+      ],
+      "relatedServices": [
+        "SRE AI査定CLOUD",
+        "スマサテ",
+        "Gate.",
+        "TAS-MAP",
+        "マンション査定システム",
+        "土地査定システム",
+        "マンション相場Plus",
+        "土地相場Plus"
+      ],
+      "heroImage": "../../assets/proptech-hero.png",
+      "heroAlt": "不動産査定システム比較のイメージ",
+      "body": [
+        "不動産査定システムで比較すべきポイント::算出価格だけでなく、なぜその価格になるのかを顧客に説明できる資料として使えるかが重要です。取引事例、周辺相場、賃料、利回り、建物情報など、査定根拠に使えるデータの範囲を比較しましょう。",
+        "AI査定と人の査定の使い分け::AI査定は初期提案や価格妥当性の確認に向いていますが、個別事情や販売戦略は担当者の判断が必要です。"
+      ],
+      "sourceUrls": [
+        "https://sre-ai-partners.co.jp/service/srecloud/aisateicloud/",
+        "https://sumasate.jp/",
+        "https://ai.gate.estate/",
+        "https://corporate.tas-japan.com/corporate/about-us/",
+        "https://www.hp.kantei.ne.jp/"
+      ],
+      "slug": "real-estate-appraisal-system-comparison"
+    },
+    {
+      "title": "不動産物件調査ツール比較",
+      "seoTitle": "不動産物件調査ツール比較｜登記・法令制限・周辺調査の効率化",
+      "lead": "不動産物件調査ツールは、登記、地図、法令制限、周辺情報をどれだけ早く正確に集められるかで比較します。",
+      "summary": "物件調査ツールを比較する際は、登記情報、地番検索、法令制限、ハザード、周辺施設、調査メモ、社内共有のしやすさを確認します。",
+      "processes": [
+        "不動産売却",
+        "不動産仲介",
+        "不動産購入",
+        "不動産開発/不動産運用"
+      ],
+      "tasks": [
+        "物件調査",
+        "権利関係確認",
+        "物件情報整理",
+        "DD管理",
+        "ソーシング"
+      ],
+      "tags": [
+        "不動産物件調査",
+        "登記情報",
+        "法令制限",
+        "地番検索",
+        "不動産調査ツール"
+      ],
+      "providers": [
+        "トラストアート",
+        "登記簿図書館",
+        "日本情報クリエイト",
+        "トーラス",
+        "ビィーシステム"
+      ],
+      "assetTypes": [
+        "物件調査",
+        "登記調査",
+        "地図データ",
+        "DD支援"
+      ],
+      "relatedServices": [
+        "REMETIS",
+        "登記簿図書館",
+        "インデックスマップ＠クラウド",
+        "不動産チェッカー",
+        "R.E.DATA",
+        "KJ-NET",
+        "D-NET"
+      ],
+      "heroImage": "../../assets/proptech-hero.png",
+      "heroAlt": "不動産物件調査ツール比較のイメージ",
+      "body": [
+        "不動産物件調査ツールで比較すべきポイント::登記、地図、道路、用途地域、建築制限、周辺施設など複数の情報を横断して確認します。比較時は、どの情報を一画面で見られるか、調査結果を案件ごとに残せるか、社内で共有できるかを確認しましょう。",
+        "調査品質を安定させる観点::属人的な調査を減らすには、チェック項目、参照元、調査メモ、更新日を残せることが重要です。"
+      ],
+      "sourceUrls": [
+        "https://www.remetis.jp/",
+        "https://xn--lcss68alvlysfomtekv.com/",
+        "https://www.jon.co.jp/lp/index-map-cloud/",
+        "https://www.torus.co.jp/pages/checker.html",
+        "https://www.trustart.co.jp/",
+        "https://www.bic-net.jp/"
+      ],
+      "slug": "real-estate-property-research-tool-comparison"
+    },
+    {
+      "title": "不動産追客・反響対応ツール比較",
+      "seoTitle": "不動産追客・反響対応ツール比較｜問い合わせ対応と営業自動化の選び方",
+      "lead": "不動産追客・反響対応ツールは、問い合わせ直後の初動、継続フォロー、来店・査定・媒介獲得までの流れを支援できるかで比較します。",
+      "summary": "反響対応ツールを比較する際は、ポータル反響の取り込み、メール・SMS・LINE連絡、ステップ配信、対応漏れ通知、顧客ランク管理を確認します。",
+      "processes": [
+        "不動産売却",
+        "不動産仲介"
+      ],
+      "tasks": [
+        "反響対応",
+        "初回ヒアリング",
+        "売却活動管理",
+        "販売提案"
+      ],
+      "tags": [
+        "不動産追客",
+        "反響対応",
+        "不動産営業支援",
+        "ステップ配信",
+        "顧客フォロー"
+      ],
+      "providers": [
+        "コンベックス",
+        "Cocolive",
+        "いえらぶGROUP",
+        "いい生活",
+        "ミカタ",
+        "Facilo"
+      ],
+      "assetTypes": [
+        "追客ツール",
+        "反響対応",
+        "CRM",
+        "営業自動化"
+      ],
+      "relatedServices": [
+        "Digima",
+        "KASIKA",
+        "いえらぶCLOUD",
+        "いい生活 売買クラウド",
+        "Musubell",
+        "Facilo"
+      ],
+      "heroImage": "../../assets/proptech-hero.png",
+      "heroAlt": "不動産追客・反響対応ツール比較のイメージ",
+      "body": [
+        "追客・反響対応ツールで比較すべきポイント::問い合わせ直後の初動速度と、その後の継続フォローが成果に直結します。ポータルや自社サイトからの反響を自動で取り込み、担当者に通知し、メールやSMS、LINEなどで追客できるかを比較しましょう。",
+        "自動化しすぎない運用設計::ステップ配信や自動返信は便利ですが、顧客の検討温度や相談内容に合わせて人が介入できる設計が必要です。"
+      ],
+      "sourceUrls": [
+        "https://www.digima.com/",
+        "https://cocolive.co.jp/",
+        "https://ielove-cloud.jp/",
+        "https://www.es-service.net/",
+        "https://www.musubell.com/",
+        "https://www.facilo.jp/"
+      ],
+      "slug": "real-estate-lead-follow-up-tool-comparison"
+    },
+    {
+      "title": "IT導入補助金対応の不動産テックサービス比較",
+      "seoTitle": "IT導入補助金対応の不動産テックサービス比較｜CRM・電子契約・反響対応の選び方",
+      "lead": "IT導入補助金で不動産テックを検討するときは、サービス名だけでなく、IT導入支援事業者、登録ITツール、対象経費、問い合わせ先を確認して比較することが重要です。",
+      "summary": "不動産会社がIT導入補助金を使って導入を検討しやすいCRM、反響対応、電子契約、査定、物件調査、物件管理系サービスを、補助対象の確認方法とあわせて整理します。すべてのサービスが自動的に対象になるわけではないため、最新年度の公式情報とベンダーへの確認を前提に比較します。",
+      "processes": [
+        "不動産売却",
+        "不動産仲介",
+        "不動産購入",
+        "不動産開発/不動産運用"
+      ],
+      "tasks": [
+        "反響対応",
+        "売却活動管理",
+        "重要事項説明",
+        "売買契約",
+        "売却価格査定",
+        "物件調査",
+        "物件情報整理"
+      ],
+      "tags": [
+        "IT導入補助金",
+        "不動産テック",
+        "不動産CRM",
+        "電子契約",
+        "反響対応",
+        "物件管理システム",
+        "AI査定",
+        "登録ITツール"
+      ],
+      "providers": [
+        "いえらぶGROUP",
+        "いい生活",
+        "Facilo",
+        "PICK",
+        "RESTAR"
+      ],
+      "assetTypes": [
+        "CRM",
+        "反響対応",
+        "電子契約",
+        "AI査定",
+        "物件調査",
+        "物件管理",
+        "営業支援"
+      ],
+      "relatedServices": [
+        "いえらぶCLOUD",
+        "いい生活 売買クラウド",
+        "Facilo",
+        "PICKFORM",
+        "REMETIS"
+      ],
+      "heroImage": "../../assets/proptech-hero.png",
+      "heroAlt": "IT導入補助金対応の不動産テックサービス比較のイメージ",
+      "body": [
+        "補助金対応の根拠を先に確認する::公式サイトでは、対象となるITツールは事前に事務局の審査を受け、補助金HPに公開・登録されているものと説明されています。また、申請者は登録されたIT導入支援事業者とパートナーシップを組んで申請する必要があります。つまり「不動産テックだから対象」ではなく、「その年度に登録されたIT導入支援事業者が提供する登録ITツールだから対象になり得る」と考えるのが安全です。",
+        "比較すべきサービス領域::売買仲介では、CRM、反響対応、追客、物件提案、電子契約、査定、物件調査、販売資料作成のツールが候補になります。賃貸管理やPMでは、物件管理、入居者対応、工事・点検管理、会計連携、報告書作成も検討領域です。補助対象かどうかはサービス分類ではなく、登録ITツールと対象経費で確認します。",
+        "登録ITツールか確認する::同じ会社のサービスでも、対象になるプラン、オプション、導入費、クラウド利用料の範囲が分かれることがあります。サービスページに補助金対応と書かれていても、最新年度で登録済みか、ITツール番号とITツール名をベンダーに確認します。",
+        "問い合わせ方法を比較時に押さえる::不明点がある場合は、公式サイトの「お問い合わせ・相談窓口」または制度概要ページ下部の問い合わせ先を確認します。2026年版公式サイトでは、電話でのお問い合わせとして 0570-666-376、IP電話等からは 050-3133-3272、受付時間は9時30分から17時30分まで（土曜・日曜・祝日、年末年始を除く）と案内されています。問い合わせ時には、IT導入支援事業者名・法人番号、補助事業者名・法人番号、交付申請番号、ITツール番号・ITツール名を聞かれる場合があります。",
+        "導入前に見るべき費用項目::通常枠、インボイス関連の枠、セキュリティ関連の枠など、制度上の枠によって対象経費は異なります。ソフトウェア購入費、クラウド利用費、導入関連費、ハードウェア関連費がどこまで対象になるかは年度と枠で変わるため、見積書の内訳を分けて確認します。",
+        "サービス選定の注意点::補助率だけを見ると高額なツールを選びたくなりますが、導入後に使われなければ意味がありません。既存のポータル、CRM、会計、電子契約、物件管理との連携、データ移行、担当者教育、解約条件、補助対象外費用を含めた総額を確認します。",
+        "交付決定前の契約に注意する::補助金は、原則として交付決定前に契約、発注、支払い、導入を進めると対象外になるリスクがあります。導入を急ぎたい場合でも、申請スケジュール、交付決定日、契約日、利用開始日、支払日、実績報告期限を案件管理表に置いてから進めます。"
+      ],
+      "sourceUrls": [
+        "https://it-shien.smrj.go.jp/about/",
+        "https://it-shien.smrj.go.jp/itvendor/about/",
+        "https://it-shien.smrj.go.jp/itvendor/procedure/ittool/",
+        "https://it-shien.smrj.go.jp/applicant/subsidy/normal/",
+        "https://it-shien.smrj.go.jp/applicant/subsidy/digitalbase/",
+        "https://it-shien.smrj.go.jp/faq/",
+        "https://it-shien.smrj.go.jp/contact/"
+      ],
+      "slug": "it-subsidy-real-estate-tech-services-comparison"
     }
   ]
 };

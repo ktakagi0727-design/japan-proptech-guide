@@ -1,4 +1,4 @@
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -118,12 +118,123 @@ const escapeHtml = (value = "") => value.toString()
   .replaceAll("'", "&#39;");
 
 const escapeAttr = escapeHtml;
-const slug = (value) => value.toLowerCase().replace(/[^a-z0-9ぁ-んァ-ヶ一-龠]+/g, "-").replace(/^-|-$/g, "");
+const asciiSlug = (value = "") => value
+  .toString()
+  .normalize("NFKD")
+  .toLowerCase()
+  .replace(/&/g, " and ")
+  .replace(/@/g, " at ")
+  .replace(/\+/g, " plus ")
+  .replace(/[^a-z0-9]+/g, "-")
+  .replace(/^-+|-+$/g, "")
+  .replace(/-{2,}/g, "-");
+const slugFromUrl = (value = "") => {
+  try {
+    const url = new URL(value);
+    const host = url.hostname.replace(/^www\./, "").replace(/\.(co\.)?jp$/, "").replace(/\.(com|net|app|estate)$/, "");
+    const path = url.pathname.replace(/\/index\.(html?|php)$/i, "").replace(/\.(html?|php|pdf)$/i, "");
+    return asciiSlug(`${host} ${path}`);
+  } catch {
+    return "";
+  }
+};
+const uniqueSlug = (base, used, fallback) => {
+  const rootSlug = asciiSlug(base) || fallback;
+  let candidate = rootSlug;
+  let index = 2;
+  while (used.has(candidate)) {
+    candidate = `${rootSlug}-${index}`;
+    index += 1;
+  }
+  used.add(candidate);
+  return candidate;
+};
+const columnSlugBases = [
+  "corporate-real-estate-sale-purpose",
+  "property-information-checklist",
+  "sale-price-appraisal-methods",
+  "brokerage-contract-types",
+  "property-due-diligence-points",
+  "digital-important-matters-explanation",
+  "sale-contract-key-terms",
+  "real-estate-sourcing-process",
+  "real-estate-dd-management",
+  "business-plan-sensitivity-analysis",
+  "pm-bm-reporting",
+  "property-summary-sheet",
+  "sale-activity-management",
+  "price-validity-check",
+  "rights-registration-check",
+  "sales-materials-creation",
+  "purchase-offer-submission",
+  "first-client-interview",
+  "repair-plan",
+  "sales-proposal-ai-ads",
+  "ad-compliance-check",
+  "private-road-excavation-consent",
+  "real-estate-business-efficiency",
+  "building-code-special-exception-2025",
+  "inquiry-response-follow-up",
+  "seller-address-registration-check",
+  "generative-ai-real-estate-use",
+  "energy-performance-label",
+  "identity-verification-before-contract"
+];
+const comparisonSlugBases = [
+  "property-management-system-comparison",
+  "needs-matching-service-comparison",
+  "ai-appraisal-service-comparison",
+  "volume-check-service-comparison",
+  "real-estate-crm-comparison",
+  "real-estate-electronic-contract-comparison",
+  "real-estate-appraisal-system-comparison",
+  "real-estate-property-research-tool-comparison",
+  "real-estate-lead-follow-up-tool-comparison",
+  "it-subsidy-real-estate-tech-services-comparison"
+];
+const serviceSlugOverrides = new Map([
+  ["レリーズプラットフォーム", "release-platform"],
+  ["RESPORTクラウド", "resport-cloud"],
+  ["インデックスマップ＠クラウド", "index-map-cloud"],
+  ["ナーブVRクラウド", "nurve-vr-cloud"],
+  ["不動産チェッカー", "real-estate-checker"],
+  ["SRE AI査定CLOUD", "sre-ai-appraisal-cloud"],
+  ["スマサテ", "sumasate"],
+  ["デベNAVI", "deve-navi"],
+  ["マンション査定システム", "mansion-appraisal-system"],
+  ["土地査定システム", "land-appraisal-system"],
+  ["カタログコピーサービス", "catalog-copy-service"],
+  ["マンション相場Plus", "mansion-market-plus"],
+  ["土地相場Plus", "land-market-plus"],
+  ["フォレストPRO", "forest-pro"],
+  ["いえらぶCLOUD", "ielove-cloud"],
+  ["いい生活 売買クラウド", "e-seikatsu-baibai-cloud"],
+  ["スマート契約", "smart-contract"],
+  ["ア・ソコ", "a-soko"],
+  ["登記簿図書館", "toukibo-library"],
+  ["スペースリー", "spacely"],
+  ["GMO賃貸DX", "gmo-chintai-dx"],
+  ["管理ロイド", "kanri-roid"],
+  ["VCプロ", "vc-pro"]
+]);
+const serviceSlugs = new Set();
+data.services.forEach((item, index) => {
+  const base = serviceSlugOverrides.get(item.service) || asciiSlug(item.service) || slugFromUrl(item.url);
+  item.slug = uniqueSlug(base, serviceSlugs, `service-${index + 1}`);
+});
+const columnSlugs = new Set();
+data.columns.forEach((item, index) => {
+  item.slug = uniqueSlug(columnSlugBases[index], columnSlugs, `column-${index + 1}`);
+});
+const comparisonSlugs = new Set();
+data.serviceComparisons.forEach((item, index) => {
+  item.slug = uniqueSlug(comparisonSlugBases[index], comparisonSlugs, `comparison-${index + 1}`);
+});
 const listItems = (items = []) => items.map((item) => `<li>${escapeHtml(item)}</li>`).join("");
 const pillList = (items = [], className = "pill") => items.map((item) => `<span class="${className}">${escapeHtml(item)}</span>`).join("");
-const serviceUrl = (item) => `services/${slug(item.service)}/`;
-const columnUrl = (item) => `columns/${slug(item.title)}/`;
-const comparisonUrl = (item) => `comparisons/${slug(item.title)}/`;
+const serviceUrl = (item) => `services/${item.slug}/`;
+const columnUrl = (item) => `columns/${item.slug}/`;
+const comparisonUrl = (item) => `comparisons/${item.slug}/`;
 const serviceByName = (name) => data.services.find((service) => service.service === name);
 const serviceCases = (service) => data.cases.filter((item) => item.service === service.service || item.provider === service.company);
 const columnSourcesFor = (column) => data.columnSources.filter((source) => source.process === column.process && source.task === column.task);
@@ -799,7 +910,15 @@ function columnPage(column) {
   });
 }
 
-function comparisonTable(services) {
+const itSubsidyAnnouncementLinks = new Map([
+  ["いえらぶCLOUD", "https://www.ielove-group.jp/news/detail-1098"],
+  ["いい生活 売買クラウド", "https://prtimes.jp/main/html/rd/p/000000160.000003214.html"],
+  ["Facilo", "https://www.facilo.jp/campaign/it_hojo"],
+  ["PICKFORM", "https://prtimes.jp/main/html/rd/p/000000051.000097941.html"],
+  ["REMETIS", "https://www.restar-inc.com/news/news-1517/"]
+]);
+
+function comparisonTable(services, comparison) {
   if (!services.length) return "";
   const comparisonFeatures = (service) => serviceFeatureRows(service, serviceCases(service));
   const featureNames = (service) => comparisonFeatures(service).map((feature) => feature.name).join("、");
@@ -816,6 +935,14 @@ function comparisonTable(services) {
     ["対応業務", (service) => (service.tasks || []).join("、")],
     ["アセットタイプ", (service) => (service.assetTypes || []).join("、")]
   ];
+  if ((comparison.title || "").includes("IT導入補助金")) {
+    rows.push(["IT導入補助金対応の公表ページ", (service) => {
+      const url = itSubsidyAnnouncementLinks.get(service.service);
+      return url
+        ? `<a href="${escapeAttr(url)}" target="_blank" rel="noreferrer">${escapeHtml(service.service)}の公表ページ</a>`
+        : "公表ページ未確認";
+    }, true]);
+  }
   return `
     <section class="comparison-table-section">
       <div class="section-heading">
@@ -831,10 +958,13 @@ function comparisonTable(services) {
             </tr>
           </thead>
           <tbody>
-            ${rows.map(([label, getter]) => `
+            ${rows.map(([label, getter, allowHtml]) => `
               <tr>
                 <th scope="row">${escapeHtml(label)}</th>
-                ${services.map((service) => `<td>${escapeHtml(getter(service) || "要確認")}</td>`).join("")}
+                ${services.map((service) => {
+                  const value = getter(service) || "要確認";
+                  return `<td>${allowHtml ? value : escapeHtml(value)}</td>`;
+                }).join("")}
               </tr>
             `).join("")}
           </tbody>
@@ -844,13 +974,36 @@ function comparisonTable(services) {
   `;
 }
 
+function sourceLinksFromUrls(urls = []) {
+  const sourceLabels = new Map([
+    ["https://it-shien.smrj.go.jp/about", "デジタル化・AI導入補助金制度概要"],
+    ["https://it-shien.smrj.go.jp/itvendor/about", "IT導入支援事業者とは"],
+    ["https://it-shien.smrj.go.jp/itvendor/procedure/ittool", "ITツールの登録申請"],
+    ["https://it-shien.smrj.go.jp/applicant/subsidy/normal", "通常枠"],
+    ["https://it-shien.smrj.go.jp/applicant/subsidy/digitalbase", "インボイス枠（インボイス対応類型）"],
+    ["https://it-shien.smrj.go.jp/faq", "よくあるご質問"],
+    ["https://it-shien.smrj.go.jp/contact", "お問い合わせ・相談窓口"]
+  ]);
+  return uniqueItems(urls).map((url) => {
+    const key = url.replace(/\/$/, "");
+    return {
+      url,
+      title: sourceLabels.get(key) || url.replace(/^https?:\/\//, "").replace(/\/$/, "")
+    };
+  });
+}
+
 function comparisonPage(comparison) {
   const canonical = `${siteUrl}/${comparisonUrl(comparison)}`;
   const articleTitle = comparison.seoTitle || comparison.title;
   const title = `${articleTitle} | 業務別サービス比較 | 不動産売買向けプロップテックガイド`;
   const description = truncate(`${articleTitle}。${comparison.lead || comparison.summary || "不動産会社向けに主要サービスの違い、選定ポイント、導入前の注意点を整理。"}`, 155);
   const sections = (comparison.body || []).map(sectionParts);
-  const relatedServices = (comparison.relatedServices || []).map(serviceByName).filter(Boolean);
+  const relatedServices = (comparison.relatedServices || [])
+    .map(serviceByName)
+    .filter(Boolean)
+    .filter((service) => !(comparison.title || "").includes("IT導入補助金") || itSubsidyAnnouncementLinks.has(service.service));
+  const sourceLinks = sourceLinksFromUrls(comparison.sourceUrls);
   const heroImage = comparison.heroImage || "../../assets/proptech-hero.png";
   const heroAlt = comparison.heroAlt || `${articleTitle}のキービジュアル`;
   const body = `
@@ -870,11 +1023,15 @@ function comparisonPage(comparison) {
         </figure>
       </div>
       <section class="column-message"><p>${escapeHtml(comparison.summary || comparison.lead)}</p></section>
-      ${comparisonTable(relatedServices)}
+      ${comparisonTable(relatedServices, comparison)}
       <section class="column-detail-body">
         <div class="section-heading"><p class="eyebrow">Guide</p><h2>比較の観点</h2></div>
         ${sections.map((section, index) => `<section class="column-step-section"><div class="step-number">${String(index + 1).padStart(2, "0")}</div><div><h3>${escapeHtml(section.heading)}</h3><p>${escapeHtml(section.body)}</p></div></section>`).join("")}
       </section>
+      ${sourceLinks.length ? `<section class="column-detail-sources">
+        <h2>参考リンク</h2>
+        <ul>${sourceLinks.map((source) => `<li><a href="${escapeAttr(source.url)}" target="_blank" rel="noreferrer">${escapeHtml(source.title)}</a><span>参考リンク</span></li>`).join("")}</ul>
+      </section>` : ""}
     </article>`;
   return pageShell({
     title,
@@ -926,20 +1083,26 @@ await writeFile(
   "utf8"
 );
 
+await Promise.all([
+  rm(join(root, "services"), { recursive: true, force: true }),
+  rm(join(root, "columns"), { recursive: true, force: true }),
+  rm(join(root, "comparisons"), { recursive: true, force: true })
+]);
+
 for (const service of data.services) {
-  const dir = join(root, "services", slug(service.service));
+  const dir = join(root, "services", service.slug);
   await mkdir(dir, { recursive: true });
   await writeFile(join(dir, "index.html"), servicePage(service), "utf8");
 }
 
 for (const column of data.columns) {
-  const dir = join(root, "columns", slug(column.title));
+  const dir = join(root, "columns", column.slug);
   await mkdir(dir, { recursive: true });
   await writeFile(join(dir, "index.html"), columnPage(column), "utf8");
 }
 
 for (const comparison of data.serviceComparisons) {
-  const dir = join(root, "comparisons", slug(comparison.title));
+  const dir = join(root, "comparisons", comparison.slug);
   await mkdir(dir, { recursive: true });
   await writeFile(join(dir, "index.html"), comparisonPage(comparison), "utf8");
 }

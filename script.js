@@ -73,14 +73,24 @@ const columnDetailTarget = document.querySelector("[data-column-detail]");
 
 const normalize = (value) => value.toString().trim().toLowerCase();
 const uniqueSorted = (items) => [...new Set(items)].sort((a, b) => a.localeCompare(b, "ja"));
-const slug = (value) => value.toLowerCase().replace(/[^a-z0-9ぁ-んァ-ヶ一-龠]+/g, "-").replace(/^-|-$/g, "");
+const asciiSlug = (value = "") => value
+  .toString()
+  .normalize("NFKD")
+  .toLowerCase()
+  .replace(/&/g, " and ")
+  .replace(/@/g, " at ")
+  .replace(/\+/g, " plus ")
+  .replace(/[^a-z0-9]+/g, "-")
+  .replace(/^-+|-+$/g, "")
+  .replace(/-{2,}/g, "-");
+const slug = (item, key = "service") => item.slug || asciiSlug(item[key]);
 const companySortName = (value) => value.replace(/^株式会社/, "").replace(/株式会社$/, "").trim();
 const serviceByName = (name) => services.find((service) => service.service === name);
-const serviceUrl = (item) => `services/${slug(item.service)}/index.html`;
-const columnUrl = (item) => `columns/${slug(item.title)}/index.html`;
-const comparisonUrl = (item) => `comparisons/${slug(item.title)}/index.html`;
-const serviceCanonicalUrl = (item) => `https://japan-proptech-guide.com/services/${slug(item.service)}/`;
-const columnCanonicalUrl = (item) => `https://japan-proptech-guide.com/columns/${slug(item.title)}/`;
+const serviceUrl = (item) => `services/${slug(item, "service")}/index.html`;
+const columnUrl = (item) => `columns/${slug(item, "title")}/index.html`;
+const comparisonUrl = (item) => `comparisons/${slug(item, "title")}/index.html`;
+const serviceCanonicalUrl = (item) => `https://japan-proptech-guide.com/services/${slug(item, "service")}/`;
+const columnCanonicalUrl = (item) => `https://japan-proptech-guide.com/columns/${slug(item, "title")}/`;
 const orderedProcesses = (item) => processOrder.filter((process) => item.processes.includes(process));
 const processTagHtml = (item) => orderedProcesses(item)
   .map((process) => `<span class="pill process-pill">${processLabels[process]}</span>`)
@@ -147,7 +157,7 @@ serviceComparisons.sort((a, b) => {
 function renderDetailPage() {
   if (!detailTarget) return false;
   const id = new URLSearchParams(window.location.search).get("id");
-  const item = services.find((service) => slug(service.service) === id) || services[0];
+  const item = services.find((service) => slug(service, "service") === id) || services[0];
   const relatedCases = cases.filter((caseItem) => caseItem.service === item.service || caseItem.provider === item.company);
   const insight = caseInsight(item, relatedCases);
   const summaryText = item.summary || item.description;
@@ -398,7 +408,7 @@ function fieldChecklist(item) {
 function renderColumnDetailPage() {
   if (!columnDetailTarget) return false;
   const id = new URLSearchParams(window.location.search).get("id");
-  const item = columns.find((column) => slug(column.title) === id) || columns[0];
+  const item = columns.find((column) => slug(column, "title") === id) || columns[0];
   const sources = sourceLinksFor(item);
   const relatedLinks = relatedServiceLinks(item);
   const sections = (item.body || []).map(sectionParts);
