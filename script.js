@@ -13,7 +13,23 @@ const serviceLimit = 8;
 const caseLimit = 9;
 const columnLimit = 6;
 const comparisonLimit = 3;
-const comparisonPriority = ["物件管理システム比較", "ニーズマッチングサービス比較", "AI査定サービス比較", "ボリュームチェックサービス比較"];
+const comparisonPriority = [
+  "物件管理システム比較",
+  "ニーズマッチングサービス比較",
+  "AI査定サービス比較",
+  "ボリュームチェックサービス比較",
+  "不動産会社向けCRM比較",
+  "不動産電子契約サービス比較",
+  "不動産査定システム比較",
+  "不動産物件調査ツール比較",
+  "不動産追客・反響対応ツール比較",
+  "IT導入補助金対応の不動産テックサービス比較",
+  "不動産VR内見サービス比較",
+  "不動産販売図面・物件資料作成サービス比較",
+  "不動産業者間流通・物件共有サービス比較",
+  "不動産市場調査・データ分析サービス比較",
+  "不動産施工管理・修繕管理アプリ比較"
+];
 const processOrder = ["不動産売却", "不動産仲介", "不動産購入", "不動産開発/不動産運用"];
 const processLabels = {
   "不動産売却": "売却",
@@ -22,7 +38,8 @@ const processLabels = {
   "不動産開発/不動産運用": "開発/運用"
 };
 
-const { services, newsItems, cases, columns = [], columnSources = [], serviceComparisons = [] } = window.proptechData;
+const { services, newsItems, cases, columns = [], columnSources = [], serviceComparisons = [], companies = [] } = window.proptechData;
+const caseCompanyByName = new Map(companies.map((company) => [company.company, company]));
 
 
 
@@ -97,7 +114,7 @@ const processTagHtml = (item) => orderedProcesses(item)
   .join("");
 const operatorInfoLabel = "提供会社またはグループ会社が不動産実業を行っています";
 const operatorInfoBadge = (item) => item.operatorNote
-  ? `<span class="operator-info-badge" aria-label="${operatorInfoLabel}" title="${item.operatorNote}"><span class="operator-info-icon">i</span><span>不動産実業あり</span></span>`
+  ? `<span class="operator-info-badge" aria-label="${operatorInfoLabel}" title="${item.operatorNote}"><span class="operator-info-icon">i</span><span>グループに不動産会社あり</span></span>`
   : "";
 const caseInsight = (item, relatedCases) => {
   if (!relatedCases.length) return "";
@@ -675,8 +692,10 @@ function renderServices() {
       ? card.replace('class="service-card"', 'class="service-card collapsed-extra"')
       : card;
   }).join("") || `<p class="empty">条件に一致するサービスがありません。</p>`;
-  serviceMore.hidden = filtered.length <= serviceLimit;
-  serviceMore.textContent = serviceExpanded ? "閉じる" : "もっと見る";
+  if (serviceMore) {
+    serviceMore.hidden = filtered.length <= serviceLimit;
+    serviceMore.textContent = serviceExpanded ? "閉じる" : "もっと見る";
+  }
 }
 
 function filteredNewsItems() {
@@ -736,8 +755,11 @@ function renderColumnTaskTabs() {
 }
 
 function caseCard(item) {
+  const company = caseCompanyByName.get(item.adopter);
+  const href = company ? `cases/${company.slug}.html` : item.url;
+  const externalAttrs = company ? "" : ' target="_blank" rel="noreferrer"';
   return `
-    <a class="case-card" href="${item.url}" target="_blank" rel="noreferrer">
+    <a class="case-card" href="${href}"${externalAttrs}>
       <h3>${item.adopter}</h3>
       <p class="provider">導入サービス：${item.service}</p>
       <p class="provider">提供会社：${item.provider}</p>
@@ -879,7 +901,7 @@ operatorExclude?.addEventListener("change", () => {
   renderServices();
 });
 
-serviceMore.addEventListener("click", () => {
+serviceMore?.addEventListener("click", () => {
   serviceExpanded = !serviceExpanded;
   renderServices();
 });

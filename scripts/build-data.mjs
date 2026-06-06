@@ -1,4 +1,4 @@
-import { mkdir, readFile, rm, writeFile } from "node:fs/promises";
+import { mkdir, readFile, rm, writeFile, readdir, unlink } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -12,6 +12,12 @@ const processLabels = {
   "不動産仲介": "仲介",
   "不動産購入": "購入",
   "不動産開発/不動産運用": "開発/運用"
+};
+const caseKnowledgeMap = {
+  "不動産売却": ["売却目的整理", "物件情報整理", "権利関係確認", "売却価格査定", "物件概要書作成", "帯替え", "仲介会社選定", "媒介契約", "売却活動管理", "契約・決済"],
+  "不動産仲介": ["リード獲得", "初回ヒアリング", "売却提案", "物件調査", "物件概要書作成", "帯替え", "販売資料作成", "買主探索", "内見・案内", "重要事項説明", "売買契約", "決済・引渡し"],
+  "不動産購入": ["取得方針策定", "ソーシング", "初期スクリーニング", "価格妥当性確認", "DD管理", "融資・稟議", "買付提出", "契約・クロージング"],
+  "不動産開発/不動産運用": ["事業企画", "用途検討", "事業収支作成", "許認可・設計", "建設・改修管理", "リーシング", "PM/BM管理", "賃貸借契約管理", "修繕計画", "レポーティング", "売却出口戦略"]
 };
 
 const listFields = new Set([
@@ -107,7 +113,8 @@ const data = {
   cases: await readCsv("cases.csv"),
   columns: await readCsv("columns.csv"),
   columnSources: await readCsv("column-sources.csv"),
-  serviceComparisons: await readCsv("service-comparisons.csv")
+  serviceComparisons: await readCsv("service-comparisons.csv"),
+  companies: JSON.parse(await readFile(join(dataDir, "companies-detail.json"), "utf8"))
 };
 
 const escapeHtml = (value = "") => value.toString()
@@ -239,6 +246,48 @@ const serviceByName = (name) => data.services.find((service) => service.service 
 const serviceCases = (service) => data.cases.filter((item) => item.service === service.service || item.provider === service.company);
 const columnSourcesFor = (column) => data.columnSources.filter((source) => source.process === column.process && source.task === column.task);
 const uniqueItems = (items = []) => [...new Set(items.filter(Boolean))];
+
+function caseCompanySlug(companyName, companyCases, usedSlugs) {
+  const sourceSlug = companyCases
+    .map((item) => slugFromUrl(item.url))
+    .find(Boolean);
+  const fallback = `case-company-${usedSlugs.size + 1}`;
+  return uniqueSlug(sourceSlug || companyName, usedSlugs, fallback);
+}
+
+function addCaseOnlyCompanies() {
+  const detailedNames = new Set(data.companies.map((company) => company.company));
+  const usedSlugs = new Set(data.companies.map((company) => company.slug));
+  const casesByCompany = new Map();
+
+  data.cases.forEach((item) => {
+    if (!casesByCompany.has(item.adopter)) casesByCompany.set(item.adopter, []);
+    casesByCompany.get(item.adopter).push(item);
+  });
+
+  const caseOnlyCompanies = [...casesByCompany.entries()]
+    .filter(([companyName]) => !detailedNames.has(companyName))
+    .sort(([left], [right]) => left.localeCompare(right, "ja"))
+    .map(([companyName, companyCases]) => ({
+      company: companyName,
+      slug: caseCompanySlug(companyName, companyCases, usedSlugs),
+      is_case_only: true,
+      cases: companyCases,
+      tools: companyCases.map((item) => ({
+        name: item.service,
+        provider: item.provider,
+        process: item.process,
+        tasks: item.tasks,
+        summary: item.summary,
+        official_url: item.url
+      })),
+      page_summary: `${companyName}が導入した${uniqueItems(companyCases.map((item) => item.service)).join("、")}の公開事例を整理しています。`
+    }));
+
+  data.companies = [...data.companies, ...caseOnlyCompanies];
+}
+
+addCaseOnlyCompanies();
 const trimSentence = (value = "") => value.replace(/。+$/g, "");
 const shortList = (items = [], limit = 4) => {
   const values = uniqueItems(items).slice(0, limit);
@@ -742,7 +791,15 @@ function sectionParts(section) {
   return { heading: heading || "本文", body: rest.join("::") || section };
 }
 
-function pageShell({ title, description, canonical, body, structuredData = [], ogImage = "../../assets/proptech-hero.png" }) {
+function pageShell({
+  title,
+  description,
+  canonical,
+  body,
+  structuredData = [],
+  relPath = "../..",
+  ogImage = `${relPath}/assets/proptech-hero.png`
+}) {
   return `<!doctype html>
 <html lang="ja">
   <head>
@@ -757,22 +814,22 @@ function pageShell({ title, description, canonical, body, structuredData = [], o
     <meta property="og:image" content="${escapeAttr(ogImage)}">
     <meta property="og:url" content="${escapeAttr(canonical)}">
     <link rel="canonical" href="${escapeAttr(canonical)}">
-    <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="../../style.css">
+    <link rel="icon" href="${relPath}/assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="${relPath}/style.css">
     <script src="/analytics.js" defer></script>
     ${structuredData.map((item) => `<script type="application/ld+json">${JSON.stringify(item)}</script>`).join("\n    ")}
   </head>
   <body class="detail-page">
     <header class="site-header scrolled">
-      <a class="brand" href="../../index.html#top" aria-label="不動産売買向けプロップテックガイド">
+      <a class="brand" href="${relPath}/index.html#top" aria-label="不動産売買向けプロップテックガイド">
         <span class="brand-mark">RE</span>
         <span>売買PropTech Guide</span>
       </a>
       <nav class="nav" aria-label="主要ナビゲーション">
-        <a href="../../index.html#services">業務プロセス</a>
-        <a href="../../index.html#cases">導入事例</a>
-        <a href="../../index.html#columns">業務コラム</a>
-        <a href="../../index.html#news">ニュース</a>
+        <a href="${relPath}/index.html#services">業務プロセス</a>
+        <a href="${relPath}/index.html#cases">導入事例</a>
+        <a href="${relPath}/index.html#columns">業務コラム</a>
+        <a href="${relPath}/index.html#news">ニュース</a>
       </nav>
     </header>
     <main class="detail-main">
@@ -1055,6 +1112,136 @@ function comparisonPage(comparison) {
   });
 }
 
+function casesDirectoryPage() {
+  const companyByName = new Map(data.companies.map((company) => [company.company, company]));
+  const companySortName = (value) => value.replace(/^株式会社/, "").replace(/株式会社$/, "").trim();
+  const cases = [...data.cases].sort((left, right) =>
+    companySortName(left.adopter).localeCompare(companySortName(right.adopter), "ja")
+  );
+  const adopters = uniqueItems(data.cases.map((item) => item.adopter)).sort((left, right) => left.localeCompare(right, "ja"));
+  const cards = cases.map((item) => {
+    const company = companyByName.get(item.adopter);
+    const href = company ? `${company.slug}.html` : item.url;
+    const searchText = [
+      item.industry,
+      item.adopter,
+      item.service,
+      item.provider,
+      item.process,
+      ...(item.tasks || []),
+      item.summary
+    ].filter(Boolean).join(" ");
+    return `<a class="case-card" data-directory-card
+      data-processes="${escapeAttr(item.process)}"
+      data-tasks="${escapeAttr((item.tasks || []).join("|"))}"
+      data-primary="${escapeAttr(item.adopter)}"
+      data-search="${escapeAttr(searchText)}"
+      href="${escapeAttr(href)}">
+      <h3>${escapeHtml(item.adopter)}</h3>
+      <p class="provider">導入サービス：${escapeHtml(item.service)}</p>
+      <p class="provider">提供会社：${escapeHtml(item.provider)}</p>
+      <p>${escapeHtml(item.summary)}</p>
+      <div class="service-meta">
+        <span class="pill">${escapeHtml(item.process)}</span>
+        ${(item.tasks || []).map((task) => `<span class="pill task-pill">${escapeHtml(task)}</span>`).join("")}
+      </div>
+    </a>`;
+  }).join("");
+  const title = "不動産テック活用事例一覧 | 不動産会社のDX・業務効率化事例";
+  const description = "不動産会社のDX、CRM、反響対応、物件管理、電子契約、査定、データ活用に関する公開導入事例を、企業別・サービス別・業務別に整理。";
+  const canonical = `${siteUrl}/cases/`;
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: title,
+    description,
+    url: canonical,
+    inLanguage: "ja",
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: data.companies.length,
+      itemListElement: data.companies.map((company, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        url: `${siteUrl}/cases/${company.slug}.html`,
+        name: company.company
+      }))
+    }
+  };
+
+  return `<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>${escapeHtml(title)}</title>
+    <meta name="description" content="${escapeAttr(description)}">
+    <meta name="robots" content="index,follow,max-image-preview:large">
+    <meta property="og:title" content="${escapeAttr(title)}">
+    <meta property="og:description" content="${escapeAttr(description)}">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="../assets/proptech-hero.png">
+    <meta property="og:url" content="${escapeAttr(canonical)}">
+    <link rel="canonical" href="${escapeAttr(canonical)}">
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../style.css">
+    <script src="/analytics.js" defer></script>
+    <script src="../directory.js" defer></script>
+    <script type="application/ld+json">${JSON.stringify(structuredData)}</script>
+  </head>
+  <body class="directory-page">
+    <header class="site-header scrolled">
+      <a class="brand" href="../index.html" aria-label="不動産売買向けプロップテックガイド">
+        <span class="brand-mark">RE</span>
+        <span>売買PropTech Guide</span>
+      </a>
+      <nav class="nav" aria-label="主要ナビゲーション">
+        <a href="../index.html#services">サービス</a>
+        <a href="../index.html#cases">導入事例</a>
+        <a href="../index.html#columns">コラム</a>
+        <a href="../tools.html">便利ツール</a>
+      </nav>
+    </header>
+    <main class="directory-main">
+      <section class="directory-hero">
+        <p class="eyebrow">PropTech Case Directory</p>
+        <h1>不動産テック活用事例一覧</h1>
+        <p class="detail-lead">${escapeHtml(description)}</p>
+        <p class="directory-count">${data.cases.length}件・${data.companies.length}社掲載</p>
+      </section>
+      <div data-directory
+        data-process-order="${escapeAttr(JSON.stringify(processOrder))}"
+        data-task-order="${escapeAttr(JSON.stringify(caseKnowledgeMap))}">
+        <section class="directory-controls">
+          <div class="section-heading row case-heading">
+            <div>
+              <p class="eyebrow">Case Studies</p>
+              <h2>導入した会社別に見る活用事例</h2>
+            </div>
+            <div class="search-panel case-filters">
+              <label class="search-box">
+                <span>導入会社</span>
+                <select data-directory-primary>
+                  <option value="すべて">すべて</option>
+                  ${adopters.map((adopter) => `<option value="${escapeAttr(adopter)}">${escapeHtml(adopter)}</option>`).join("")}
+                </select>
+              </label>
+            </div>
+          </div>
+          <div class="case-tabs" aria-label="業務プロセス別フィルター" data-directory-processes></div>
+          <div class="case-task-tabs" aria-label="導入事例の業務別フィルター" data-directory-tasks></div>
+        </section>
+        <section class="directory-results">
+          <div class="result-line"><span data-directory-count></span></div>
+          <div class="case-grid">${cards}</div>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
+`;
+}
+
 function sitemapXml() {
   const urls = [
     { loc: `${siteUrl}/`, priority: "1.0" },
@@ -1062,9 +1249,11 @@ function sitemapXml() {
     { loc: `${siteUrl}/band-tool.html`, priority: "0.9" },
     { loc: `${siteUrl}/noi-calculator.html`, priority: "0.8" },
     { loc: `${siteUrl}/dd-checklist.html`, priority: "0.8" },
+    { loc: `${siteUrl}/cases/`, priority: "0.9" },
     ...data.services.map((service) => ({ loc: `${siteUrl}/${serviceUrl(service)}`, priority: "0.8" })),
     ...data.columns.map((column) => ({ loc: `${siteUrl}/${columnUrl(column)}`, priority: "0.8" })),
-    ...data.serviceComparisons.map((comparison) => ({ loc: `${siteUrl}/${comparisonUrl(comparison)}`, priority: "0.8" }))
+    ...data.serviceComparisons.map((comparison) => ({ loc: `${siteUrl}/${comparisonUrl(comparison)}`, priority: "0.8" })),
+    ...data.companies.map((company) => ({ loc: `${siteUrl}/cases/${company.slug}.html`, priority: "0.8" }))
   ];
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -1077,16 +1266,602 @@ ${urls.map((url) => `  <url>
 `;
 }
 
+function parseSales(salesStr) {
+  if (!salesStr) return null;
+  const normalized = salesStr.replace(/,/g, '');
+  const millionMatch = normalized.match(/(\d+(\.\d+)?)\s*百万/);
+  if (millionMatch) {
+    return Math.round(parseFloat(millionMatch[1]) / 100);
+  }
+  const billionMatch = normalized.match(/(\d+(\.\d+)?)\s*億/);
+  if (billionMatch) {
+    return parseFloat(billionMatch[1]);
+  }
+  return null;
+}
+
+function parseSalesAmount(str) {
+  if (!str) return null;
+  const normalized = str.replace(/,/g, '');
+  const match = normalized.match(/(\d+(\.\d+)?)\s*百万/);
+  return match ? parseFloat(match[1]) : null;
+}
+
+function generateFinancialsChart(financials, financials_source_url) {
+  const dataPoints = financials.map(f => {
+    return {
+      year: f.year,
+      sales: parseSales(f.sales),
+      salesLabel: null,
+      profitRate: null
+    };
+  }).filter(d => d.sales !== null);
+
+  if (dataPoints.length < 2) {
+    return `
+    <div class="financials-chart-placeholder" style="margin: 24px 0; padding: 24px; background: #fafaf9; border: 1px dashed var(--line); border-radius: 8px; text-align: center; color: var(--muted); font-size: 13.5px; font-weight: 700;">
+      <p style="margin: 0 0 8px; font-size: 15px; color: var(--graphite); font-weight: 900;">財務グラフ</p>
+      非上場等のため、グラフ表示に必要な売上高推移データが公表されておりません。
+    </div>`;
+  }
+
+  dataPoints.forEach(d => {
+    const financialsEntry = financials.find(f => f.year === d.year);
+    if (financialsEntry) {
+      d.salesLabel = d.sales !== null ? `${d.sales.toLocaleString()}億円` : financialsEntry.sales;
+      const salesVal = parseSalesAmount(financialsEntry.sales);
+      const profitVal = parseSalesAmount(financialsEntry.profit);
+      if (salesVal && profitVal) {
+        d.profitRate = (profitVal / salesVal) * 100;
+      } else {
+        const rateMatch = financialsEntry.profit.match(/(-?\d+(\.\d+)?)\s*%/);
+        d.profitRate = rateMatch ? parseFloat(rateMatch[1]) : null;
+      }
+    }
+  });
+
+  const salesValues = dataPoints.map(d => d.sales);
+  const maxSales = Math.max(...salesValues);
+  const minSales = Math.min(...salesValues);
+
+  const height = 200;
+  const width = 540;
+  const paddingLeft = 70;
+  const paddingRight = 50;
+  const paddingTop = 30;
+  const paddingBottom = 30;
+
+  const graphHeight = height - paddingTop - paddingBottom;
+  const graphWidth = width - paddingLeft - paddingRight;
+
+  const yMin = Math.max(0, Math.round(minSales * 0.8));
+  const yMax = Math.round(maxSales * 1.1);
+  const yRange = yMax - yMin;
+
+  const rates = dataPoints.map(d => d.profitRate).filter(r => r !== null);
+  const maxRate = rates.length ? Math.max(...rates) : 10;
+  const rMax = Math.ceil(maxRate * 1.2);
+
+  const gridLines = [30, 65, 100, 135, 170];
+  const barWidth = 35;
+
+  const salesGraphHeight = 70; // 高さ70pxの範囲に売上高をマッピング
+  const rateGraphHeight = 50; // 高さ50pxの範囲に営業利益率をマッピング
+  const salesBaseY = 170; // 棒グラフのベースライン（下端）
+  const rateBaseY = 75; // 利益率折れ線グラフのベースライン（下端、0%に相当）
+
+  const barsHtml = dataPoints.map((d, index) => {
+    const xCenter = paddingLeft + (index / (dataPoints.length - 1)) * graphWidth;
+    const x = xCenter - barWidth / 2;
+    const barY = salesBaseY - ((d.sales - yMin) / (yRange || 1)) * salesGraphHeight;
+    const barHeight = salesBaseY - barY;
+
+    // 値ラベルは常に棒グラフのすぐ上に配置（重なりはマッピング分離により発生しない）
+    const textY = barY - 6;
+    const textColor = "#475569";
+
+    return `
+      <rect x="${x}" y="${barY}" width="${barWidth}" height="${barHeight}" fill="#cbd5e1" rx="3" opacity="0.8" />
+      <text x="${xCenter}" y="${textY}" fill="${textColor}" font-size="9" font-weight="800" text-anchor="middle">${escapeHtml(d.salesLabel)}</text>
+    `;
+  }).join("");
+
+  const linePoints = dataPoints.map((d, index) => {
+    if (d.profitRate === null) return null;
+    const x = paddingLeft + (index / (dataPoints.length - 1)) * graphWidth;
+    const y = rateBaseY - (d.profitRate / (rMax || 1)) * rateGraphHeight;
+    return { x, y, rate: d.profitRate, year: d.year };
+  }).filter(Boolean);
+
+  let linePathHtml = "";
+  let dotsHtml = "";
+  if (linePoints.length > 0) {
+    const pathD = "M " + linePoints.map(p => `${p.x} ${p.y}`).join(" L ");
+    linePathHtml = `<path d="${pathD}" fill="none" stroke="var(--teal)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />`;
+
+    dotsHtml = linePoints.map(p => {
+      const textY = p.y - 10;
+      return `
+      <circle cx="${p.x}" cy="${p.y}" r="5" fill="var(--teal)" stroke="#fff" stroke-width="2" />
+      <text x="${p.x}" y="${textY}" fill="var(--teal)" font-size="10" font-weight="900" text-anchor="middle">${p.rate.toFixed(1)}%</text>
+      <text x="${p.x}" y="188" fill="#63717a" font-size="10" font-weight="800" text-anchor="middle">${escapeHtml(p.year)}</text>
+      `;
+    }).join("");
+  }
+
+  const sourceLinkHtml = financials_source_url ? `
+    <div class="financials-source" style="margin-top: 12px; text-align: right; font-size: 12px; color: var(--muted);">
+      参考情報：<a href="${escapeAttr(financials_source_url)}" target="_blank" rel="noopener noreferrer" style="color: var(--teal); text-decoration: underline; font-weight: 700;">財務情報（バフェット・コード等） &gt;</a>
+    </div>` : "";
+
+  return `
+  <div class="financials-chart-wrap" style="margin: 24px 0; background: #fafaf9; padding: 20px; border-radius: 12px; border: 1px solid var(--line);">
+    <h4 style="margin: 0 0 16px; font-size: 14px; color: var(--graphite); font-weight: 900; display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap;">
+      <span style="display:flex; align-items:center; gap:6px;">
+        <span style="display:inline-block; width:4px; height:12px; background:var(--teal); border-radius:2px;"></span>
+        財務状況（売上高と営業利益率の推移）
+      </span>
+      <span style="font-size:11px; font-weight:normal; color:var(--muted); display:flex; gap:12px;">
+        <span><span style="display:inline-block; width:10px; height:10px; background:#cbd5e1; border-radius:2px; margin-right:4px; vertical-align:middle;"></span>売上高</span>
+        <span><span style="display:inline-block; width:8px; height:8px; background:var(--teal); border-radius:50%; margin-right:4px; border:2px solid #fff; vertical-align:middle;"></span>営業利益率</span>
+      </span>
+    </h4>
+    <div style="max-width: 100%; overflow-x: auto;">
+      <svg viewBox="0 0 540 200" style="width: 100%; min-width: 500px; height: auto; display: block; overflow: visible;">
+        <!-- Grid lines -->
+        ${gridLines.map(y => `<line x1="70" y1="${y}" x2="490" y2="${y}" stroke="#e9e9e8" stroke-dasharray="3,3" />`).join("\n")}
+        <!-- Bars (Sales) -->
+        ${barsHtml}
+        <!-- Line (Profit Rate) -->
+        ${linePathHtml}
+        <!-- Dots and Labels -->
+        ${dotsHtml}
+      </svg>
+    </div>
+    ${sourceLinkHtml}
+  </div>`;
+}
+
+function caseOnlyCompanyPage(company) {
+  const canonical = `${siteUrl}/cases/${company.slug}.html`;
+  const services = uniqueItems(company.cases.map((item) => item.service));
+  const processes = uniqueItems(company.cases.map((item) => item.process));
+  const tasks = uniqueItems(company.cases.flatMap((item) => item.tasks || []));
+  const title = `${company.company}の不動産テック導入事例 | 不動産売買向けプロップテックガイド`;
+  const description = `${company.company}の不動産テック導入事例を、導入サービス、対象業務、公開されている効果、公式事例へのリンクとともに整理。`;
+  const caseCards = company.cases.map((item) => `
+    <article class="tool-timeline-card">
+      <div class="tool-timeline-header">
+        <div class="tool-timeline-title">
+          <p class="eyebrow">導入サービス</p>
+          <h2>${escapeHtml(item.service)}</h2>
+        </div>
+        <span class="tool-timeline-date">${escapeHtml(item.provider)}</span>
+      </div>
+      <div class="case-framework-grid">
+        <div class="framework-card">
+          <h3>対象業務</h3>
+          <p>${escapeHtml([item.process, ...(item.tasks || [])].filter(Boolean).join("、"))}</p>
+        </div>
+        <div class="framework-card">
+          <h3>公開事例で確認できる内容</h3>
+          <p>${escapeHtml(item.summary)}</p>
+        </div>
+      </div>
+      <div class="case-source-row">
+        <a href="${escapeAttr(item.url)}" class="btn-official" target="_blank" rel="noopener noreferrer">公式の導入事例を見る</a>
+      </div>
+    </article>
+  `).join("");
+  const body = `
+    <div class="case-detail-container">
+      <nav class="breadcrumb" aria-label="ブレッドクラム">
+        <a href="../index.html">ホーム</a>
+        <span>&gt;</span>
+        <a href="index.html">活用事例</a>
+        <span>&gt;</span>
+        <span>${escapeHtml(company.company)} の事例</span>
+      </nav>
+
+      <section class="case-hero">
+        <div class="eyebrow-row">
+          <span class="pill">導入企業</span>
+          ${services.map((service) => `<span class="pill">${escapeHtml(service)}</span>`).join("")}
+        </div>
+        <h1>${escapeHtml(company.company)}の不動産テック導入事例</h1>
+        <p class="detail-lead">${escapeHtml(company.page_summary)}</p>
+        <div class="case-meta-grid">
+          <div class="case-meta-item">
+            <span class="case-meta-label">公開事例</span>
+            <span class="case-meta-value">${company.cases.length}件</span>
+          </div>
+          <div class="case-meta-item">
+            <span class="case-meta-label">導入サービス</span>
+            <span class="case-meta-value">${escapeHtml(services.join("、"))}</span>
+          </div>
+          <div class="case-meta-item">
+            <span class="case-meta-label">対象プロセス</span>
+            <span class="case-meta-value">${escapeHtml(processes.join("、"))}</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-source-note">
+        <h2>掲載情報について</h2>
+        <p>サービス提供会社などが公開している導入事例をもとに、確認できる範囲を整理しています。企業の財務状況や、公開情報にない導入効果の推測は掲載していません。</p>
+      </section>
+
+      <section class="info-section">
+        <div class="section-heading">
+          <p class="eyebrow">Case Studies</p>
+          <h2>導入サービスと活用内容</h2>
+        </div>
+        <div class="tools-timeline">${caseCards}</div>
+      </section>
+
+      <section class="case-task-summary">
+        <h2>関連する業務</h2>
+        <div class="service-meta">${tasks.map((task) => `<span class="pill task-pill">${escapeHtml(task)}</span>`).join("")}</div>
+      </section>
+
+      <div class="cta-row">
+        <a href="index.html" class="btn-back">事例一覧に戻る</a>
+      </div>
+    </div>
+  `;
+
+  return pageShell({
+    title,
+    description,
+    canonical,
+    body,
+    relPath: "..",
+    structuredData: [{
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      headline: title,
+      description,
+      inLanguage: "ja",
+      mainEntityOfPage: canonical,
+      about: [{
+        "@type": "Organization",
+        name: company.company
+      }],
+      citation: company.cases.map((item) => item.url),
+      author: {
+        "@type": "Organization",
+        name: "不動産売買向けプロップテックガイド"
+      }
+    }]
+  });
+}
+
+function companyPage(company) {
+  if (company.is_case_only) return caseOnlyCompanyPage(company);
+
+  const canonical = `${siteUrl}/cases/${company.slug}.html`;
+  const title = `${company.company}のプロップテック導入事例・企業概要 | 不動産売買向けプロップテックガイド`;
+  const description = `${company.company}のプロップテック（不動産テック）導入事例詳細。事業概要、アセット規模、主なエリア、直近5年の財務情報、各ツールの導入時期と効果を掲載。`;
+
+  const area = company.main_area || "";
+  const hp_url = company.homepage_url || "";
+  const business_overview = company.business_summary || "";
+  const asset_scale = company.asset_scale || "";
+  const challenge = company.dx_policy ? company.dx_policy.challenges : "";
+  const goal = company.dx_policy ? company.dx_policy.goals : "";
+  const dx_policy = company.dx_policy ? company.dx_policy.policy_or_goals : "";
+
+  const toolsCards = company.tools.map(t => {
+    if (!t.eval_onboarding) {
+      return `
+      <div class="tool-timeline-card">
+        <div class="tool-timeline-header">
+          <div class="tool-timeline-title">
+            <h3>${escapeHtml(t.name)}</h3>
+          </div>
+          <span class="tool-timeline-date">導入時期: ${escapeHtml(t.intro_date)}</span>
+        </div>
+        <p style="font-size: 14px; color: var(--muted); margin: 0; line-height: 1.6;">※本ツールの導入事例詳細・評価につきましては、提供会社の公式情報等をご確認ください。</p>
+        ${t.official_url ? `
+        <div style="margin-top: 20px; text-align: right;">
+          <a href="${escapeAttr(t.official_url)}" class="btn-official" target="_blank" rel="noopener noreferrer" style="font-size: 13px; padding: 8px 16px; min-height: auto;">公式の導入事例を見る</a>
+        </div>` : ""}
+      </div>
+      `;
+    }
+
+    const starsHtml = (count) => {
+      let stars = "";
+      for (let i = 0; i < 3; i++) {
+        if (i < count) {
+          stars += "<span>★</span>";
+        } else {
+          stars += '<span class="star-empty">★</span>';
+        }
+      }
+      return stars;
+    };
+
+    const frameworkGridHtml = `
+      <div class="case-framework-grid" style="margin-bottom: 24px;">
+        <div class="framework-card">
+          <h4>導入前の課題</h4>
+          <p>${escapeHtml(t.challenge)}</p>
+        </div>
+        <div class="framework-card">
+          <h4>選定理由</h4>
+          <p>${escapeHtml(t.reason)}</p>
+        </div>
+        <div class="framework-card">
+          <h4>実施内容・プロセス</h4>
+          <p>${escapeHtml(t.process)}</p>
+        </div>
+        <div class="framework-card">
+          <h4>得られた効果</h4>
+          <p>${escapeHtml(t.effect)}</p>
+        </div>
+      </div>
+    `;
+
+    return `
+    <div class="tool-timeline-card">
+      <div class="tool-timeline-header">
+        <div class="tool-timeline-title">
+          <h3>${escapeHtml(t.name)}</h3>
+        </div>
+        <span class="tool-timeline-date">導入時期: ${escapeHtml(t.intro_date)}</span>
+      </div>
+
+      <div class="tool-eval-summary" style="margin-bottom: 24px;">
+        <div class="evaluation-card">
+          <div class="evaluation-title">現場の定着しやすさ</div>
+          <div class="stars">${starsHtml(t.eval_onboarding.stars)}</div>
+          <p class="evaluation-desc">${escapeHtml(t.eval_onboarding.desc)}</p>
+        </div>
+        <div class="evaluation-card">
+          <div class="evaluation-title">コストパフォーマンス</div>
+          <div class="stars">${starsHtml(t.eval_cost_performance.stars)}</div>
+          <p class="evaluation-desc">${escapeHtml(t.eval_cost_performance.desc)}</p>
+        </div>
+        <div class="evaluation-card">
+          <div class="evaluation-title">業務効率化の幅</div>
+          <div class="stars">${starsHtml(t.eval_scope.stars)}</div>
+          <p class="evaluation-desc">${escapeHtml(t.eval_scope.desc)}</p>
+        </div>
+      </div>
+
+      ${frameworkGridHtml}
+
+      ${t.our_analysis ? `
+      <div class="our-analysis" style="margin-top: 24px;">
+        <h4>当サイトの独自考察とまとめ (${escapeHtml(t.name)})</h4>
+        <div class="our-analysis-content">
+          ${t.our_analysis.split("\n\n").map(para => `<p>${escapeHtml(para)}</p>`).join("")}
+        </div>
+      </div>` : ""}
+
+      ${t.official_url ? `
+      <div style="margin-top: 20px; text-align: right;">
+        <a href="${escapeAttr(t.official_url)}" class="btn-official" target="_blank" rel="noopener noreferrer" style="font-size: 13px; padding: 8px 16px; min-height: auto;">公式の導入事例を見る</a>
+      </div>` : ""}
+    </div>
+    `;
+  }).join("\n");
+
+  let relatedCompaniesHtml = "";
+  if (company.related_companies && company.related_companies.length > 0) {
+    const links = company.related_companies.map(rc => `
+      <span style="display:inline-block; font-weight: 800; font-size: 10.5px; color: var(--teal); background: #ccfbf1; padding: 2px 6px; border-radius: 4px; margin-right: 8px; vertical-align: middle;">${escapeHtml(rc.type_label)}</span>
+      <a href="${escapeAttr(rc.slug)}.html" style="color: var(--teal); font-weight: 700; text-decoration: underline; vertical-align: middle;">${escapeHtml(rc.company_name)} の事例を見る &gt;</a>
+    `).join("<br>");
+
+    relatedCompaniesHtml = `
+      <div class="related-companies-box" style="margin: 24px 0; padding: 16px 20px; background: #f0fdfa; border: 1px solid #ccfbf1; border-radius: 8px;">
+        <h4 style="margin: 0 0 8px; font-size: 13.5px; color: var(--teal); font-weight: 800; display: flex; align-items: center; gap: 6px;">
+          <span style="display:inline-block; width:3px; height:10px; background:var(--teal); border-radius:1px;"></span>
+          関連するグループ会社の事例
+        </h4>
+        <p style="margin: 0; font-size: 13px; line-height: 1.6; color: var(--graphite);">
+          ${links}
+        </p>
+      </div>
+    `;
+  }
+
+  let otherToolsHtml = "";
+  if (company.other_tools && company.other_tools.length > 0) {
+    otherToolsHtml = `
+      <div id="other-tools-info" class="other-tools-section" style="margin-top: 32px; padding: 20px; background: #fafaf9; border-radius: 8px; border: 1px solid var(--line);">
+        <h3 style="margin-top: 0; margin-bottom: 12px; font-size: 14px; color: var(--graphite); font-weight: 900; display: flex; align-items: center; gap: 8px;">
+          <span style="display:inline-block; width:10px; height:10px; background:#cbd5e1; border-radius:2px;"></span>
+          当サイト未掲載の他ツール導入情報
+        </h3>
+        <ul style="margin: 0; padding-left: 20px; font-size: 13.5px; color: var(--graphite); line-height: 1.7;">
+          ${company.other_tools.map(ot => `<li>${escapeHtml(ot)}</li>`).join("")}
+        </ul>
+      </div>
+    `;
+  }
+
+  const dxPolicyLinkHtml = company.dx_policy_source_url ? `
+    <div class="dx-policy-source" style="margin-top: 16px; text-align: right; font-size: 12px; color: var(--muted);">
+      参考情報：<a href="${escapeAttr(company.dx_policy_source_url)}" target="_blank" rel="noopener noreferrer" style="color: var(--teal); text-decoration: underline; font-weight: 700;">経営課題・DX方針に関する公表資料 &gt;</a>
+    </div>` : "";
+
+  const summarySectionHtml = company.page_summary ? `
+    <section id="case-summary" class="summary-section" style="margin-bottom: 32px; padding: 24px; background: linear-gradient(135deg, #f0fdfa 0%, #f8fafc 100%); border-radius: 12px; border: 1px solid #ccfbf1;">
+      <h2 style="margin-top: 0; margin-bottom: 12px; color: var(--teal); font-size: 18px; font-weight: 900; display: flex; align-items: center; gap: 8px;">
+        <span style="display:inline-block; width:4px; height:16px; background:var(--teal); border-radius:2px;"></span>
+        事例サマリー
+      </h2>
+      <p style="margin: 0; font-size: 14.5px; line-height: 1.7; color: var(--graphite); font-weight: 500;">
+        ${escapeHtml(company.page_summary)}
+      </p>
+    </section>
+  ` : "";
+
+  const pills = [
+    '<span class="pill">導入企業</span>',
+    ...company.tools.map(t => `<span class="pill">${escapeHtml(t.name)}</span>`)
+  ].join("");
+
+  const body = `
+    <div class="case-detail-container">
+      <nav class="breadcrumb" aria-label="ブレッドクラム">
+        <a href="../index.html">ホーム</a>
+        <span>&gt;</span>
+        <a href="index.html">活用事例</a>
+        <span>&gt;</span>
+        <span>${escapeHtml(company.company)} の事例</span>
+      </nav>
+
+      <section class="case-hero">
+        <div class="eyebrow-row">
+          ${pills}
+        </div>
+        <h1>活用事例 | ${escapeHtml(company.company)}</h1>
+        <div class="case-meta-grid">
+          <div class="case-meta-item">
+            <span class="case-meta-label">企業名</span>
+            <span class="case-meta-value">${escapeHtml(company.company)}</span>
+          </div>
+          <div class="case-meta-item">
+            <span class="case-meta-label">主なエリア</span>
+            <span class="case-meta-value">${escapeHtml(area)}</span>
+          </div>
+          <div class="case-meta-item">
+            <span class="case-meta-label">公式HP</span>
+            <span class="case-meta-value"><a href="${escapeAttr(hp_url)}" target="_blank" rel="noopener noreferrer" style="color: var(--teal); font-weight: 700; text-decoration: underline;">公式サイト &gt;</a></span>
+          </div>
+        </div>
+      </section>
+
+      <div class="content-grid">
+        <section id="company-profile" class="info-section">
+          ${summarySectionHtml}
+
+          <h2>企業概要</h2>
+          <div class="company-profile-grid">
+            <div class="company-profile-card">
+              <h3>事業概要</h3>
+              <p>${escapeHtml(business_overview)}</p>
+            </div>
+            <div class="company-profile-card">
+              <h3>アセット規模・種類</h3>
+              <p>${escapeHtml(asset_scale)}</p>
+            </div>
+          </div>
+
+          <div id="dx-policy-info" class="dx-policy-section" style="margin-top: 32px; padding-top: 32px; border-top: 1px solid var(--line);">
+            <h2>経営課題とDX方針</h2>
+            <div class="dx-policy-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 20px;">
+              <div class="dx-policy-card" style="background: #f8fafc; padding: 20px; border-radius: 8px; border: 1px solid var(--line);">
+                <h3 style="margin-top: 0; color: var(--graphite); font-size: 14.5px; font-weight: 900; display: flex; align-items: center; gap: 8px;">
+                  <span style="display:inline-block; width:4px; height:12px; background:var(--muted); border-radius:2px;"></span>
+                  経営・業務の課題
+                </h3>
+                <p style="margin: 8px 0 0; font-size: 13.5px; line-height: 1.6; color: var(--graphite);">${escapeHtml(challenge)}</p>
+              </div>
+              <div class="dx-policy-card" style="background: #f8fafc; padding: 20px; border-radius: 8px; border: 1px solid var(--line);">
+                <h3 style="margin-top: 0; color: var(--graphite); font-size: 14.5px; font-weight: 900; display: flex; align-items: center; gap: 8px;">
+                  <span style="display:inline-block; width:4px; height:12px; background:var(--teal); border-radius:2px;"></span>
+                  目指す目標
+                </h3>
+                <p style="margin: 8px 0 0; font-size: 13.5px; line-height: 1.6; color: var(--graphite);">${escapeHtml(goal)}</p>
+              </div>
+            </div>
+            <div class="dx-policy-cardfull" style="background: #fafaf9; padding: 20px; border-radius: 8px; border: 1px solid var(--line); margin-top: 20px;">
+              <h3 style="margin-top: 0; color: var(--graphite); font-size: 14.5px; font-weight: 900; display: flex; align-items: center; gap: 8px;">
+                <span style="display:inline-block; width:4px; height:12px; background:var(--teal); border-radius:2px;"></span>
+                DX方針・取り組み
+              </h3>
+              <p style="margin: 8px 0 0; font-size: 13.5px; line-height: 1.6; color: var(--graphite);">${escapeHtml(dx_policy)}</p>
+            </div>
+            ${dxPolicyLinkHtml}
+          </div>
+
+          <div id="financial-info" class="financials-section">
+            <h2>直近5年の財務情報</h2>
+            ${generateFinancialsChart(company.financials, company.financials_source_url)}
+
+            <div class="financial-analysis-box">
+              <h3>ツールの導入と財務状況の関連</h3>
+              <p>${escapeHtml(company.financial_status_change)}</p>
+            </div>
+          </div>
+
+          ${otherToolsHtml}
+
+          <h2 style="margin-top: 40px; margin-bottom: 20px;">導入ツールと活用事例</h2>
+          <div id="tools-timeline" class="tools-timeline">
+            ${toolsCards}
+          </div>
+        </section>
+      </div>
+
+      ${relatedCompaniesHtml}
+
+      <div class="cta-row">
+        <a href="index.html" class="btn-back">事例一覧に戻る</a>
+      </div>
+    </div>
+  `;
+
+  return pageShell({
+    title,
+    description,
+    canonical,
+    body,
+    relPath: "..",
+    structuredData: [{
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      headline: title,
+      description,
+      inLanguage: "ja",
+      mainEntityOfPage: canonical,
+      about: [{
+        "@type": "Organization",
+        name: company.company,
+        description: company.business_overview,
+        areaServed: company.area
+      }],
+      author: {
+        "@type": "Organization",
+        name: "不動産売買向けプロップテックガイド"
+      }
+    }]
+  });
+}
+
 await writeFile(
   join(dataDir, "data.js"),
   `window.proptechData = ${JSON.stringify(data, null, 2)};\n`,
   "utf8"
 );
 
+const casesDir = join(root, "cases");
+try {
+  const files = await readdir(casesDir);
+  for (const file of files) {
+    if (file !== "index.html") {
+      await unlink(join(casesDir, file));
+    }
+  }
+} catch (e) {
+  await mkdir(casesDir, { recursive: true });
+}
+
 await Promise.all([
   rm(join(root, "services"), { recursive: true, force: true }),
   rm(join(root, "columns"), { recursive: true, force: true }),
   rm(join(root, "comparisons"), { recursive: true, force: true })
+]);
+
+await Promise.all([
+  mkdir(join(root, "services"), { recursive: true }),
+  mkdir(join(root, "columns"), { recursive: true }),
+  mkdir(join(root, "comparisons"), { recursive: true })
 ]);
 
 for (const service of data.services) {
@@ -1107,4 +1882,9 @@ for (const comparison of data.serviceComparisons) {
   await writeFile(join(dir, "index.html"), comparisonPage(comparison), "utf8");
 }
 
+for (const company of data.companies) {
+  await writeFile(join(root, "cases", `${company.slug}.html`), companyPage(company), "utf8");
+}
+
+await writeFile(join(root, "cases", "index.html"), casesDirectoryPage(), "utf8");
 await writeFile(join(root, "sitemap.xml"), sitemapXml(), "utf8");

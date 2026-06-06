@@ -2,447 +2,1112 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://japan-proptech-guide.com/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/tools.html</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/band-tool.html</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/noi-calculator.html</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/dd-checklist.html</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://japan-proptech-guide.com/cases/</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://japan-proptech-guide.com/services/remetis/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/services/d-net/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/services/kj-net/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/services/release-platform/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/services/resport-cloud/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/services/r-e-data/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/services/r-e-repo/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/services/t2tr-comfort/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/services/index-map-cloud/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/services/nurve-vr-cloud/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/services/real-estate-checker/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/services/sre-ai-appraisal-cloud/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/services/sumasate/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/services/gate/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/services/deve-navi/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/services/tasuki-tech-land/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/services/tas-map/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/services/mansion-appraisal-system/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/services/land-appraisal-system/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/services/catalog-copy-service/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/services/mansion-market-plus/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/services/land-market-plus/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/services/facilo/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/services/forest-pro/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/services/ielove-cloud/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/services/e-seikatsu-baibai-cloud/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/services/atbb/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/services/smart-contract/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/services/digima/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/services/kasika/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/services/pickform/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/services/a-soko/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/services/toukibo-library/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/services/roov/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/services/spacely/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/services/office-research/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/services/wealthpark-business/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/services/gmo-chintai-dx/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/services/kanri-roid/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/services/andpad/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/services/kanna/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/services/spiderplus/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/services/musubell/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/services/vc-pro/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/services/rook2/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/columns/corporate-real-estate-sale-purpose/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/columns/property-information-checklist/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/columns/sale-price-appraisal-methods/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/columns/brokerage-contract-types/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/columns/property-due-diligence-points/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/columns/digital-important-matters-explanation/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/columns/sale-contract-key-terms/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/columns/real-estate-sourcing-process/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/columns/real-estate-dd-management/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/columns/business-plan-sensitivity-analysis/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/columns/pm-bm-reporting/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/columns/property-summary-sheet/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/columns/sale-activity-management/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/columns/price-validity-check/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/columns/rights-registration-check/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/columns/sales-materials-creation/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/columns/purchase-offer-submission/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/columns/first-client-interview/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/columns/repair-plan/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/columns/sales-proposal-ai-ads/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/columns/ad-compliance-check/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/columns/private-road-excavation-consent/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/columns/real-estate-business-efficiency/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/columns/building-code-special-exception-2025/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/columns/inquiry-response-follow-up/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/columns/seller-address-registration-check/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/columns/generative-ai-real-estate-use/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/columns/energy-performance-label/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/columns/identity-verification-before-contract/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/comparisons/property-management-system-comparison/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/comparisons/needs-matching-service-comparison/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/comparisons/ai-appraisal-service-comparison/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/comparisons/volume-check-service-comparison/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/comparisons/real-estate-crm-comparison/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/comparisons/real-estate-electronic-contract-comparison/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/comparisons/real-estate-appraisal-system-comparison/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/comparisons/real-estate-property-research-tool-comparison/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/comparisons/real-estate-lead-follow-up-tool-comparison/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://japan-proptech-guide.com/comparisons/it-subsidy-real-estate-tech-services-comparison/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/comparisons/comparison-11/</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/comparisons/comparison-12/</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/comparisons/comparison-13/</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/comparisons/comparison-14/</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/comparisons/comparison-15/</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/anabuki-kosan.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/jukobo-style.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/a-shin.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/mitsubishi-jisho-residence.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/rim-real-estate.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/misawa-home-estate.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/wada-corporation.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/miyoshi-fudosan.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/sogo-system-kanri.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/tc-shinko-estate-service.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/tokyu-fudosan.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/nomura-real-estate.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/create-estate.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/zin-realty.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/living-gallery.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/nihon-kanzai.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/space-agency.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/kurashi-works.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/joytech.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/pacific-real-estate.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/mitsui-fudosan-realty.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/keio-real-estate.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/utoc.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/appartement-agent.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/hirata-fudosan.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/tokyu-community.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/sanken-home.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/leben-corporation.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/relation-real-estate.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/alphas.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/tokyo-tatemono.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/tokyo-tatemono-rim.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/blog-digima-casestudy-asproperty.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/forest-openrm-interviews-inaa.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/facilo-case-03.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/chintaidx-case-230731.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/info-spacely-case-vivirealestate-vr.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/tasukicorp-news-13851.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/andpad-cases-urbanlife-zumen.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/chintaidx-case-250131.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/facilo-case-usui-home.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/pick-hp-pickform.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/panora-tokyo-45745.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/service-proptech-plus-case-studies-case-a3b25e4c8750.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/blog-digima-casestudy-danran-j.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/lvnmag-news-lvn-magazinenews-1663.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/blog-digima-casestudy-minatokutokaidori-housedo.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/blog-digima-casestudy-47realestate.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/blog-release-case-studies-case-fuji-jutaku.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/sumasate-example-010.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/andpad-cases-property-wako.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/es-service-topics-20241004.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/es-service-topics-20220324.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/remetis-case-studies-misawa-home.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/wealth-park-en-business-case-study-minorasu.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/tasukicorp-news-15794.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/wealth-park-ja-business-case-study-asahi-kasei.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/facilo-case-05.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/facilo-case-bwconsulting.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/facilo-case-core-chuorinkan.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/facilo-case-escompany.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/facilo-case-04.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/business-athome-service-smart-keiyaku.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/chintaidx-case-241203.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/ielove-cloud-case-detail44.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/tsukuru-ai-use-case-triad.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/facilo-case-arcrest.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/facilo-case-earth-juhan.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/blog-digima-casestudy-a-cross.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/tasukicorp-news-15975.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/blog-digima-casestudy-iine-estate.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/andpad-cases-inizio-life.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/forest-openrm-interviews-elion.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/facilo-case-grandalpha.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/wealth-park-ja-business-case-study-kosugi.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/andpad-cases-jaamenityhouse.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/lp-kanna4u-casestudy-suzukiland.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/facilo-case-08.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/forest-openrm-interviews-tsunashima-tokyo-bunkyo.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/wealth-park-ja-business-case-study-trust.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/andpad-cases-namiki.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/blog-digima-casestudy-nanyo-housedo.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/facilo-case-hellohome.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/styleport-news-3211.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/remetis-case-studies-fujita-corporation.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/andpad-cases-bluebox.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/facilo-case-02.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/andpad-cases-frontier-house.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/andpad-cases-fronthousing.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/chintaidx-case-20250619.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/blog-digima-casestudy-maves.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/andpad-cases-maintech.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/es-service-topics-20201015-2.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/tsukuru-ai-use-case-ratel-partners.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/andpad-cases-regard-home.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/wealth-park-en-business-case-study-leopalace21.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/ielove-cloud-news-entry-686.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/facilo-case-eidaihousekogyo.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/blog-digima-casestudy-otokuni-fudosan.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/sre-ai-partners-service-srecloud-aisateicloud-case-study2.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/blog-release-case-studies-case-studies-soutaku.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/wealth-park-ja-business-case-study-taiko-fudosan.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/andpad-cases-nihonzaitaku.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/business-athome-service-smart-keiyaku-2.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/andpad-cases-nakajitsu.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/wealth-park-tc-business-case-study-hirota.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/ai-gate-blog-2033.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/remetis-case-studies-toyoshiki-realestate.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/sre-ai-partners-service-srecloud-aisateicloud-case-study.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/tsukuru-ai-deve-navi-use-case-jr-kyushu.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/lp-kanna4u-casestudy-mitsui-designtec.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/wealth-park-sc-business-case-study-mfrl.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/ai-gate-blog-329.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/facilo-case-01.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/ai-gate-blog-1459.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/remetis-case-studies-sumitomo-corporation.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/remetis-case-studies-mori-trust.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/remetis-case-studies-shimizu-corporation.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/styleport-news-2719.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/facilo-case-tokai-jutaku.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/styleport-news-2274.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/athome-corporate-news-release-services-tobufudosan-smart-moushikomi-202105.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/facilo-case-tohohouse-kokubunji.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/sumasate-example-011.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/tsukuru-ai-use-case-n-jk.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/nurve-news-pr-20181029-htm.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://japan-proptech-guide.com/cases/lp-kanna4u-casestudy-nomura-pt-pm.html</loc>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
   </url>
 </urlset>
