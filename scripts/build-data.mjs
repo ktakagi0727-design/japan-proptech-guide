@@ -125,6 +125,7 @@ const escapeHtml = (value = "") => value.toString()
   .replaceAll("'", "&#39;");
 
 const escapeAttr = escapeHtml;
+const cleanGeneratedHtml = (value) => value.replace(/[ \t]+$/gm, "");
 const asciiSlug = (value = "") => value
   .toString()
   .normalize("NFKD")
@@ -1541,7 +1542,7 @@ function companyPage(company) {
 
   const canonical = `${siteUrl}/cases/${company.slug}.html`;
   const title = `${company.company}のプロップテック導入事例・企業概要 | 不動産売買向けプロップテックガイド`;
-  const description = `${company.company}のプロップテック（不動産テック）導入事例詳細。事業概要、アセット規模、主なエリア、直近5年の財務情報、各ツールの導入時期と効果を掲載。`;
+  const description = truncate(company.page_summary || `${company.company}のプロップテック（不動産テック）導入事例、事業概要、DX方針、導入サービスと公開事例を整理しています。`, 155);
 
   const area = company.main_area || "";
   const hp_url = company.homepage_url || "";
@@ -1553,15 +1554,27 @@ function companyPage(company) {
 
   const toolsCards = company.tools.map(t => {
     if (!t.eval_onboarding) {
+      const scope = [t.process, ...(t.tasks || [])].filter(Boolean);
+      const caseSummary = t.summary || "提供会社などが公開している導入事例をもとに、確認できる活用内容を整理しています。";
+      const caseMeta = [t.provider ? `提供会社: ${t.provider}` : "", ...scope].filter(Boolean);
       return `
       <div class="tool-timeline-card">
         <div class="tool-timeline-header">
           <div class="tool-timeline-title">
             <h3>${escapeHtml(t.name)}</h3>
           </div>
-          <span class="tool-timeline-date">導入時期: ${escapeHtml(t.intro_date)}</span>
+          <span class="tool-timeline-date">${t.intro_date && t.intro_date !== "要確認" ? `導入時期: ${escapeHtml(t.intro_date)}` : "公開事例あり"}</span>
         </div>
-        <p style="font-size: 14px; color: var(--muted); margin: 0; line-height: 1.6;">※本ツールの導入事例詳細・評価につきましては、提供会社の公式情報等をご確認ください。</p>
+        <div class="case-framework-grid">
+          <div class="framework-card">
+            <h4>公開事例で確認できる活用</h4>
+            <p>${escapeHtml(caseSummary)}</p>
+          </div>
+          <div class="framework-card">
+            <h4>提供会社・対象業務</h4>
+            <p>${escapeHtml(caseMeta.join(" / ") || "公式事例で詳細をご確認ください。")}</p>
+          </div>
+        </div>
         ${t.official_url ? `
         <div style="margin-top: 20px; text-align: right;">
           <a href="${escapeAttr(t.official_url)}" class="btn-official" target="_blank" rel="noopener noreferrer" style="font-size: 13px; padding: 8px 16px; min-height: auto;">公式の導入事例を見る</a>
@@ -1781,7 +1794,7 @@ function companyPage(company) {
           </div>
 
           <div id="financial-info" class="financials-section">
-            <h2>直近5年の財務情報</h2>
+            <h2>財務情報</h2>
             ${generateFinancialsChart(company.financials, company.financials_source_url)}
 
             <div class="financial-analysis-box">
@@ -1867,24 +1880,24 @@ await Promise.all([
 for (const service of data.services) {
   const dir = join(root, "services", service.slug);
   await mkdir(dir, { recursive: true });
-  await writeFile(join(dir, "index.html"), servicePage(service), "utf8");
+  await writeFile(join(dir, "index.html"), cleanGeneratedHtml(servicePage(service)), "utf8");
 }
 
 for (const column of data.columns) {
   const dir = join(root, "columns", column.slug);
   await mkdir(dir, { recursive: true });
-  await writeFile(join(dir, "index.html"), columnPage(column), "utf8");
+  await writeFile(join(dir, "index.html"), cleanGeneratedHtml(columnPage(column)), "utf8");
 }
 
 for (const comparison of data.serviceComparisons) {
   const dir = join(root, "comparisons", comparison.slug);
   await mkdir(dir, { recursive: true });
-  await writeFile(join(dir, "index.html"), comparisonPage(comparison), "utf8");
+  await writeFile(join(dir, "index.html"), cleanGeneratedHtml(comparisonPage(comparison)), "utf8");
 }
 
 for (const company of data.companies) {
-  await writeFile(join(root, "cases", `${company.slug}.html`), companyPage(company), "utf8");
+  await writeFile(join(root, "cases", `${company.slug}.html`), cleanGeneratedHtml(companyPage(company)), "utf8");
 }
 
-await writeFile(join(root, "cases", "index.html"), casesDirectoryPage(), "utf8");
+await writeFile(join(root, "cases", "index.html"), cleanGeneratedHtml(casesDirectoryPage()), "utf8");
 await writeFile(join(root, "sitemap.xml"), sitemapXml(), "utf8");

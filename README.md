@@ -121,6 +121,11 @@ Google Analytics 4でアクセス数を測定できます。
 ## データ更新手順
 
 1. `data/services.csv`、`data/cases.csv`、`data/news.csv`、`data/columns.csv`、`data/column-sources.csv` を編集する
-2. サービス詳細用の構造化列を初期補完する場合は `node scripts/enrich-services.mjs` を実行する
-3. `node scripts/build-data.mjs` を実行する
-4. 生成された `data/data.js`、`services/*/index.html`、`columns/*/index.html`、`sitemap.xml` とサイト表示を確認する
+2. `scratch/batch*.json` に会社調査を追加した場合は `node scripts/merge-company-research.mjs` を実行する
+3. サービス詳細用の構造化列を初期補完する場合は `node scripts/enrich-services.mjs` を実行する
+4. `node scripts/build-data.mjs` を実行する
+5. 生成された `data/data.js`、`services/*/index.html`、`columns/*/index.html`、`cases/*.html`、`sitemap.xml` とサイト表示を確認する
+
+## 公開設定
+
+GitHubとNetlifyの接続・復旧方法は、[`docs/github-netlify-connection.md`](docs/github-netlify-connection.md)を参照してください。
