@@ -1,0 +1,103 @@
+[
+  {
+    "slug": "nomura-pt-pm",
+    "company": "野村不動産パートナーズ株式会社",
+    "other_tools": [
+      "管理ロイド",
+      "SPIDERPLUS",
+      "kintone",
+      "ロボパット"
+    ]
+  },
+  {
+    "slug": "mitsui-designtec",
+    "company": "三井デザインテック株式会社",
+    "other_tools": [
+      "Photoruction",
+      "Akerun",
+      "AWS"
+    ]
+  },
+  {
+    "slug": "howseek",
+    "company": "株式会社ハウシーク",
+    "other_tools": [
+      "Digima",
+      "LINE",
+      "Zoom"
+    ]
+  },
+  {
+    "slug": "asproperty",
+    "company": "ASプロパティ株式会社",
+    "other_tools": [
+      "LINE",
+      "SUUMO",
+      "at home"
+    ]
+  },
+  {
+    "slug": "kw-tokyo",
+    "company": "KW Tokyo",
+    "other_tools": [
+      "いえらぶCLOUD",
+      "Facilo",
+      "KW Command"
+    ]
+  },
+  {
+    "slug": "kizuna-factory",
+    "company": "株式会社ＫＩＺＵＮＡ ＦＡＣＴＯＲＹ",
+    "other_tools": [
+      "Facilo",
+      "LINE",
+      "YouTube"
+    ]
+  },
+  {
+    "slug": "kansai-fudosan-hanbai",
+    "company": "関西不動産販売株式会社",
+    "other_tools": [
+      "SRE AI査定CLOUD",
+      "ALTA Revolution",
+      "RPA"
+    ]
+  },
+  {
+    "slug": "sankei-jisho",
+    "company": "株式会社三恵地所",
+    "other_tools": [
+      "SRE AI査定CLOUD",
+      "LINE",
+      "Zoom"
+    ]
+  },
+  {
+    "slug": "mitsubishi-ufj-real-estate-sales",
+    "company": "三菱UFJ不動産販売株式会社",
+    "other_tools": [
+      "Gate.",
+      "Facilo",
+      "Salesforce",
+      "kintone"
+    ]
+  },
+  {
+    "slug": "sora-home",
+    "company": "株式会社SORAホーム",
+    "other_tools": [
+      "いえらぶCLOUD",
+      "LINE",
+      "Zoom"
+    ]
+  },
+  {
+    "slug": "myhome-group",
+    "company": "マイホームグループ",
+    "other_tools": [
+      "ESいい物件One",
+      "ESいい物件One ウェブサイトFlex",
+      "RPA"
+    ]
+  }
+]

@@ -1,0 +1,57 @@
+[
+  {
+    "slug": "jukobo-style",
+    "company": "株式会社住工房スタイル",
+    "other_tools": ["plantable", "KASIKA", "Patio"]
+  },
+  {
+    "slug": "a-shin",
+    "company": "株式会社エーシン",
+    "other_tools": ["KASIKA", "Google AppSheet", "Zoom"]
+  },
+  {
+    "slug": "rim-real-estate",
+    "company": "株式会社リム不動産",
+    "other_tools": ["ATBB", "LINE", "Instagram"]
+  },
+  {
+    "slug": "create-estate",
+    "company": "株式会社クリエイト",
+    "other_tools": ["LINE", "Word", "Excel"]
+  },
+  {
+    "slug": "zin-realty",
+    "company": "株式会社仁リアルティ",
+    "other_tools": ["Facilo", "LINE", "YouTube", "Excel"]
+  },
+  {
+    "slug": "kurashi-works",
+    "company": "株式会社暮らしワークス",
+    "other_tools": ["Facilo", "LINE"]
+  },
+  {
+    "slug": "joytech",
+    "company": "株式会社ジョイテック",
+    "other_tools": ["GMO賃貸DX", "内見予約くん", "申込受付くん", "参謀くん"]
+  },
+  {
+    "slug": "pacific-real-estate",
+    "company": "パシフィック不動産株式会社",
+    "other_tools": ["Facilo", "FaceTouch", "Zoom", "LINE"]
+  },
+  {
+    "slug": "appartement-agent",
+    "company": "アパルトマンエージェント株式会社",
+    "other_tools": ["カクシンクラウド", "GMO賃貸DX", "totono", "Gate.", "kintone", "Zoom", "LINE"]
+  },
+  {
+    "slug": "hirata-fudosan",
+    "company": "株式会社平田不動産",
+    "other_tools": ["WealthParkビジネス", "スペースリー", "YouTube"]
+  },
+  {
+    "slug": "sanken-home",
+    "company": "三建ホーム株式会社",
+    "other_tools": ["Digima", "セールスパフォーマー"]
+  }
+]

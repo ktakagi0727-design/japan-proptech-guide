@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Japan PropTech Guide | 不動産売買テック100</title>
+    <meta name="description" content="日本の不動産売買に関わるPropTechサービス100件を、カテゴリ、ニュース、導入事例と一緒に整理した実務向けガイド。">
+    <meta property="og:title" content="Japan PropTech Guide | 不動産売買テック100">
+    <meta property="og:description" content="売買仲介、査定、マーケット情報、AI OCR、登記情報、電子契約、CRMなどを横断して比較できる不動産テック一覧。">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/proptech-hero.png">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header class="site-header" data-header>
+      <a class="brand" href="#top" aria-label="Japan PropTech Guide">
+        <span class="brand-mark">JP</span>
+        <span>PropTech Guide</span>
+      </a>
+      <nav class="nav" aria-label="主要ナビゲーション">
+        <a href="#services">100サービス</a>
+        <a href="#news">ニュース</a>
+        <a href="#cases">導入事例</a>
+        <a href="#sources">出典</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <img class="hero-image" src="assets/proptech-hero.png" alt="都市と不動産データを重ねたPropTechのイメージ">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <p class="eyebrow">Updated for 2026</p>
+          <h1>不動産売買の現場で使うPropTechを、100サービスで見渡す。</h1>
+          <p class="lead">売買仲介、査定、物件調査、マーケット情報、AI OCR、登記情報、電子契約、営業CRMまで。導入検討の最初の棚卸しに使えるよう、カテゴリ別に整理しました。</p>
+          <div class="hero-actions">
+            <a class="primary-action" href="#services">サービスを見る</a>
+            <a class="secondary-action" href="#cases">導入事例を見る</a>
+          </div>
+        </div>
+        <aside class="market-card" aria-label="掲載概要">
+          <span>掲載サービス</span>
+          <strong><span data-service-count>100</span> 件</strong>
+          <small>売買仲介、査定、調査、契約、登記、データ活用まで横断整理。</small>
+        </aside>
+      </section>
+
+      <section class="section overview">
+        <div class="section-heading">
+          <p class="eyebrow">Market View</p>
+          <h2>売買のDXは「集客」だけでなく、調査、査定、契約、登記情報まで広がっています。</h2>
+        </div>
+        <div class="overview-grid">
+          <article>
+            <span class="metric">528</span>
+            <h3>不動産テック協会カオスマップ</h3>
+            <p>第11版の発表では、掲載サービス数が528件と公表されています。市場全体を見ながら、ここでは売買・取引関連を中心に抽出しています。</p>
+          </article>
+          <article>
+            <span class="metric">14</span>
+            <h3>拡張カテゴリ</h3>
+            <p>必須指定の「マーケット情報」「AI OCR」「登記情報」を含め、導入検討で使いやすいカテゴリへ再整理しました。</p>
+          </article>
+          <article>
+            <span class="metric">B2B/B2C</span>
+            <h3>仲介・開発・管理を横断</h3>
+            <p>個人向けポータルだけでなく、仲介会社、デベロッパー、AM、金融機関、物流不動産向けサービスも並べて比較できます。</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="services" class="section services">
+        <div class="section-heading row">
+          <div>
+            <p class="eyebrow">Service Directory</p>
+            <h2>不動産売買テック100サービス</h2>
+          </div>
+          <label class="search-box">
+            <span>検索</span>
+            <input type="search" placeholder="例: 査定、登記、CRM、REMETIS" data-search>
+          </label>
+        </div>
+        <div class="filters" aria-label="カテゴリフィルター" data-filters></div>
+        <div class="result-line"><span data-result-count></span></div>
+        <div class="service-grid" data-service-grid></div>
+      </section>
+
+      <section id="news" class="section news">
+        <div class="section-heading row">
+          <div>
+            <p class="eyebrow">News Watch</p>
+            <h2>不動産テック関連ニュース</h2>
+          </div>
+          <p class="section-note">公式発表や業界メディアを中心に、売買・契約・AI・業務DXに関わる動きを掲載しています。</p>
+        </div>
+        <ol class="news-list" data-news-list></ol>
+        <div class="pagination" data-news-pagination aria-label="ニュースページ切り替え"></div>
+      </section>
+
+      <section id="cases" class="section cases">
+        <div class="section-heading">
+          <p class="eyebrow">Case Studies</p>
+          <h2>WEB上にある導入事例を業種別に整理</h2>
+        </div>
+        <div class="case-tabs" aria-label="業種別フィルター" data-case-tabs></div>
+        <div class="case-grid" data-case-grid></div>
+      </section>
+
+      <section class="section compare">
+        <div class="section-heading">
+          <p class="eyebrow">How To Compare</p>
+          <h2>導入前に見るべき比較軸</h2>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>検討領域</th>
+                <th>見るべきポイント</th>
+                <th>代表カテゴリ</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>売買仲介の営業生産性</td>
+                <td>顧客接点、提案資料、活動報告、追客、媒介獲得までを一気通貫で扱えるか。</td>
+                <td>売買仲介、CRM、電子契約</td>
+              </tr>
+              <tr>
+                <td>査定・価格根拠</td>
+                <td>成約事例、周辺相場、賃料、地価、AI推定、説明可能性を確認。</td>
+                <td>価格査定、マーケット情報</td>
+              </tr>
+              <tr>
+                <td>物件調査・登記</td>
+                <td>登記簿、公図、用途地域、ハザード、法規制、所有者情報まで調査フローに入るか。</td>
+                <td>物件調査、登記情報、AI OCR</td>
+              </tr>
+              <tr>
+                <td>契約・本人確認</td>
+                <td>宅建業法対応、電子署名、eKYC、社内申請、監査ログ、書類テンプレートを確認。</td>
+                <td>電子契約、本人確認</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="sources" class="section sources">
+        <div class="section-heading">
+          <p class="eyebrow">Sources</p>
+          <h2>主な参照元</h2>
+        </div>
+        <ul>
+          <li><a href="https://prtimes.jp/main/html/rd/p/000000065.000038545.html" target="_blank" rel="noreferrer">不動産テック協会「不動産テックカオスマップ第11版」発表</a></li>
+          <li><a href="https://retechjapan.org/img/chaos_map_20250822.pdf" target="_blank" rel="noreferrer">不動産テック カオスマップ第11版 PDF</a></li>
+          <li><a href="https://www.remetis.jp/" target="_blank" rel="noreferrer">REMETIS 公式サイト・導入事例</a></li>
+          <li><a href="https://www.vortex-net.com/service/officeresearch/" target="_blank" rel="noreferrer">OFFICE RESEARCH 公式ページ</a></li>
+          <li><a href="https://sumasate.jp/" target="_blank" rel="noreferrer">スマサテ 公式サイト</a></li>
+          <li><a href="https://evort.jp/idea-log/product/asoko" target="_blank" rel="noreferrer">ア・ソコ 紹介記事</a></li>
+          <li><a href="https://www.facilo.jp/case" target="_blank" rel="noreferrer">Facilo 導入事例</a></li>
+          <li><a href="https://www.musubell.com/case/" target="_blank" rel="noreferrer">Musubell 導入事例</a></li>
+          <li><a href="https://pick-hp.com/pickform" target="_blank" rel="noreferrer">PICKFORM 公式ページ</a></li>
+          <li><a href="https://www.scsk.jp/sp/realestate/case-study/" target="_blank" rel="noreferrer">SCSK 不動産業界向け導入事例</a></li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Japan PropTech Guide</p>
+      <p>掲載内容は公開情報をもとにした調査メモです。導入・投資判断では各社の最新条件を確認してください。</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

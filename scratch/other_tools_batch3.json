@@ -1,0 +1,110 @@
+[
+  {
+    "slug": "kosugi-fudosan",
+    "company": "株式会社コスギ不動産",
+    "other_tools": [
+      "キマルーム",
+      "WealthPark",
+      "totono",
+      "i-SP",
+      "MJS DX Cloud",
+      "Webex Calling"
+    ]
+  },
+  {
+    "slug": "asahi-kasei-real-estate-residence",
+    "company": "旭化成不動産レジデンス株式会社",
+    "other_tools": [
+      "homehub",
+      "WealthParkビジネス",
+      "ServiceNow",
+      "Salesforce"
+    ]
+  },
+  {
+    "slug": "leopalace21",
+    "company": "株式会社レオパレス21",
+    "other_tools": [
+      "ailead",
+      "ANDPAD",
+      "PKSHA Voicebot",
+      "Cuenote FC",
+      "Microsoft Azure"
+    ]
+  },
+  {
+    "slug": "minorasu-fudosan",
+    "company": "ミノラス不動産株式会社",
+    "other_tools": [
+      "スマサテ",
+      "WealthPark",
+      "Gate.",
+      "スタッフレスMINI",
+      "スペースリー",
+      "SmartHR"
+    ]
+  },
+  {
+    "slug": "nitoh",
+    "company": "NITOH株式会社",
+    "other_tools": [
+      "Salesforce",
+      "GMO賃貸DX オーナーアプリ"
+    ]
+  },
+  {
+    "slug": "pm-labo",
+    "company": "株式会社PM Labo",
+    "other_tools": [
+      "GMO賃貸DX 入居者アプリ",
+      "いえらぶ"
+    ]
+  },
+  {
+    "slug": "maruyoshi",
+    "company": "株式会社マルヨシ",
+    "other_tools": [
+      "GMO賃貸DX オーナーアプリ",
+      "GMO賃貸DX 入居者アプリ"
+    ]
+  },
+  {
+    "slug": "urbanlife",
+    "company": "アーバンライフ株式会社",
+    "other_tools": [
+      "ANDPAD",
+      "PICKFORM",
+      "Zoom"
+    ]
+  },
+  {
+    "slug": "inizio-life",
+    "company": "株式会社イニシオ・ライフサービス",
+    "other_tools": [
+      "オーナー提案AIロボⅡ",
+      "ANDPAD",
+      "at PARKING 月極パートナーシステム",
+      "くらさぽコネクト"
+    ]
+  },
+  {
+    "slug": "property-wako",
+    "company": "プロパティワコー株式会社",
+    "other_tools": [
+      "いい生活賃貸管理クラウド",
+      "Park Direct",
+      "カクシンクラウド"
+    ]
+  },
+  {
+    "slug": "jaamenityhouse",
+    "company": "株式会社ジェイエーアメニティーハウス",
+    "other_tools": [
+      "GMO賃貸DX オーナーアプリ",
+      "Park Direct",
+      "ANDPAD",
+      "Qosmos",
+      "OPELO"
+    ]
+  }
+]

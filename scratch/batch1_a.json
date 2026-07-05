@@ -1,0 +1,303 @@
+[
+  {
+    "company": "株式会社フジタ",
+    "slug": "fujita-corporation",
+    "homepage_url": "https://www.fujita.co.jp/",
+    "business_summary": "大和ハウスグループに属する準大手の総合建設会社（ゼネコン）であり、国内外で建築・土木事業や都市開発を展開している。",
+    "asset_scale": "非公開（大和ハウスグループ。資本金15,709百万円）",
+    "main_area": "全国・グローバル",
+    "dx_policy": {
+      "challenges": "建設業界の人手不足や2024年問題への対応、物件情報の手入力・収集・整理業務における属人化や非効率性。",
+      "goals": "AIやデジタル技術を用いた業務プロセスの可視化と自動化により、投資事業部の案件登録・情報共有などの業務を効率化すること。",
+      "policy_or_goals": "「業務改革による生産性向上」を掲げ、REMETISなどの不動産テックの導入により、物件データの一元化と若手社員へのノウハウ継承を進める。"
+    },
+    "other_tools": [
+      "Teams",
+      "Zoom",
+      "LINE WORKS",
+      "Microsoft 365"
+    ],
+    "financials": [
+      {
+        "year": "2024年3月期",
+        "sales": "591,100百万円",
+        "profit": "22,100百万円 (連結営業利益)"
+      },
+      {
+        "year": "2023年3月期",
+        "sales": "580,800百万円",
+        "profit": "18,300百万円 (連結営業利益)"
+      }
+    ],
+    "financials_source_url": "https://www.fujita.co.jp/corporate/settlement/",
+    "dx_policy_source_url": "https://www.remetis.jp/case-studies/fujita-corporation/",
+    "page_summary": "準大手ゼネコンの投資開発部門において、物件情報の収集や登録、進捗共有を効率化するために不動産テックツール（REMETIS）を導入した事例。",
+    "financial_status_change": "大和ハウスグループ傘下において売上高は約5,900億円規模と堅調に推移しており、ツール導入による案件管理業務のデジタル化が進むことで、営業・投資判断の迅速化とコスト削減に寄与しています。"
+  },
+  {
+    "company": "株式会社豊四季不動産",
+    "slug": "toyoshiki-realestate",
+    "homepage_url": "https://toyoshiki-f.co.jp/",
+    "business_summary": "千葉県柏市を中心に、不動産の売買仲介、賃貸管理、リフォームなどを地域密着で提供する不動産会社である。",
+    "asset_scale": "非公開",
+    "main_area": "千葉県柏市およびその周辺",
+    "dx_policy": {
+      "challenges": "不動産情報のデータベース化が進んでおらず、物件情報の比較や分析、顧客提案の準備に多大な時間と労力がかかっていたこと。",
+      "goals": "不動産情報をデジタル化して一元管理し、顧客への提案スピードと質の向上、および業務効率化を実現すること。",
+      "policy_or_goals": "REMETISの導入により社内データ利活用体制を整備し、地域に密着したスピーディな顧客対応を目指す。"
+    },
+    "other_tools": [],
+    "financials": [
+      {
+        "year": "近年の業績",
+        "sales": "非上場のため非公開",
+        "profit": "非公開。安定した受注/管理体制を維持"
+      }
+    ],
+    "financials_source_url": "https://toyoshiki-f.co.jp/",
+    "dx_policy_source_url": "https://www.remetis.jp/case-studies/toyoshiki-realestate/",
+    "page_summary": "地域密着型の不動産仲介会社において、不動産テックツール（REMETIS）の導入による物件提案スピードの向上と情報管理効率化の取り組みを紹介した事例。",
+    "financial_status_change": "非公開企業のため、ITツールの導入による財務状況への具体的な変動数値は公表されていない。"
+  },
+  {
+    "company": "森トラスト株式会社",
+    "slug": "mori-trust",
+    "homepage_url": "https://www.mori-trust.co.jp/",
+    "business_summary": "日本を代表する総合デベロッパーであり、オフィスビルや都市型大型開発、高級ホテル・リゾート開発、投資事業などを展開している。",
+    "asset_scale": "総資産：約1兆4,923億円(2024年3月末時点)。賃貸ビル・ホテル等の安定的な不動産資産を保有。",
+    "main_area": "首都圏中心（東京・虎ノ門、赤坂、六本木など）および全国の主要観光地",
+    "dx_policy": {
+      "challenges": "不動産情報の多様化 and 膨大なデータ処理による分析負荷の上昇、および投資検討プロセスの効率化と情報共有の迅速化。",
+      "goals": "不動産データベースの構築とAI分析ツールの導入による、物件情報の即時可視化と意思決定のスピードアップ。",
+      "policy_or_goals": "「DX推進による意思決定の迅速化」を掲げ、REMETISなどの不動産テックの導入により、開発案件情報の一元管理と投資検討業務の高度化を目指す。"
+    },
+    "other_tools": [],
+    "financials": [
+      {
+        "year": "2024年3月期",
+        "sales": "262,900百万円",
+        "profit": "53,800百万円 (連結営業利益)"
+      },
+      {
+        "year": "2023年3月期",
+        "sales": "266,600百万円",
+        "profit": "65,500百万円 (連結営業利益)"
+      }
+    ],
+    "financials_source_url": "https://www.mori-trust.co.jp/corporate/financial/",
+    "dx_policy_source_url": "https://www.remetis.jp/case-studies/mori-trust/",
+    "page_summary": "大手総合デベロッパーにおける不動産情報管理のデジタル化と、不動産テック（REMETIS）の導入による投資意思決定プロセスの効率化を解説した事例。",
+    "financial_status_change": "連結営業利益は前年度比で減少しているが、主力事業である賃貸およびホテル関連は過去最高の収益を更新しており、ツール導入による意思決定の迅速化が高稼働率の維持に貢献している。"
+  },
+  {
+    "company": "住友商事株式会社",
+    "slug": "sumitomo-corporation",
+    "homepage_url": "https://www.sumitomocorp.com/",
+    "business_summary": "住友グループの大手総合商社であり、グローバルなネットワークを活用して不動産開発、都市開発、物流施設開発など幅広い投資事業を展開している。",
+    "asset_scale": "非公開（総資産10兆円超の大手総合商社、不動産・開発部門でも大規模なビル・商業・物流施設を運用）",
+    "main_area": "全国主要都市および海外（グローバル）",
+    "dx_policy": {
+      "challenges": "市場の広域化と物件データの複雑化に伴う情報処理の負荷増大、および各組織に分散する不動産情報の共有・標準化。",
+      "goals": "投資案件情報の一元化と瞬時の可視化により、投資意思決定プロセスを加速し、変化の速い不動産市場に対応すること。",
+      "policy_or_goals": "グループ全体のデジタル変革（DX）の一環として、不動産テック（REMETIS）などの先端ソリューションを活用した情報収集の効率化と高度化を図る。"
+    },
+    "other_tools": [
+      "Salesforce",
+      "Microsoft 365",
+      "Teams",
+      "Zoom"
+    ],
+    "financials": [
+      {
+        "year": "2024年3月期",
+        "sales": "6,910,300百万円",
+        "profit": "386,400百万円 (親会社の所有者に帰属する当期利益)"
+      },
+      {
+        "year": "2023年3月期",
+        "sales": "6,817,900百万円",
+        "profit": "565,200百万円 (親会社の所有者に帰属する当期利益)"
+      }
+    ],
+    "financials_source_url": "https://www.sumitomocorp.com/ja/jp/ir",
+    "dx_policy_source_url": "https://www.remetis.jp/case-studies/sumitomo-corporation/",
+    "page_summary": "大手総合商社の都市開発部門における、広範囲にわたる不動産情報や市場データの一元管理と、REMETISによる投資プロセス効率化の事例。",
+    "financial_status_change": "グループ全体で約7兆円規模の収益を上げており、先端的なITプラットフォームの活用により各部署の情報連携が円滑化され、優良案件のソーシング能力と収益効率の向上を支援しています。"
+  },
+  {
+    "company": "清水建設株式会社",
+    "slug": "shimizu-corporation",
+    "homepage_url": "https://www.shimz.co.jp/",
+    "business_summary": "日本を代表する大手総合建設会社（スーパーゼネコン）であり、建築・土木工事の請負を中心に、不動産開発や環境・エネルギー事業を展開している。",
+    "asset_scale": "非公開（スーパーゼネコンの一角。資本金86,750百万円）",
+    "main_area": "全国およびグローバル",
+    "dx_policy": {
+      "challenges": "不動産開発案件の立案において、過去データや市場環境情報の収集・分析に多くの時間がかかり、初期提案のスピード向上が必要であったこと。",
+      "goals": "土地情報や都市開発関連データを一元管理し、開発企画段階での情報分析を高速化・高度化すること。",
+      "policy_or_goals": "「建設・開発プロセスのデジタル化」に取り組み、REMETISなどの外部プロップテックツールを導入して社内ノウハウと公開データの一体的な分析環境を整備する。"
+    },
+    "other_tools": [
+      "Teams",
+      "Microsoft 365",
+      "Zoom"
+    ],
+    "financials": [
+      {
+        "year": "2024年3月期",
+        "sales": "2,055,500百万円",
+        "profit": "-24,600百万円 (連結営業損失)"
+      },
+      {
+        "year": "2023年3月期",
+        "sales": "1,933,800百万円",
+        "profit": "54,600百万円 (連結営業利益)"
+      }
+    ],
+    "financials_source_url": "https://www.shimz.co.jp/ir/",
+    "dx_policy_source_url": "https://www.remetis.jp/case-studies/shimizu-corporation/",
+    "page_summary": "大手ゼネコンの開発部門において、開発ポテンシャルの分析や企画立案の初期段階におけるデータ収集業務を効率化するためREMETISを導入した事例。",
+    "financial_status_change": "資材高騰等により2024年3月期は営業損失を計上しましたが、開発部門でのデジタル変革によるリサーチの効率化は、採算性の高い良質な案件選定と営業プロセスの圧縮に寄与しています。"
+  },
+  {
+    "company": "ミサワホーム株式会社",
+    "slug": "misawa-home",
+    "homepage_url": "https://www.misawa.co.jp/",
+    "business_summary": "プライムライフテクノロジーズグループに属する大手ハウスメーカーであり、注文住宅・分譲住宅の供給のほか、資産活用や不動産仲介などを幅広く展開している。",
+    "asset_scale": "非公開（プライムライフテクノロジーズ傘下の主要企業。資本金10,000百万円）",
+    "main_area": "全国主要都市",
+    "dx_policy": {
+      "challenges": "不動産仲介・開発事業における土地情報や市場価格の調査にかかる手間、および営業店舗間での情報共有不足。",
+      "goals": "不動産データの一元管理とデジタルマップ上での視覚的分析により、土地仕入れや物件提案の迅速化を図ること。",
+      "policy_or_goals": "グループで推進する住まいと街づくりのイノベーションに向け、REMETISなどの不動産テックの導入により土地リサーチ業務を高度化・デジタル化する。"
+    },
+    "other_tools": [],
+    "financials": [
+      {
+        "year": "2024年3月期",
+        "sales": "430,300百万円",
+        "profit": "15,100百万円 (連結営業利益)"
+      },
+      {
+        "year": "2023年3月期",
+        "sales": "421,500百万円",
+        "profit": "16,600百万円 (連結営業利益)"
+      }
+    ],
+    "financials_source_url": "https://www.misawa.co.jp/corporate/ir/",
+    "dx_policy_source_url": "https://www.remetis.jp/case-studies/misawa-home/",
+    "page_summary": "大手ハウスメーカーの不動産・開発部門において、土地の査定・仕入れ業務や店舗間での情報共有の効率化を目的としてREMETISを導入した事例。",
+    "financial_status_change": "売上高4,300億円規模と安定した業績推移を維持しており、土地調査および提案資料作成のデジタル化によって営業の現場対応力が向上し、販売効率と管理体制の安定化に寄与しています。"
+  },
+  {
+    "company": "三菱地所ハウスネット株式会社",
+    "slug": "mitsubishi-jisho-housenet",
+    "homepage_url": "https://www.mec-h.co.jp/",
+    "business_summary": "三菱地所グループの住宅流通会社であり、首都圏、関西、名古屋、福岡エリアを中心に個人・法人向けの不動産売買仲介、賃貸管理、リフォームサービスなどを展開している。",
+    "asset_scale": "非公開（三菱地所グループの流通部門。資本金100百万円）",
+    "main_area": "首都圏（東京・神奈川・千葉・埼玉）、中京、関西、福岡",
+    "dx_policy": {
+      "challenges": "不動産仲介業務における顧客への物件紹介から契約までのプロセスの煩雑さ、および電話・メールに頼る追客コミュニケーションのスピード不足。",
+      "goals": "オンラインマイページを通じた顧客提案・コミュニケーションの利便性向上、および物件選択・内見日程調整プロセスの合理化。",
+      "policy_or_goals": "顧客視点での不動産仲介サービスの高度化を目指し、不動産コミュニケーションプラットフォーム「Facilo」の導入による接客のオンライン完結化を推進する。"
+    },
+    "other_tools": [],
+    "financials": [
+      {
+        "year": "2024年3月期",
+        "sales": "14,441百万円",
+        "profit": "非公開（親会社である三菱地所の連結損益に含まれる）"
+      },
+      {
+        "year": "近年の業績",
+        "sales": "非上場のため非公開",
+        "profit": "非公開"
+      }
+    ],
+    "financials_source_url": "https://www.mec-h.co.jp/company/announcement/",
+    "dx_policy_source_url": "https://facilo.jp/case/01",
+    "page_summary": "大手不動産グループの仲介部門において、顧客への物件提案の可視化および迅速な追客コミュニケーションを実現するため「Facilo」を導入した事例。",
+    "financial_status_change": "売上高144億円規模の安定した流通ビジネスを展開しており、「Facilo」の導入によるコミュニケーションの迅速化と案件進捗の改善が、三菱地所グループにおける仲介件数の維持向上に貢献しています。"
+  },
+  {
+    "company": "株式会社ES&Company",
+    "slug": "esandcompany",
+    "homepage_url": "https://www.esandcompany.co.jp/",
+    "business_summary": "大阪市内のタワーマンションに特化した不動産仲介、売買、賃貸管理、および不動産コンサルティングなどを提供する専門不動産会社である。",
+    "asset_scale": "大阪市内のタワーマンション特化、資本金1,300万円",
+    "main_area": "大阪府大阪市",
+    "dx_policy": {
+      "challenges": "顧客への物件情報（帯替え図面等）の送付や問い合わせに対する返信メール作成に多大な時間がかかり、迅速な来店・内見獲得が難しかったこと。",
+      "goals": "物件資料の帯替えやメール作成作業の自動化・効率化により、対応スピードを高め、来店率および顧客満足度を向上させること。",
+      "policy_or_goals": "「TOWERZ」ブランドでの独自価値の提供に向け、不動産テックツール「Facilo」を導入して営業事務時間を削減し、顧客一人ひとりへのきめ細やかな提案に注力する。"
+    },
+    "other_tools": [
+      "TOWERZ Check"
+    ],
+    "financials": [
+      {
+        "year": "近年の業績",
+        "sales": "非上場のため非公開",
+        "profit": "非公開。安定した受注/管理体制を維持"
+      }
+    ],
+    "financials_source_url": "https://www.esandcompany.co.jp/",
+    "dx_policy_source_url": "https://facilo.jp/case/escompany",
+    "page_summary": "タワーマンション特化型の不動産仲介会社において、「Facilo」の導入によりメール作成や資料送付の手間を削減し、問い合わせからの来店率向上を達成した事例。",
+    "financial_status_change": "非公開企業のため詳細な財務推移は公開されていませんが、「Facilo」の導入により営業対応の事務比率が「7:3」から「5:5」に改善され、迅速な対応がタワーマンション市場での高い来店率と成約実績を支えています。"
+  },
+  {
+    "company": "株式会社アークレスト",
+    "slug": "arcrest",
+    "homepage_url": "https://www.arcrest.co.jp/",
+    "business_summary": "埼玉県西部および東京都多摩地区を中心に「おうちの仲介＋（プラス）」を展開し、不動産の売買・仲介やリフォームを地域密着で手掛ける会社である。",
+    "asset_scale": "非公開（資本金800万円、グループ全体で3,300万円）",
+    "main_area": "埼玉県西部、東京都多摩地区",
+    "dx_policy": {
+      "challenges": "売主に対する日々の販売活動状況報告書の作成や顧客情報の管理に多くの時間を割かれ、業務効率が低下していたこと。",
+      "goals": "活動報告書の作成負荷を半減させ、進捗管理をデジタル一元化することで、働き方改革と生産性向上を図ること。",
+      "policy_or_goals": "地域のお客様への安心したサービス提供体制を構築するため、「Facilo」などのクラウドサービスを導入し、営業効率とマネジメント体制の標準化を進める。"
+    },
+    "other_tools": [
+      "Zoom"
+    ],
+    "financials": [
+      {
+        "year": "近年の業績",
+        "sales": "非上場のため非公開",
+        "profit": "非公開。安定した受注/管理体制を維持"
+      }
+    ],
+    "financials_source_url": "https://www.arcrest.co.jp/",
+    "dx_policy_source_url": "https://facilo.jp/case/arcrest",
+    "page_summary": "地域密着型不動産仲介会社における、売主への営業活動報告書の作成効率化 and 顧客管理の一元化に向けた「Facilo」の全社導入事例。",
+    "financial_status_change": "非公開企業のため財務情報は限定的ですが、「Facilo」の導入によって活動報告書の作成時間が従来の半分に短縮され、一人の担当者がカバーできる顧客数を増やす見通しが立つなど、高い生産性を実現しています。"
+  },
+  {
+    "company": "株式会社永大ハウス工業",
+    "slug": "eidaihousekogyo",
+    "homepage_url": "https://www.eidaihouse.com/",
+    "business_summary": "宮城県仙台市を中心に12店舗を展開し、戸建てやマンションなどの不動産売買仲介、販売受託などを地域密着で提供する会社である。",
+    "asset_scale": "宮城県内に12店舗を展開、資本金1,000万円",
+    "main_area": "宮城県仙台市およびその周辺",
+    "dx_policy": {
+      "challenges": "反響数と顧客数の増加に伴い、従来の紙ベースの管理では追客の遅れや漏れが生じやすくなり、商談プロセスの長期化が課題となっていた。",
+      "goals": "顧客ごとのポータルマイページを通じた円滑な情報提供と閲覧ログの可視化により、追客を標準化し、商談回数を減らして成約効率を高めること。",
+      "policy_or_goals": "店舗網全体での営業品質向上に向けて、「Facilo」および「KASIKA」を導入し、紙資料での管理から脱却したデジタルベース of 顧客管理体制を構築する。"
+    },
+    "other_tools": [
+      "KASIKA",
+      "Zoom"
+    ],
+    "financials": [
+      {
+        "year": "近年の業績",
+        "sales": "非上場のため非公開",
+        "profit": "非公開。安定した受注/管理体制を維持"
+      }
+    ],
+    "financials_source_url": "https://www.eidaihouse.com/",
+    "dx_policy_source_url": "https://facilo.jp/case/eidaihousekogyo",
+    "page_summary": "宮城県に店舗網を持つ不動産売買仲介会社が、顧客情報のデジタル化と追客業務の標準化を目的に「Facilo」を導入し、商談効率の大幅な改善と顧客体験の標準化を達成した事例。",
+    "financial_status_change": "非上場のため財務データは非公開ですが、「Facilo」の全店導入によって顧客の検討ログをリアルタイムで追えるようになり、商談が1回で完了するケースが増加するなど、店舗全体の営業生産性と成約率の向上に大きく貢献しています。"
+  }
+]

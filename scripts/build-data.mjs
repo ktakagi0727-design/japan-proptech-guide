@@ -117,6 +117,21 @@ const data = {
   companies: JSON.parse(await readFile(join(dataDir, "companies-detail.json"), "utf8"))
 };
 
+const pageDates = JSON.parse(await readFile(join(dataDir, "page-dates.json"), "utf8").catch(() => "{}"));
+const comparisonFaqs = JSON.parse(await readFile(join(dataDir, "comparison-faqs.json"), "utf8").catch(() => "{}"));
+
+const datesFor = (path) => {
+  const entry = pageDates[path] || {};
+  return {
+    published: entry.published || today,
+    modified: entry.modified || entry.published || today
+  };
+};
+const formatDateJa = (iso) => {
+  const [year, month, day] = iso.split("-");
+  return `${year}年${Number(month)}月${Number(day)}日`;
+};
+
 const escapeHtml = (value = "") => value.toString()
   .replaceAll("&", "&amp;")
   .replaceAll("<", "&lt;")
@@ -792,6 +807,51 @@ function sectionParts(section) {
   return { heading: heading || "本文", body: rest.join("::") || section };
 }
 
+function breadcrumbJsonLd(breadcrumbs) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: breadcrumbs.map((crumb, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: crumb.name,
+      ...(crumb.url ? { item: crumb.url } : {})
+    }))
+  };
+}
+
+function breadcrumbNavHtml(breadcrumbs, relPath) {
+  const items = breadcrumbs.map((crumb) => {
+    if (!crumb.url) return `<li aria-current="page">${escapeHtml(crumb.name)}</li>`;
+    const href = crumb.url.replace(siteUrl, relPath === "." ? "." : relPath) || `${relPath}/`;
+    return `<li><a href="${escapeAttr(href)}">${escapeHtml(crumb.name)}</a></li>`;
+  }).join("");
+  return `<nav class="breadcrumb" aria-label="パンくずリスト"><ol>${items}</ol></nav>`;
+}
+
+function pageDatesHtml(published, modified) {
+  if (!published) return "";
+  const modifiedHtml = modified && modified !== published
+    ? `<span>最終更新日：<time datetime="${modified}">${formatDateJa(modified)}</time></span>`
+    : "";
+  return `<p class="page-dates"><span>公開日：<time datetime="${published}">${formatDateJa(published)}</time></span>${modifiedHtml}</p>`;
+}
+
+function footerHtml(relPath) {
+  return `<footer class="footer">
+      <p>不動産売買向けプロップテックサービスガイド</p>
+      <p>掲載内容は公開情報をもとにした調査メモです。導入判断では各社の最新条件を確認してください。</p>
+      <nav class="footer-nav" aria-label="フッターナビゲーション">
+        <a href="${relPath}/services/">サービス一覧</a>
+        <a href="${relPath}/cases/">導入事例一覧</a>
+        <a href="${relPath}/columns/">業務コラム一覧</a>
+        <a href="${relPath}/comparisons/">サービス比較一覧</a>
+        <a href="${relPath}/tools.html">便利ツール</a>
+        <a href="${relPath}/about.html">運営者情報</a>
+      </nav>
+    </footer>`;
+}
+
 function pageShell({
   title,
   description,
@@ -799,8 +859,14 @@ function pageShell({
   body,
   structuredData = [],
   relPath = "../..",
-  ogImage = `${relPath}/assets/proptech-hero.png`
+  ogImage = `${relPath}/assets/proptech-hero.png`,
+  breadcrumbs = null,
+  published = null,
+  modified = null
 }) {
+  const allStructuredData = [...structuredData];
+  if (breadcrumbs) allStructuredData.push(breadcrumbJsonLd(breadcrumbs));
+  const breadcrumbHtml = breadcrumbs ? breadcrumbNavHtml(breadcrumbs, relPath) : "";
   return `<!doctype html>
 <html lang="ja">
   <head>
@@ -818,7 +884,7 @@ function pageShell({
     <link rel="icon" href="${relPath}/assets/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="${relPath}/style.css">
     <script src="/analytics.js" defer></script>
-    ${structuredData.map((item) => `<script type="application/ld+json">${JSON.stringify(item)}</script>`).join("\n    ")}
+    ${allStructuredData.map((item) => `<script type="application/ld+json">${JSON.stringify(item)}</script>`).join("\n    ")}
   </head>
   <body class="detail-page">
     <header class="site-header scrolled">
@@ -827,21 +893,21 @@ function pageShell({
         <span>売買PropTech Guide</span>
       </a>
       <nav class="nav" aria-label="主要ナビゲーション">
-        <a href="${relPath}/index.html#services">業務プロセス</a>
-        <a href="${relPath}/index.html#cases">導入事例</a>
-        <a href="${relPath}/index.html#columns">業務コラム</a>
-        <a href="${relPath}/index.html#news">ニュース</a>
+        <a href="${relPath}/services/">サービス</a>
+        <a href="${relPath}/cases/">導入事例</a>
+        <a href="${relPath}/columns/">業務コラム</a>
+        <a href="${relPath}/comparisons/">サービス比較</a>
+        <a href="${relPath}/tools.html">便利ツール</a>
       </nav>
     </header>
     <main class="detail-main">
       <section class="section detail-section">
+        ${breadcrumbHtml}
+        ${pageDatesHtml(published, modified)}
         ${body}
       </section>
     </main>
-    <footer class="footer">
-      <p>不動産売買向けプロップテックサービスガイド</p>
-      <p>掲載内容は公開情報をもとにした調査メモです。導入判断では各社の最新条件を確認してください。</p>
-    </footer>
+    ${footerHtml(relPath)}
   </body>
 </html>
 `;
@@ -887,11 +953,19 @@ function servicePage(service) {
         <div class="case-link-list">${caseLinksHtml(relatedCases)}</div>
       </section>
     </article>`;
+  const dates = datesFor(`services/${service.slug}/index.html`);
   return pageShell({
     title,
     description,
     canonical,
     body,
+    breadcrumbs: [
+      { name: "ホーム", url: `${siteUrl}/` },
+      { name: "サービス一覧", url: `${siteUrl}/services/` },
+      { name: service.service }
+    ],
+    published: dates.published,
+    modified: dates.modified,
     structuredData: [{
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
@@ -900,6 +974,17 @@ function servicePage(service) {
       description,
       url: service.url,
       provider: { "@type": "Organization", name: service.company }
+    }, {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: title,
+      description,
+      inLanguage: "ja",
+      datePublished: dates.published,
+      dateModified: dates.modified,
+      mainEntityOfPage: canonical,
+      author: { "@type": "Organization", name: "不動産売買向けプロップテックガイド", url: `${siteUrl}/about.html` },
+      publisher: { "@type": "Organization", name: "不動産売買向けプロップテックガイド", url: siteUrl }
     }]
   });
 }
@@ -951,11 +1036,19 @@ function columnPage(column) {
         <ul>${sources.map((source) => `<li><a href="${escapeAttr(source.url)}" target="_blank" rel="noreferrer">${escapeHtml(source.title)}</a><span>${escapeHtml(source.source || "")}</span></li>`).join("")}</ul>
       </section>
     </article>`;
+  const dates = datesFor(`columns/${column.slug}/index.html`);
   return pageShell({
     title,
     description,
     canonical,
     body,
+    breadcrumbs: [
+      { name: "ホーム", url: `${siteUrl}/` },
+      { name: "業務コラム一覧", url: `${siteUrl}/columns/` },
+      { name: column.title }
+    ],
+    published: dates.published,
+    modified: dates.modified,
     structuredData: [{
       "@context": "https://schema.org",
       "@type": "Article",
@@ -963,7 +1056,11 @@ function columnPage(column) {
       description: column.lead,
       inLanguage: "ja",
       about: [column.process, column.task, ...(column.keywords || [])],
-      mainEntityOfPage: canonical
+      datePublished: dates.published,
+      dateModified: dates.modified,
+      mainEntityOfPage: canonical,
+      author: { "@type": "Organization", name: "不動産売買向けプロップテックガイド", url: `${siteUrl}/about.html` },
+      publisher: { "@type": "Organization", name: "不動産売買向けプロップテックガイド", url: siteUrl }
     }]
   });
 }
@@ -1062,6 +1159,7 @@ function comparisonPage(comparison) {
     .filter(Boolean)
     .filter((service) => !(comparison.title || "").includes("IT導入補助金") || itSubsidyAnnouncementLinks.has(service.service));
   const sourceLinks = sourceLinksFromUrls(comparison.sourceUrls);
+  const faqs = comparisonFaqs[comparison.slug] || [];
   const heroImage = comparison.heroImage || "../../assets/proptech-hero.png";
   const heroAlt = comparison.heroAlt || `${articleTitle}のキービジュアル`;
   const body = `
@@ -1086,30 +1184,58 @@ function comparisonPage(comparison) {
         <div class="section-heading"><p class="eyebrow">Guide</p><h2>比較の観点</h2></div>
         ${sections.map((section, index) => `<section class="column-step-section"><div class="step-number">${String(index + 1).padStart(2, "0")}</div><div><h3>${escapeHtml(section.heading)}</h3><p>${escapeHtml(section.body)}</p></div></section>`).join("")}
       </section>
+      ${faqs.length ? `<section class="column-detail-body comparison-faq">
+        <div class="section-heading"><p class="eyebrow">FAQ</p><h2>よくある質問</h2></div>
+        ${faqs.map((faq) => `<section class="column-step-section faq-item"><div class="step-number">Q</div><div><h3>${escapeHtml(faq.q)}</h3><p>${escapeHtml(faq.a)}</p></div></section>`).join("")}
+      </section>` : ""}
       ${sourceLinks.length ? `<section class="column-detail-sources">
         <h2>参考リンク</h2>
         <ul>${sourceLinks.map((source) => `<li><a href="${escapeAttr(source.url)}" target="_blank" rel="noreferrer">${escapeHtml(source.title)}</a><span>参考リンク</span></li>`).join("")}</ul>
       </section>` : ""}
     </article>`;
+  const dates = datesFor(`comparisons/${comparison.slug}/index.html`);
+  const structuredData = [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: articleTitle,
+    description: comparison.lead,
+    inLanguage: "ja",
+    about: [
+      ...(comparison.processes || []),
+      ...(comparison.tasks || []),
+      ...(comparison.tags || [])
+    ],
+    datePublished: dates.published,
+    dateModified: dates.modified,
+    mainEntityOfPage: canonical,
+    author: { "@type": "Organization", name: "不動産売買向けプロップテックガイド", url: `${siteUrl}/about.html` },
+    publisher: { "@type": "Organization", name: "不動産売買向けプロップテックガイド", url: siteUrl }
+  }];
+  if (faqs.length) {
+    structuredData.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.q,
+        acceptedAnswer: { "@type": "Answer", text: faq.a }
+      }))
+    });
+  }
   return pageShell({
     title,
     description,
     canonical,
     body,
     ogImage: heroImage,
-    structuredData: [{
-      "@context": "https://schema.org",
-      "@type": "Article",
-      headline: articleTitle,
-      description: comparison.lead,
-      inLanguage: "ja",
-      about: [
-        ...(comparison.processes || []),
-        ...(comparison.tasks || []),
-        ...(comparison.tags || [])
-      ],
-      mainEntityOfPage: canonical
-    }]
+    breadcrumbs: [
+      { name: "ホーム", url: `${siteUrl}/` },
+      { name: "業務別サービス比較", url: `${siteUrl}/comparisons/` },
+      { name: articleTitle }
+    ],
+    published: dates.published,
+    modified: dates.modified,
+    structuredData
   });
 }
 
@@ -1243,24 +1369,262 @@ function casesDirectoryPage() {
 `;
 }
 
+// ---- トップページと同じカード描画（プリレンダー用・script.jsの出力と一致させる） ----
+const orderedProcesses = (item) => processOrder.filter((process) => (item.processes || []).includes(process));
+const processTagHtml = (item) => orderedProcesses(item)
+  .map((process) => `<span class="pill process-pill">${escapeHtml(processLabels[process])}</span>`)
+  .join("");
+const operatorInfoLabel = "提供会社またはグループ会社が不動産実業を行っています";
+const operatorInfoBadge = (item) => item.operatorNote
+  ? `<span class="operator-info-badge" aria-label="${operatorInfoLabel}" title="${escapeAttr(item.operatorNote)}"><span class="operator-info-icon">i</span><span>グループに不動産会社あり</span></span>`
+  : "";
+
+function topServiceCard(item, collapsed) {
+  return `
+    <a class="service-card${collapsed ? " collapsed-extra" : ""}" href="services/${item.slug}/">
+      <div class="card-top">
+        <div class="service-title">
+          <span class="logo-badge" aria-hidden="true">${escapeHtml(item.logoText || item.service.slice(0, 2))}</span>
+          <h3>${escapeHtml(item.service)}</h3>
+        </div>
+        ${operatorInfoBadge(item)}
+      </div>
+      <p class="provider">提供会社：${escapeHtml(item.company)}</p>
+      <p>${escapeHtml(item.description)}</p>
+      <div class="service-meta">
+        ${processTagHtml(item)}
+      </div>
+    </a>
+  `;
+}
+
+function topComparisonCard(item, collapsed) {
+  return `
+    <a class="comparison-card${collapsed ? " collapsed-extra" : ""}" href="comparisons/${item.slug}/">
+      <div class="column-card-head">
+        ${(item.processes || []).slice(0, 4).map((process) => `<span class="pill process-pill">${escapeHtml(processLabels[process] || process)}</span>`).join("")}
+      </div>
+      <h3>${escapeHtml(item.title)}</h3>
+      <p>${escapeHtml(item.lead)}</p>
+      <div class="column-card-keywords">
+        ${(item.tags || []).slice(0, 5).map((tag) => `<span>${escapeHtml(tag)}</span>`).join("")}
+      </div>
+      <p class="column-card-meta">比較対象 ${item.relatedServices?.length || 0}サービス</p>
+    </a>
+  `;
+}
+
+function topCaseCard(item, collapsed, companyByName) {
+  const company = companyByName.get(item.adopter);
+  const href = company ? `cases/${company.slug}.html` : item.url;
+  const externalAttrs = company ? "" : ' target="_blank" rel="noreferrer"';
+  return `
+    <a class="case-card${collapsed ? " collapsed-extra" : ""}" href="${escapeAttr(href)}"${externalAttrs}>
+      <h3>${escapeHtml(item.adopter)}</h3>
+      <p class="provider">導入サービス：${escapeHtml(item.service)}</p>
+      <p class="provider">提供会社：${escapeHtml(item.provider)}</p>
+      <p>${escapeHtml(item.summary)}</p>
+      <div class="service-meta">
+        <span class="pill">${escapeHtml(item.process)}</span>
+        ${(item.tasks || []).map((task) => `<span class="pill task-pill">${escapeHtml(task)}</span>`).join("")}
+      </div>
+    </a>
+  `;
+}
+
+function topColumnCard(item, collapsed) {
+  const sources = sourceLinksFor(item);
+  return `
+    <a class="column-card${collapsed ? " collapsed-extra" : ""}" href="columns/${item.slug}/">
+      <div class="column-card-head">
+        <span class="pill process-pill">${escapeHtml(processLabels[item.process] || item.process)}</span>
+        <span class="pill task-pill">${escapeHtml(item.task)}</span>
+      </div>
+      <h3>${escapeHtml(item.title)}</h3>
+      <div class="column-card-keywords">
+        ${(item.keywords || []).slice(0, 4).map((keyword) => `<span>${escapeHtml(keyword)}</span>`).join("")}
+      </div>
+      <p class="column-card-meta">参考リンク ${sources.length}件</p>
+    </a>
+  `;
+}
+
+function prerenderedIndexSections() {
+  const companySortName = (value) => value.replace(/^株式会社/, "").replace(/株式会社$/, "").trim();
+  const companyByName = new Map(data.companies.map((company) => [company.company, company]));
+
+  const services = [...data.services]
+    .sort((a, b) => (b.processes || []).length - (a.processes || []).length || a.service.localeCompare(b.service, "ja"));
+  const cases = [...data.cases]
+    .sort((a, b) => companySortName(a.adopter).localeCompare(companySortName(b.adopter), "ja"));
+  const columns = [...data.columns]
+    .sort((a, b) => processOrder.indexOf(a.process) - processOrder.indexOf(b.process) || a.task.localeCompare(b.task, "ja") || a.title.localeCompare(b.title, "ja"));
+  const news = [...data.newsItems].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 10);
+
+  return {
+    comparisons: data.serviceComparisons.map((item, index) => topComparisonCard(item, index >= 3)).join(""),
+    services: services.map((item, index) => topServiceCard(item, index >= 8)).join(""),
+    cases: cases.map((item, index) => topCaseCard(item, index >= 9, companyByName)).join(""),
+    columns: columns.map((item, index) => topColumnCard(item, index >= 6)).join(""),
+    news: news.map((item) => `
+    <li class="news-item">
+      <time datetime="${escapeAttr(item.date)}">${escapeHtml(item.date)}</time>
+      <div>
+        <h3><a href="${escapeAttr(item.url)}" target="_blank" rel="noreferrer">${escapeHtml(item.title)}</a></h3>
+        <p>${escapeHtml(item.summary)}</p>
+      </div>
+      <span class="news-source">${escapeHtml(item.source)}</span>
+    </li>
+  `).join("")
+  };
+}
+
+async function prerenderIndexHtml() {
+  const indexPath = join(root, "index.html");
+  let html = await readFile(indexPath, "utf8");
+  const sections = prerenderedIndexSections();
+  for (const [key, content] of Object.entries(sections)) {
+    const pattern = new RegExp(`(<!--PRERENDER:${key}-->)[\\s\\S]*?(<!--/PRERENDER:${key}-->)`);
+    if (pattern.test(html)) {
+      html = html.replace(pattern, `$1${content}$2`);
+    }
+  }
+  await writeFile(indexPath, html, "utf8");
+}
+
+// ---- カテゴリハブページ ----
+function hubPageShell({ slug, title, heading, description, cardsHtml, count, structuredData }) {
+  const canonical = `${siteUrl}/${slug}/`;
+  const dates = datesFor(`${slug}/index.html`);
+  return pageShell({
+    title,
+    description,
+    canonical,
+    relPath: "..",
+    breadcrumbs: [
+      { name: "ホーム", url: `${siteUrl}/` },
+      { name: heading }
+    ],
+    published: dates.published,
+    modified: dates.modified,
+    structuredData,
+    body: `
+    <div class="directory-hero">
+      <p class="eyebrow">Directory</p>
+      <h1>${escapeHtml(heading)}</h1>
+      <p class="detail-lead">${escapeHtml(description)}</p>
+      <p class="directory-count">${count}件掲載</p>
+    </div>
+    <div class="hub-grid">${cardsHtml}</div>`
+  });
+}
+
+function collectionJsonLd(name, description, slug, items) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name,
+    description,
+    url: `${siteUrl}/${slug}/`,
+    inLanguage: "ja",
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: items.length,
+      itemListElement: items.map((item, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        url: item.url,
+        name: item.name
+      }))
+    }
+  };
+}
+
+function servicesHubPage() {
+  const services = [...data.services]
+    .sort((a, b) => (b.processes || []).length - (a.processes || []).length || a.service.localeCompare(b.service, "ja"));
+  const description = "不動産の売買を行う法人向けプロップテックサービスを、売却・仲介・購入・開発運用の業務プロセス別に整理した一覧です。";
+  const cardsHtml = services.map((item) => topServiceCard(item, false).replace('href="services/', 'href="')).join("");
+  return hubPageShell({
+    slug: "services",
+    title: "法人向け不動産テックサービス一覧 | 不動産売買向けプロップテックガイド",
+    heading: "法人向け不動産テックサービス一覧",
+    description,
+    cardsHtml,
+    count: services.length,
+    structuredData: [collectionJsonLd(
+      "法人向け不動産テックサービス一覧",
+      description,
+      "services",
+      services.map((item) => ({ url: `${siteUrl}/services/${item.slug}/`, name: item.service }))
+    )]
+  });
+}
+
+function columnsHubPage() {
+  const columns = [...data.columns]
+    .sort((a, b) => processOrder.indexOf(a.process) - processOrder.indexOf(b.process) || a.task.localeCompare(b.task, "ja") || a.title.localeCompare(b.title, "ja"));
+  const description = "不動産売買の実務を業務プロセス別に解説するコラム一覧。各業務の流れ、確認ポイント、役立つ不動産テックサービスを整理しています。";
+  const cardsHtml = columns.map((item) => topColumnCard(item, false).replace('href="columns/', 'href="')).join("");
+  return hubPageShell({
+    slug: "columns",
+    title: "不動産売買の実務コラム一覧 | 不動産売買向けプロップテックガイド",
+    heading: "不動産売買の実務コラム一覧",
+    description,
+    cardsHtml,
+    count: columns.length,
+    structuredData: [collectionJsonLd(
+      "不動産売買の実務コラム一覧",
+      description,
+      "columns",
+      columns.map((item) => ({ url: `${siteUrl}/columns/${item.slug}/`, name: item.title }))
+    )]
+  });
+}
+
+function comparisonsHubPage() {
+  const comparisons = data.serviceComparisons;
+  const description = "不動産会社向けのCRM、AI査定、電子契約、物件管理などのサービスカテゴリ別比較記事の一覧。選定ポイントと主要サービスの違いを整理しています。";
+  const cardsHtml = comparisons.map((item) => topComparisonCard(item, false).replace('href="comparisons/', 'href="')).join("");
+  return hubPageShell({
+    slug: "comparisons",
+    title: "不動産テックサービス比較記事一覧 | 不動産売買向けプロップテックガイド",
+    heading: "業務別サービス比較の一覧",
+    description,
+    cardsHtml,
+    count: comparisons.length,
+    structuredData: [collectionJsonLd(
+      "不動産テックサービス比較記事一覧",
+      description,
+      "comparisons",
+      comparisons.map((item) => ({ url: `${siteUrl}/comparisons/${item.slug}/`, name: item.title }))
+    )]
+  });
+}
+
 function sitemapXml() {
+  const lastmodFor = (path) => (pageDates[path] && pageDates[path].modified) || today;
   const urls = [
-    { loc: `${siteUrl}/`, priority: "1.0" },
-    { loc: `${siteUrl}/tools.html`, priority: "0.9" },
-    { loc: `${siteUrl}/band-tool.html`, priority: "0.9" },
-    { loc: `${siteUrl}/noi-calculator.html`, priority: "0.8" },
-    { loc: `${siteUrl}/dd-checklist.html`, priority: "0.8" },
-    { loc: `${siteUrl}/cases/`, priority: "0.9" },
-    ...data.services.map((service) => ({ loc: `${siteUrl}/${serviceUrl(service)}`, priority: "0.8" })),
-    ...data.columns.map((column) => ({ loc: `${siteUrl}/${columnUrl(column)}`, priority: "0.8" })),
-    ...data.serviceComparisons.map((comparison) => ({ loc: `${siteUrl}/${comparisonUrl(comparison)}`, priority: "0.8" })),
-    ...data.companies.map((company) => ({ loc: `${siteUrl}/cases/${company.slug}.html`, priority: "0.8" }))
+    { loc: `${siteUrl}/`, priority: "1.0", lastmod: lastmodFor("index.html") },
+    { loc: `${siteUrl}/tools.html`, priority: "0.9", lastmod: lastmodFor("tools.html") },
+    { loc: `${siteUrl}/band-tool.html`, priority: "0.9", lastmod: lastmodFor("band-tool.html") },
+    { loc: `${siteUrl}/noi-calculator.html`, priority: "0.8", lastmod: lastmodFor("noi-calculator.html") },
+    { loc: `${siteUrl}/dd-checklist.html`, priority: "0.8", lastmod: lastmodFor("dd-checklist.html") },
+    { loc: `${siteUrl}/about.html`, priority: "0.5", lastmod: lastmodFor("about.html") },
+    { loc: `${siteUrl}/services/`, priority: "0.9", lastmod: today },
+    { loc: `${siteUrl}/columns/`, priority: "0.9", lastmod: today },
+    { loc: `${siteUrl}/comparisons/`, priority: "0.9", lastmod: today },
+    { loc: `${siteUrl}/cases/`, priority: "0.9", lastmod: today },
+    ...data.services.map((service) => ({ loc: `${siteUrl}/${serviceUrl(service)}`, priority: "0.8", lastmod: lastmodFor(`services/${service.slug}/index.html`) })),
+    ...data.columns.map((column) => ({ loc: `${siteUrl}/${columnUrl(column)}`, priority: "0.8", lastmod: lastmodFor(`columns/${column.slug}/index.html`) })),
+    ...data.serviceComparisons.map((comparison) => ({ loc: `${siteUrl}/${comparisonUrl(comparison)}`, priority: "0.8", lastmod: lastmodFor(`comparisons/${comparison.slug}/index.html`) })),
+    ...data.companies.map((company) => ({ loc: `${siteUrl}/cases/${company.slug}.html`, priority: "0.8", lastmod: lastmodFor(`cases/${company.slug}.html`) }))
   ];
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls.map((url) => `  <url>
     <loc>${url.loc}</loc>
-    <lastmod>${today}</lastmod>
+    <lastmod>${url.lastmod}</lastmod>
     <priority>${url.priority}</priority>
   </url>`).join("\n")}
 </urlset>
@@ -1511,12 +1875,20 @@ function caseOnlyCompanyPage(company) {
     </div>
   `;
 
+  const dates = datesFor(`cases/${company.slug}.html`);
   return pageShell({
     title,
     description,
     canonical,
     body,
     relPath: "..",
+    breadcrumbs: [
+      { name: "ホーム", url: `${siteUrl}/` },
+      { name: "導入事例一覧", url: `${siteUrl}/cases/` },
+      { name: company.company }
+    ],
+    published: dates.published,
+    modified: dates.modified,
     structuredData: [{
       "@context": "https://schema.org",
       "@type": "TechArticle",
@@ -1524,6 +1896,8 @@ function caseOnlyCompanyPage(company) {
       description,
       inLanguage: "ja",
       mainEntityOfPage: canonical,
+      datePublished: dates.published,
+      dateModified: dates.modified,
       about: [{
         "@type": "Organization",
         name: company.company
@@ -1720,14 +2094,6 @@ function companyPage(company) {
 
   const body = `
     <div class="case-detail-container">
-      <nav class="breadcrumb" aria-label="ブレッドクラム">
-        <a href="../index.html">ホーム</a>
-        <span>&gt;</span>
-        <a href="index.html">活用事例</a>
-        <span>&gt;</span>
-        <span>${escapeHtml(company.company)} の事例</span>
-      </nav>
-
       <section class="case-hero">
         <div class="eyebrow-row">
           ${pills}
@@ -1820,12 +2186,20 @@ function companyPage(company) {
     </div>
   `;
 
+  const dates = datesFor(`cases/${company.slug}.html`);
   return pageShell({
     title,
     description,
     canonical,
     body,
     relPath: "..",
+    breadcrumbs: [
+      { name: "ホーム", url: `${siteUrl}/` },
+      { name: "導入事例一覧", url: `${siteUrl}/cases/` },
+      { name: company.company }
+    ],
+    published: dates.published,
+    modified: dates.modified,
     structuredData: [{
       "@context": "https://schema.org",
       "@type": "TechArticle",
@@ -1833,6 +2207,8 @@ function companyPage(company) {
       description,
       inLanguage: "ja",
       mainEntityOfPage: canonical,
+      datePublished: dates.published,
+      dateModified: dates.modified,
       about: [{
         "@type": "Organization",
         name: company.company,
@@ -1900,4 +2276,9 @@ for (const company of data.companies) {
 }
 
 await writeFile(join(root, "cases", "index.html"), cleanGeneratedHtml(casesDirectoryPage()), "utf8");
+await writeFile(join(root, "services", "index.html"), cleanGeneratedHtml(servicesHubPage()), "utf8");
+await writeFile(join(root, "columns", "index.html"), cleanGeneratedHtml(columnsHubPage()), "utf8");
+await writeFile(join(root, "comparisons", "index.html"), cleanGeneratedHtml(comparisonsHubPage()), "utf8");
+await prerenderIndexHtml();
 await writeFile(join(root, "sitemap.xml"), sitemapXml(), "utf8");
+// build complete

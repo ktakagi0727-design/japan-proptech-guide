@@ -1,0 +1,127 @@
+[
+  {
+    "slug": "leben-corporation",
+    "company": "株式会社レーベンコーポレーション",
+    "other_tools": [
+      "GMO賃貸DX",
+      "kintone",
+      "Slack",
+      "Zoom",
+      "楽楽精算",
+      "マネーフォワード"
+    ]
+  },
+  {
+    "slug": "relation-real-estate",
+    "company": "株式会社リレーション",
+    "other_tools": [
+      "リアプロBB"
+    ]
+  },
+  {
+    "slug": "alphas",
+    "company": "アルファス株式会社",
+    "other_tools": [
+      "土地BANK",
+      "Facilo",
+      "プロアポコール",
+      "kintone",
+      "Slack",
+      "Teams",
+      "Zoom"
+    ]
+  },
+  {
+    "slug": "tokyo-tatemono",
+    "company": "東京建物株式会社",
+    "other_tools": [
+      "Microsoft 365 Copilot",
+      "Salesforce",
+      "SAP ERP on AWS",
+      "ROOV compass",
+      "ラクビルTeX"
+    ]
+  },
+  {
+    "slug": "tokyo-tatemono-rim",
+    "company": "株式会社東京建物リアルティ・インベストメント・マネジメント",
+    "other_tools": [
+      "FASTALERT",
+      "T2TR ComFort",
+      "サステナブルスター",
+      "CRREM"
+    ]
+  },
+  {
+    "slug": "toyoshiki-realestate",
+    "company": "株式会社豊四季不動産",
+    "other_tools": [
+      "REMETIS",
+      "マネーフォワード",
+      "Slack",
+      "Zoom",
+      "kintone",
+      "Salesforce"
+    ]
+  },
+  {
+    "slug": "mori-trust",
+    "company": "森トラスト株式会社",
+    "other_tools": [
+      "IBM Blueworks Live",
+      "IBM Business Automation Workflow on Cloud (BAW on Cloud)",
+      "DXでんわ",
+      "bitreception",
+      "REMETIS",
+      "PRオートメーション",
+      "Biz\u222b"
+    ]
+  },
+  {
+    "slug": "misawa-home",
+    "company": "ミサワホーム株式会社",
+    "other_tools": [
+      "Google Workspace",
+      "LINE WORKS",
+      "ANDPAD",
+      "Biz\u222b",
+      "C-AI",
+      "SKYSEA Client View",
+      "Create!Webフロー"
+    ]
+  },
+  {
+    "slug": "mitsubishi-jisho-housenet",
+    "company": "三菱地所ハウスネット株式会社",
+    "other_tools": [
+      "MirCA",
+      "Facilo",
+      "DataSpider Cloud",
+      "UiPath",
+      "kintone",
+      "MiiTel",
+      "WealthParkビジネス",
+      "Salesforce"
+    ]
+  },
+  {
+    "slug": "tokai-jutaku",
+    "company": "東海住宅株式会社",
+    "other_tools": [
+      "スペースリー",
+      "Cybozu",
+      "Salesforce"
+    ]
+  },
+  {
+    "slug": "isshin-estate",
+    "company": "一心エステート株式会社",
+    "other_tools": [
+      "Facilo",
+      "レリーズ",
+      "プロアポコール",
+      "LINE",
+      "Zoom"
+    ]
+  }
+]

@@ -129,3 +129,31 @@ Google Analytics 4でアクセス数を測定できます。
 ## 公開設定
 
 GitHubとNetlifyの接続・復旧方法は、[`docs/github-netlify-connection.md`](docs/github-netlify-connection.md)を参照してください。
+
+## 2026-07-05 閲覧数向上のためのSEO/LLMO改修
+
+企画書（docs/サイト改修企画書_閲覧数向上.docx）に基づく技術基盤・構造改修。
+
+- A-1: トップページのサービス一覧・比較・導入事例・コラム・ニュースをビルド時に静的HTML出力（`<!--PRERENDER:xxx-->`マーカー間へ`build-data.mjs`が挿入。JSは従来どおり動的に再描画）
+- A-2: カテゴリハブページを新設（`/services/`、`/columns/`、`/comparisons/`。`/cases/`は既存）
+- A-3: 全詳細ページにパンくずナビとBreadcrumbList構造化データを追加
+- A-5: 全詳細ページに公開日・最終更新日を表示（`data/page-dates.json`、git履歴から`scripts/update-page-dates.py`で生成。ビルド前に実行）
+- A-4: 比較記事15本に「よくある質問」とFAQPage構造化データを追加（`data/comparison-faqs.json`で管理）
+- C-1: 運営者情報・掲載基準ページ（`about.html`）を新設し、全ページのフッターからリンク
+- 詳細ページに記事のdatePublished/dateModified/author/publisherを含むArticle構造化データを追加
+- sitemap.xmlにハブページ・about.htmlを追加し、lastmodをページ実更新日に変更
+- llms.txtをハブページ・要約・信頼性情報付きに拡充
+- フッターに全ページ共通のナビゲーションを追加
+
+### ビルド手順（更新）
+
+1. `python3 scripts/update-page-dates.py`（公開日・更新日をgit履歴から更新）
+2. `node scripts/build-data.mjs`
+
+### 残タスク（企画書Phase 2以降）
+
+- コラム本文のリライト（4,000字以上化、冒頭に直接回答）
+- 比較記事の新規追加（月2本）
+- 導入事例統計レポート（一次情報コンテンツ）
+- サービス画像の自ホスト化（現在は外部サイト直接参照）
+- Google Search Consoleの登録・sitemap送信（要アカウント作業）

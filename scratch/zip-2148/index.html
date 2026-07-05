@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Japan PropTech Guide | 日本の不動産テックサービス案内</title>
+    <meta name="description" content="日本の不動産テックサービスを、住まい探し、投資、管理、電子契約、査定、業務データのカテゴリ別に紹介するガイドサイト。">
+    <meta property="og:title" content="Japan PropTech Guide">
+    <meta property="og:description" content="日本の不動産テックサービスをカテゴリ別に紹介。市場の全体像、代表サービス、導入前の見方を一度に確認できます。">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/proptech-hero.png">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header class="site-header" data-header>
+      <a class="brand" href="#top" aria-label="Japan PropTech Guide">
+        <span class="brand-mark">JP</span>
+        <span>PropTech Guide</span>
+      </a>
+      <nav class="nav" aria-label="主要ナビゲーション">
+        <a href="#overview">市場</a>
+        <a href="#services">サービス</a>
+        <a href="#compare">比較</a>
+        <a href="#sources">出典</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <img class="hero-image" src="assets/proptech-hero.png" alt="都市と不動産データのインターフェースを組み合わせた不動産テックのイメージ">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <p class="eyebrow">Updated for 2026</p>
+          <h1>日本の不動産テックを、目的別に見渡す。</h1>
+          <p class="lead">物件探し、投資、管理、電子契約、AI査定、業務データ。存在するサービスをカテゴリ別に整理し、導入前の比較に使える形で紹介します。</p>
+          <div class="hero-actions">
+            <a class="primary-action" href="#services">サービスを見る</a>
+            <a class="secondary-action" href="#compare">比較表へ</a>
+          </div>
+        </div>
+        <aside class="market-card" aria-label="市場サマリー">
+          <span>不動産テック協会カオスマップ</span>
+          <strong>第11版 / 450サービス</strong>
+          <small>2025年8月版。代表サービスをカテゴリ横断で整理。</small>
+        </aside>
+      </section>
+
+      <section id="overview" class="section overview">
+        <div class="section-heading">
+          <p class="eyebrow">Market View</p>
+          <h2>不動産テックは「探す」だけではなく、取引後の業務まで広がっています。</h2>
+        </div>
+        <div class="overview-grid">
+          <article>
+            <span class="metric">450</span>
+            <h3>掲載サービス規模</h3>
+            <p>不動産テック協会の第11版カオスマップでは、同一企業や同一カテゴリ内の代表サービスを中心に整理されています。</p>
+          </article>
+          <article>
+            <span class="metric">6</span>
+            <h3>主要カテゴリ</h3>
+            <p>消費者向け検索、投資、管理、電子契約、査定、事業者向けデータ基盤の6つに分けると、検討しやすくなります。</p>
+          </article>
+          <article>
+            <span class="metric">B2C / B2B</span>
+            <h3>利用者が二層化</h3>
+            <p>部屋探しや投資体験の改善と、仲介・管理会社の生産性向上が同時に進んでいます。</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="services" class="section services">
+        <div class="section-heading row">
+          <div>
+            <p class="eyebrow">Service Directory</p>
+            <h2>代表的な日本の不動産テックサービス</h2>
+          </div>
+          <div class="filters" aria-label="カテゴリフィルター">
+            <button class="filter active" type="button" data-filter="all">すべて</button>
+            <button class="filter" type="button" data-filter="consumer">住まい探し</button>
+            <button class="filter" type="button" data-filter="investment">投資</button>
+            <button class="filter" type="button" data-filter="business">業務DX</button>
+          </div>
+        </div>
+
+        <div class="service-grid">
+          <article class="service-card" data-category="consumer">
+            <div class="card-top">
+              <span class="tag">住まい探し</span>
+              <a href="https://canary-app.jp/" target="_blank" rel="noreferrer">公式</a>
+            </div>
+            <h3>カナリー</h3>
+            <p>賃貸物件検索をスマートフォン中心の体験に寄せたサービス。部屋探しの検索、問い合わせ、内見予約までを軽くしたいユーザーに向きます。</p>
+            <dl>
+              <dt>向いている用途</dt>
+              <dd>賃貸の比較検討、来店前の候補整理</dd>
+            </dl>
+          </article>
+
+          <article class="service-card" data-category="investment">
+            <div class="card-top">
+              <span class="tag">投資</span>
+              <a href="https://www.renosy.com/" target="_blank" rel="noreferrer">公式</a>
+            </div>
+            <h3>RENOSY</h3>
+            <p>テクノロジーを活用したネット不動産投資サービス。物件購入だけでなく、融資、管理、売却までの体験を一気通貫に近づけています。</p>
+            <dl>
+              <dt>向いている用途</dt>
+              <dd>個人の不動産投資検討、投資後の管理</dd>
+            </dl>
+          </article>
+
+          <article class="service-card" data-category="business">
+            <div class="card-top">
+              <span class="tag">管理DX</span>
+              <a href="https://wealth-park.com/ja/business/" target="_blank" rel="noreferrer">公式</a>
+            </div>
+            <h3>WealthParkビジネス</h3>
+            <p>管理会社とオーナーをアプリでつなぎ、報告、稟議、収支情報、コミュニケーションをデジタル化する不動産管理向けサービスです。</p>
+            <dl>
+              <dt>向いている用途</dt>
+              <dd>賃貸管理会社、オーナー対応の効率化</dd>
+            </dl>
+          </article>
+
+          <article class="service-card" data-category="business">
+            <div class="card-top">
+              <span class="tag">データ基盤</span>
+              <a href="https://www.estie.jp/products" target="_blank" rel="noreferrer">公式</a>
+            </div>
+            <h3>estie</h3>
+            <p>商業用不動産を中心に、オフィス、物流、住宅、J-REITなどのデータ基盤を提供。取引、賃貸、取得判断の情報収集を支援します。</p>
+            <dl>
+              <dt>向いている用途</dt>
+              <dd>法人の市場調査、取得・賃貸判断、案件管理</dd>
+            </dl>
+          </article>
+
+          <article class="service-card" data-category="business">
+            <div class="card-top">
+              <span class="tag">電子契約</span>
+              <a href="https://pick-hp.com/pickform" target="_blank" rel="noreferrer">公式</a>
+            </div>
+            <h3>PICKFORM</h3>
+            <p>不動産・建築に特化したクラウドフォーム。電子契約、顧客管理、案件管理、本人確認など、取引現場の業務をまとめて扱います。</p>
+            <dl>
+              <dt>向いている用途</dt>
+              <dd>不動産取引の電子化、契約関連業務の短縮</dd>
+            </dl>
+          </article>
+
+          <article class="service-card" data-category="business">
+            <div class="card-top">
+              <span class="tag">AI査定</span>
+              <a href="https://sre-ai-partners.co.jp/service/cloud/ai-assessment.html" target="_blank" rel="noreferrer">公式</a>
+            </div>
+            <h3>SRE AI査定CLOUD</h3>
+            <p>AIが不動産の売買価格を査定し、地図や類似事例を含む査定書作成を支援するクラウドサービス。査定業務の速度と根拠提示を補います。</p>
+            <dl>
+              <dt>向いている用途</dt>
+              <dd>売買仲介、査定書作成、媒介獲得支援</dd>
+            </dl>
+          </article>
+        </div>
+      </section>
+
+      <section id="compare" class="section compare">
+        <div class="section-heading">
+          <p class="eyebrow">How To Compare</p>
+          <h2>導入前に見るべき比較軸</h2>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>カテゴリ</th>
+                <th>主な価値</th>
+                <th>確認したい点</th>
+                <th>代表例</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>住まい探し</td>
+                <td>検索体験、問い合わせ効率、物件情報の見やすさ</td>
+                <td>掲載情報の鮮度、内見導線、対応エリア</td>
+                <td>カナリー</td>
+              </tr>
+              <tr>
+                <td>投資</td>
+                <td>物件選定から管理までの一貫性</td>
+                <td>取得前提、リスク説明、管理費水準、出口戦略</td>
+                <td>RENOSY</td>
+              </tr>
+              <tr>
+                <td>管理DX</td>
+                <td>オーナー対応、報告、稟議、収支の可視化</td>
+                <td>既存管理システムとの連携、現場定着、権限管理</td>
+                <td>WealthPark</td>
+              </tr>
+              <tr>
+                <td>契約・本人確認</td>
+                <td>紙と郵送を減らし、取引スピードを上げる</td>
+                <td>宅建業法対応、審査ログ、本人確認、活用フロー</td>
+                <td>PICKFORM</td>
+              </tr>
+              <tr>
+                <td>AI査定・データ</td>
+                <td>査定、市場把握、案件創出の根拠を補強</td>
+                <td>対象物件種別、データ範囲、説明可能性、入力帳票</td>
+                <td>SRE AI査定CLOUD / estie</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section cta">
+        <div>
+          <p class="eyebrow">Next Step</p>
+          <h2>まずは自社の課題をカテゴリに分ける。</h2>
+          <p>「集客を増やしたい」「査定を速くしたい」「オーナー対応を減らしたい」「契約を電子化したい」。課題を一文で置くと、見るべきサービスは自然に絞られます。</p>
+        </div>
+        <a class="primary-action" href="#services">カテゴリから探す</a>
+      </section>
+
+      <section id="sources" class="section sources">
+        <div class="section-heading">
+          <p class="eyebrow">Sources</p>
+          <h2>参考にした公開情報</h2>
+        </div>
+        <ul>
+          <li><a href="https://retechjapan.org/news/archives/20250826/" target="_blank" rel="noreferrer">不動産テック協会「不動産テックカオスマップ第11版」</a></li>
+          <li><a href="https://retechjapan.org/img/chaos_map_20250822.pdf" target="_blank" rel="noreferrer">不動産テックカオスマップ 第11版 PDF</a></li>
+          <li><a href="https://www.estie.jp/products" target="_blank" rel="noreferrer">estie 事業内容</a></li>
+          <li><a href="https://wealth-park.com/ja/business/" target="_blank" rel="noreferrer">WealthParkビジネス</a></li>
+          <li><a href="https://pick-hp.com/pickform" target="_blank" rel="noreferrer">PICKFORM</a></li>
+          <li><a href="https://sre-ai-partners.co.jp/service/cloud/ai-assessment.html" target="_blank" rel="noreferrer">SRE AI査定CLOUD</a></li>
+          <li><a href="https://www.renosy.com/" target="_blank" rel="noreferrer">RENOSY</a></li>
+          <li><a href="https://canary-app.jp/" target="_blank" rel="noreferrer">カナリー</a></li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Japan PropTech Guide</p>
+      <p>掲載内容は公開情報をもとにした概要です。導入・投資判断では各社の最新条件をご確認ください。</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
