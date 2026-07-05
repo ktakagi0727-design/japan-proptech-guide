@@ -6,6 +6,252 @@
   to = "/thank-you.html"
   status = 200
 
+[[redirects]]
+  from = "/services/レリ-ズプラットフォ-ム/"
+  to = "/services/release-platform/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services/resportクラウド/"
+  to = "/services/resport-cloud/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services/インデックスマップ-クラウド/"
+  to = "/services/index-map-cloud/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services/ナ-ブvrクラウド/"
+  to = "/services/nurve-vr-cloud/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services/不動産チェッカ/"
+  to = "/services/real-estate-checker/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services/sre-ai査定cloud/"
+  to = "/services/sre-ai-appraisal-cloud/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services/スマサテ/"
+  to = "/services/sumasate/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services/デベnavi/"
+  to = "/services/deve-navi/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services/マンション査定システム/"
+  to = "/services/mansion-appraisal-system/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services/土地査定システム/"
+  to = "/services/land-appraisal-system/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services/カタログコピ-サ-ビス/"
+  to = "/services/catalog-copy-service/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services/マンション相場plus/"
+  to = "/services/mansion-market-plus/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services/土地相場plus/"
+  to = "/services/land-market-plus/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services/フォレストpro/"
+  to = "/services/forest-pro/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services/いえらぶcloud/"
+  to = "/services/ielove-cloud/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services/いい生活-売買クラウド/"
+  to = "/services/e-seikatsu-baibai-cloud/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services/スマ-ト契約/"
+  to = "/services/smart-contract/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services/ア-ソコ/"
+  to = "/services/a-soko/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services/登記簿図書館/"
+  to = "/services/toukibo-library/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services/スペ-スリ/"
+  to = "/services/spacely/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services/gmo賃貸dx/"
+  to = "/services/gmo-chintai-dx/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services/管理ロイド/"
+  to = "/services/kanri-roid/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/columns/法人不動産の売却目的整理で最初に決めること/"
+  to = "/columns/corporate-real-estate-sale-purpose/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/columns/売却前の物件情報整理-あとで詰まらない資料セットを作る/"
+  to = "/columns/property-information-checklist/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/columns/売却価格査定の見方-取引事例-収益還元-ai査定をどう使い分けるか/"
+  to = "/columns/sale-price-appraisal-methods/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/columns/媒介契約の選び方-一般-専任-専属専任で管理すべきこと/"
+  to = "/columns/brokerage-contract-types/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/columns/物件調査で見るべきポイント-登記-現地-役所-法令制限をつなげる/"
+  to = "/columns/property-due-diligence-points/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/columns/重要事項説明を電子化するときの注意点/"
+  to = "/columns/digital-important-matters-explanation/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/columns/売買契約で確認したい条件-手付-契約不適合-引渡し/"
+  to = "/columns/sale-contract-key-terms/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/columns/ソ-シングを属人化させない案件発掘の型/"
+  to = "/columns/real-estate-sourcing-process/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/columns/不動産dd管理-法務-物理-経済-テナント情報を漏れなく追う/"
+  to = "/columns/real-estate-dd-management/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/columns/事業収支作成-前提条件を分解して感度分析する/"
+  to = "/columns/business-plan-sensitivity-analysis/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/columns/pm-bm管理とレポ-ティング-運用デ-タを投資判断につなげる/"
+  to = "/columns/pm-bm-reporting/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/columns/物件概要書作成-買主が初期判断できる資料に整える/"
+  to = "/columns/property-summary-sheet/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/columns/売却活動管理-買主候補-反応-価格交渉を見える化する/"
+  to = "/columns/sale-activity-management/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/columns/価格妥当性確認-買付前に価格の前提を分解する/"
+  to = "/columns/price-validity-check/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/columns/権利関係確認-登記と現況のズレを早めに見つける/"
+  to = "/columns/rights-registration-check/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/columns/販売資料作成-訴求と正確性を両立する/"
+  to = "/columns/sales-materials-creation/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/columns/買付提出-条件を曖昧にせず購入意思を伝える/"
+  to = "/columns/purchase-offer-submission/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/columns/初回ヒアリング-顧客の目的と制約を引き出す/"
+  to = "/columns/first-client-interview/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/columns/修繕計画-建物価値とnoiを守る投資計画にする/"
+  to = "/columns/repair-plan/"
+  status = 301
+  force = true
+
 [[headers]]
   for = "/*"
   [headers.values]
